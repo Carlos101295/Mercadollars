@@ -4,6 +4,10 @@
  */
 package com.mycompany.mercadollars;
 
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
+import javax.swing.UIManager;
+
 /**
  *
  * @author MEDAC
@@ -17,6 +21,9 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        //Para personalizar el borde de la pestaña (el estilo, la redondez del las esquinas y luego si queremos borde, el color y el grosor)
+        jPanel1.putClientProperty("FlatLaf.style", "arc: 99"
+        /*+"border: 15,20,15,20, #ffffff, 2"*/);
     }
 
     /**
@@ -27,18 +34,81 @@ public class Login extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        pnlLogin = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        lblImg = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
+        txfNom = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        txfPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pnlLogin.setLayout(new java.awt.GridBagLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dollar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 15, 20);
+        jPanel1.add(lblImg, gridBagConstraints);
+
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 102, 0));
+        lblTitulo.setText("MercaDollars");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 13, 20);
+        jPanel1.add(lblTitulo, gridBagConstraints);
+
+        txfNom.setText("Escribe tu usuario");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(9, 78, 9, 78);
+        jPanel1.add(txfNom, gridBagConstraints);
+
+        jButton1.setText("btnAcceso");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(13, 20, 13, 20);
+        jPanel1.add(jButton1, gridBagConstraints);
+
+        txfPass.setText("Escribe tu contraseña");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(9, 78, 9, 78);
+        jPanel1.add(txfPass, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 5;
+        pnlLogin.add(jPanel1, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
         );
 
         pack();
@@ -47,12 +117,42 @@ public class Login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    //Métodos realizados
+    private void txtCampoEmailFocusGained(java.awt.event.FocusEvent evt) {                                          
+        if (txfNom.getText().equals("Escribe tu usuario")) {
+            txfNom.setText("");
+            txfNom.setForeground(Color.BLACK);
+        }
+    }                                         
+
+    private void txtCampoEmailFocusLost(java.awt.event.FocusEvent evt) {                                        
+        if (txfNom.getText().isEmpty()) {
+            txfNom.setForeground(Color.GRAY);
+            txfNom.setText("Escribe tu usuario");
+        }
+    }                                       
+
+    private void txtCampoPasswordFocusGained(java.awt.event.FocusEvent evt) {                                             
+        if (String.valueOf(txfPass.getPassword()).equals("contraseña")) {
+            txfPass.setText("");
+            txfPass.setForeground(Color.GRAY);
+        }
+    }                                            
+
+    private void txtCampoPasswordFocusLost(java.awt.event.FocusEvent evt) {                                           
+        if (String.valueOf(txfPass.getPassword()).isEmpty()) {
+            txfPass.setForeground(Color.GRAY);
+            txfPass.setText("contraseña");
+        }
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        /*
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -62,13 +162,22 @@ public class Login extends javax.swing.JFrame {
             }
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }*/
         //</editor-fold>
+        FlatLightLaf.setup();
+        //UIManager.put("Component.arc", 999 );
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblImg;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pnlLogin;
+    private javax.swing.JTextField txfNom;
+    private javax.swing.JPasswordField txfPass;
     // End of variables declaration//GEN-END:variables
 }
