@@ -22,6 +22,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         btnUsuario.setFocusable(false);
         this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
