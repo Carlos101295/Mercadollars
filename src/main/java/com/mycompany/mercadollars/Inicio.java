@@ -5,13 +5,14 @@
 package com.mycompany.mercadollars;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.UIManager;
 
 /**
  *
  * @author MEDAC
  */
 public class Inicio extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio.class.getName());
 
     /**
@@ -19,7 +20,9 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        btnUsuario.setFocusable(false);
         this.setLocationRelativeTo(null);
+        this.setVisible(null);
     }
 
     /**
@@ -116,10 +119,10 @@ public class Inicio extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Gestión de clientes");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 5, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         pnlBotones.add(jButton1, gridBagConstraints);
 
@@ -127,12 +130,12 @@ public class Inicio extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Gestión de empleados");
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 5, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         pnlBotones.add(jButton2, gridBagConstraints);
 
@@ -140,12 +143,12 @@ public class Inicio extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Gestión de inventario");
-        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 5, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         pnlBotones.add(jButton3, gridBagConstraints);
 
@@ -153,12 +156,12 @@ public class Inicio extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Gestión de caja");
-        jButton4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 5, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         pnlBotones.add(jButton4, gridBagConstraints);
 
@@ -166,12 +169,12 @@ public class Inicio extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Gestión de proveedores");
-        jButton5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 5, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         pnlBotones.add(jButton5, gridBagConstraints);
 
@@ -179,12 +182,12 @@ public class Inicio extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Gestión de pedidos");
-        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 5, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         pnlBotones.add(jButton6, gridBagConstraints);
 
@@ -192,12 +195,12 @@ public class Inicio extends javax.swing.JFrame {
         jButton7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Gestión de promociones");
-        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 5, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         pnlBotones.add(jButton7, gridBagConstraints);
 
@@ -205,12 +208,12 @@ public class Inicio extends javax.swing.JFrame {
         jButton8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Gestión de facturación");
-        jButton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 5, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 10;
         pnlBotones.add(jButton8, gridBagConstraints);
 
         pnlGeneral.add(pnlBotones, java.awt.BorderLayout.CENTER);
@@ -238,8 +241,8 @@ public class Inicio extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
-        /*
+
+ /*
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -252,9 +255,10 @@ public class Inicio extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        */
-        
+         */
         FlatLightLaf.setup();
+        UIManager.put( "Button.arc", 999 );
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Inicio().setVisible(true));
     }
