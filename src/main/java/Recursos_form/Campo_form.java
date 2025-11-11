@@ -4,6 +4,10 @@
  */
 package Recursos_form;
 
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+
 /**
  *
  * @author MEDAC
@@ -17,6 +21,27 @@ public class Campo_form extends javax.swing.JPanel {
         initComponents();
     }
 
+    public Campo_form(JLabel jlb_Titulo, JTextField jtf_Texto) {
+        this.jlb_Titulo = jlb_Titulo;
+        this.jtf_Texto = jtf_Texto;
+    }
+
+    public void setJlb_Titulo(String texto) {
+        this.jlb_Titulo.setText(texto);
+    }
+
+    public void setJtf_Texto(String texto) {
+        this.jtf_Texto.setText(texto);
+    }
+
+    public JLabel getJlb_Titulo() {
+        return jlb_Titulo;
+    }
+
+    public JTextField getJtf_Texto() {
+        return jtf_Texto;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,17 +69,8 @@ public class Campo_form extends javax.swing.JPanel {
         jtf_Texto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jtf_Texto.setMinimumSize(new java.awt.Dimension(60, 20));
         jtf_Texto.setPreferredSize(new java.awt.Dimension(160, 20));
-        jtf_Texto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtf_TextoActionPerformed(evt);
-            }
-        });
         add(jtf_Texto);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jtf_TextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_TextoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtf_TextoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
