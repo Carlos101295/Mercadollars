@@ -33,14 +33,6 @@ public class Campo_form extends javax.swing.JPanel {
     public void setJtf_Texto(String texto) {
         this.jtf_Texto.setText(texto);
     }
-
-    public JLabel getJlb_Titulo() {
-        return jlb_Titulo;
-    }
-
-    public JTextField getJtf_Texto() {
-        return jtf_Texto;
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,27 +42,47 @@ public class Campo_form extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jlb_Titulo = new javax.swing.JLabel();
         jtf_Texto = new javax.swing.JTextField();
 
-        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout();
-        flowLayout1.setAlignOnBaseline(true);
-        setLayout(flowLayout1);
+        setLayout(new java.awt.GridBagLayout());
 
         jlb_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jlb_Titulo.setText("Nombre:");
+        jlb_Titulo.setText("Nombre :");
+        jlb_Titulo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jlb_Titulo.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         jlb_Titulo.setMinimumSize(new java.awt.Dimension(60, 20));
-        jlb_Titulo.setPreferredSize(new java.awt.Dimension(60, 20));
-        add(jlb_Titulo);
+        jlb_Titulo.setPreferredSize(new java.awt.Dimension(120, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+        add(jlb_Titulo, gridBagConstraints);
+        jlb_Titulo.getAccessibleContext().setAccessibleName("Nombre :");
 
         jtf_Texto.setToolTipText("");
         jtf_Texto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jtf_Texto.setMinimumSize(new java.awt.Dimension(60, 20));
-        jtf_Texto.setPreferredSize(new java.awt.Dimension(160, 20));
-        add(jtf_Texto);
+        jtf_Texto.setPreferredSize(new java.awt.Dimension(200, 20));
+        jtf_Texto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_TextoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 2.0;
+        add(jtf_Texto, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtf_TextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_TextoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_TextoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
