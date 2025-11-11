@@ -24,8 +24,7 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         btnUsuario.setFocusable(false);
-        this.setLocationRelativeTo(null); //aBBBBBBBBBBBBBB
-        this.setVisible(true);
+        this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
         pnlScrolleableOpciones.getVerticalScrollBar().setUnitIncrement(13);
     }
