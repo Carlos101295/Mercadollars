@@ -28,7 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlPrincipal" alignment="0" pref="646" max="32767" attributes="0"/>
+          <Component id="pnlPrincipal" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -68,11 +68,14 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Clientes"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder thickness="3"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="3" left="3" right="0" top="0"/>
                       </Border>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClientesActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEmpleados">
                   <Properties>
@@ -84,8 +87,8 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Empleados"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder thickness="3"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="3" left="3" right="0" top="0"/>
                       </Border>
                     </Property>
                   </Properties>
@@ -100,8 +103,8 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Productos"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder thickness="3"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="3" left="3" right="0" top="0"/>
                       </Border>
                     </Property>
                   </Properties>
@@ -116,8 +119,8 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Ventas"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder thickness="3"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="3" left="3" right="0" top="0"/>
                       </Border>
                     </Property>
                   </Properties>
@@ -132,8 +135,8 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pedidos"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder thickness="3"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="3" left="3" right="0" top="0"/>
                       </Border>
                     </Property>
                   </Properties>
@@ -148,8 +151,8 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Proveedores"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder thickness="3"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="3" left="3" right="0" top="0"/>
                       </Border>
                     </Property>
                   </Properties>
@@ -164,8 +167,8 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Promociones"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder thickness="3"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="3" left="3" right="0" top="0"/>
                       </Border>
                     </Property>
                   </Properties>
@@ -180,8 +183,8 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Facturaci&#xf3;n"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder thickness="3"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="3" left="3" right="3" top="0"/>
                       </Border>
                     </Property>
                   </Properties>
@@ -266,7 +269,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="378" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="381" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -306,6 +309,9 @@
                   <Dimension value="[47, 34]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="70" ipadY="15" insetsTop="20" insetsLeft="0" insetsBottom="25" insetsRight="75" anchor="13" weightX="1.0" weightY="1.0"/>

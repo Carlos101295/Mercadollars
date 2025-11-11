@@ -5,6 +5,7 @@
 package com.mycompany.mercadollars;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
 
 /**
  *
@@ -29,35 +30,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         btnUsuario.setFocusable(false);
         this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
-        
-        switch(ventana){
-            case "clientes":
-                break;
-                
-            case "empleados":
-                break;
-                
-            case "iventario":
-                break;
-                
-            case "caja":
-                break;
-                
-            case "proveedores":
-                break;
-                
-            case "pedidos":
-                break;
-                
-            case "promociones":
-                break;
-                
-            case "facturacion":
-                break;
-                
-            default:
-                break;
-        }
+        cambiarVentana(ventana);
     }
 
     /**
@@ -94,54 +67,59 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
 
         pnlHipervinculo.setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         btnClientes.setBackground(new java.awt.Color(204, 255, 204));
         btnClientes.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnClientes.setText("Clientes");
-        btnClientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        btnClientes.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnClientes);
 
         btnEmpleados.setBackground(new java.awt.Color(204, 255, 204));
         btnEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnEmpleados.setText("Empleados");
-        btnEmpleados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        btnEmpleados.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
         jPanel1.add(btnEmpleados);
 
         btnProductos.setBackground(new java.awt.Color(204, 255, 204));
         btnProductos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnProductos.setText("Productos");
-        btnProductos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        btnProductos.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
         jPanel1.add(btnProductos);
 
         btnVentas.setBackground(new java.awt.Color(204, 255, 204));
         btnVentas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnVentas.setText("Ventas");
-        btnVentas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        btnVentas.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
         jPanel1.add(btnVentas);
 
         btnPedidos.setBackground(new java.awt.Color(204, 255, 204));
         btnPedidos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnPedidos.setText("Pedidos");
-        btnPedidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        btnPedidos.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
         jPanel1.add(btnPedidos);
 
         btnProveedores.setBackground(new java.awt.Color(204, 255, 204));
         btnProveedores.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnProveedores.setText("Proveedores");
-        btnProveedores.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        btnProveedores.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
         jPanel1.add(btnProveedores);
 
         btnPromociones.setBackground(new java.awt.Color(204, 255, 204));
         btnPromociones.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnPromociones.setText("Promociones");
-        btnPromociones.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        btnPromociones.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
         jPanel1.add(btnPromociones);
 
         btnFacturacion.setBackground(new java.awt.Color(204, 255, 204));
         btnFacturacion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnFacturacion.setText("Facturación");
-        btnFacturacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        btnFacturacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 3, new java.awt.Color(0, 0, 0)));
         jPanel1.add(btnFacturacion);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -199,7 +177,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         );
         pnlInfoLayout.setVerticalGroup(
             pnlInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 378, Short.MAX_VALUE)
+            .addGap(0, 381, Short.MAX_VALUE)
         );
 
         pnlPrincipal.add(pnlInfo, java.awt.BorderLayout.CENTER);
@@ -213,6 +191,11 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         btnSalir.setMaximumSize(new java.awt.Dimension(47, 34));
         btnSalir.setMinimumSize(new java.awt.Dimension(47, 34));
         btnSalir.setPreferredSize(new java.awt.Dimension(47, 34));
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.ipadx = 70;
         gridBagConstraints.ipady = 15;
@@ -232,11 +215,19 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        cambiarVentana("clientes");
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,4 +258,51 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSalir;
     private javax.swing.JPanel pnlTitulo;
     // End of variables declaration//GEN-END:variables
+
+    private void cambiarVentana(String ventana) {
+        switch(ventana){
+            case "clientes":
+                lblTitulo.setText("Gestión de clientes");
+                btnClientes.setForeground(Color.getHSBColor(0,204,51));
+                break;
+                
+            case "empleados":
+                lblTitulo.setText("Gestión de empleados");
+                btnEmpleados.setForeground(Color.getHSBColor(0,204,51));
+                break;
+                
+            case "iventario":
+                lblTitulo.setText("Gestión de productos, inventario y stock");
+                btnProductos.setForeground(Color.getHSBColor(0,204,51));
+                break;
+                
+            case "caja":
+                /*lblTitulo.setText("");
+                btn.setForeground(Color.getHSBColor(0,204,51));*/
+                break;
+                
+            case "proveedores":
+                lblTitulo.setText("Gestión de proveedores");
+                btnProductos.setForeground(Color.getHSBColor(0,204,51));
+                break;
+                
+            case "pedidos":
+                lblTitulo.setText("Gestión de pedidos");
+                btnPedidos.setForeground(Color.getHSBColor(0,204,51));
+                break;
+                
+            case "promociones":
+                lblTitulo.setText("Gestión de promociones");
+                btnPromociones.setForeground(Color.getHSBColor(0,204,51));
+                break;
+                
+            case "facturacion":
+                /*lblTitulo.setText("");
+                btnProductos.setForeground(Color.getHSBColor(0,204,51));*/
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
