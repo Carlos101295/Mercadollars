@@ -136,6 +136,11 @@ public class Inicio extends javax.swing.JFrame {
         btnCaja.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnCaja.setForeground(new java.awt.Color(255, 255, 255));
         btnCaja.setText("Gestión de caja");
+        btnCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCajaActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -149,6 +154,11 @@ public class Inicio extends javax.swing.JFrame {
         btnPromociones.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnPromociones.setForeground(new java.awt.Color(255, 255, 255));
         btnPromociones.setText("Gestión de promociones");
+        btnPromociones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPromocionesActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -162,6 +172,11 @@ public class Inicio extends javax.swing.JFrame {
         btnEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnEmpleados.setForeground(new java.awt.Color(255, 255, 255));
         btnEmpleados.setText("Gestión de empleados");
+        btnEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmpleadosActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -175,6 +190,11 @@ public class Inicio extends javax.swing.JFrame {
         btnInventario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnInventario.setForeground(new java.awt.Color(255, 255, 255));
         btnInventario.setText("Gestión de inventario");
+        btnInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInventarioActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -188,6 +208,11 @@ public class Inicio extends javax.swing.JFrame {
         btnProveedores.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnProveedores.setForeground(new java.awt.Color(255, 255, 255));
         btnProveedores.setText("Gestión de proveedores");
+        btnProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProveedoresActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -201,6 +226,11 @@ public class Inicio extends javax.swing.JFrame {
         btnFacturacion.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnFacturacion.setForeground(new java.awt.Color(255, 255, 255));
         btnFacturacion.setText("Gestión de facturación");
+        btnFacturacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturacionActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -231,6 +261,11 @@ public class Inicio extends javax.swing.JFrame {
         btnPedidos.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnPedidos.setForeground(new java.awt.Color(255, 255, 255));
         btnPedidos.setText("Gestión de pedidos");
+        btnPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPedidosActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -271,12 +306,68 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        /*Categorias cat1 = new Categorias();
-        cat1.setLocationRelativeTo(this);
-        cat1.setVisible(true);
-        cat1.setResizable(false);*/
-
+        PlantillaEnlaces pe1 = new PlantillaEnlaces("clientes");
+        pe1.setLocationRelativeTo(null);
+        pe1.setVisible(true);
+        pe1.setResizable(false);
+        pe1.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
+        PlantillaEnlaces pe1 = new PlantillaEnlaces("empleados");
+        pe1.setLocationRelativeTo(null);
+        pe1.setVisible(true);
+        pe1.setResizable(false);
+        pe1.setExtendedState(MAXIMIZED_BOTH);
+    }//GEN-LAST:event_btnEmpleadosActionPerformed
+
+    private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
+        PlantillaEnlaces pe1 = new PlantillaEnlaces("inventario");
+        pe1.setLocationRelativeTo(null);
+        pe1.setVisible(true);
+        pe1.setResizable(false);
+        pe1.setExtendedState(MAXIMIZED_BOTH);
+    }//GEN-LAST:event_btnInventarioActionPerformed
+
+    private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
+        PlantillaEnlaces pe1 = new PlantillaEnlaces("caja");
+        pe1.setLocationRelativeTo(null);
+        pe1.setVisible(true);
+        pe1.setResizable(false);
+        pe1.setExtendedState(MAXIMIZED_BOTH);
+    }//GEN-LAST:event_btnCajaActionPerformed
+
+    private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
+        PlantillaEnlaces pe1 = new PlantillaEnlaces("proveedores");
+        pe1.setLocationRelativeTo(null);
+        pe1.setVisible(true);
+        pe1.setResizable(false);
+        pe1.setExtendedState(MAXIMIZED_BOTH);
+    }//GEN-LAST:event_btnProveedoresActionPerformed
+
+    private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
+        PlantillaEnlaces pe1 = new PlantillaEnlaces("pedidos");
+        pe1.setLocationRelativeTo(null);
+        pe1.setVisible(true);
+        pe1.setResizable(false);
+        pe1.setExtendedState(MAXIMIZED_BOTH);
+    }//GEN-LAST:event_btnPedidosActionPerformed
+
+    private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
+        PlantillaEnlaces pe1 = new PlantillaEnlaces("promociones");
+        pe1.setLocationRelativeTo(null);
+        pe1.setVisible(true);
+        pe1.setResizable(false);
+        pe1.setExtendedState(MAXIMIZED_BOTH);
+    }//GEN-LAST:event_btnPromocionesActionPerformed
+
+    private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
+        PlantillaEnlaces pe1 = new PlantillaEnlaces("facturacion");
+        pe1.setLocationRelativeTo(null);
+        pe1.setVisible(true);
+        pe1.setResizable(false);
+        pe1.setExtendedState(MAXIMIZED_BOTH);
+    }//GEN-LAST:event_btnFacturacionActionPerformed
 
     /**
      * @param args the command line arguments
