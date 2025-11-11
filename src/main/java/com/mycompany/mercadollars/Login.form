@@ -83,16 +83,32 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Escribe tu usuario"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txfNomFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txfNomFocusLost"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="4" gridY="2" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="9" insetsLeft="78" insetsBottom="9" insetsRight="78" anchor="10" weightX="0.5" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnAcceso">
               <Properties>
-                <Property name="text" type="java.lang.String" value="btnAcceso"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="66" red="33" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="ACCEDER"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAccesoActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="4" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="13" insetsLeft="20" insetsBottom="13" insetsRight="20" anchor="10" weightX="0.5" weightY="0.0"/>
@@ -101,8 +117,12 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="txfPass">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Escribe tu contrase&#xf1;a"/>
+                <Property name="text" type="java.lang.String" value="contrase&#xf1;a"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txfPassFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txfPassFocusLost"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="4" gridY="3" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="9" insetsLeft="78" insetsBottom="9" insetsRight="78" anchor="10" weightX="0.5" weightY="0.0"/>
