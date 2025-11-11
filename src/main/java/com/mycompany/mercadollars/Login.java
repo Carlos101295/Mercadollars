@@ -6,6 +6,9 @@ package com.mycompany.mercadollars;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import javax.swing.UIManager;
 
 /**
@@ -21,6 +24,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
         //Para personalizar el borde de la pestaña (el estilo, la redondez del las esquinas y luego si queremos borde, el color y el grosor)
         jPanel1.putClientProperty("FlatLaf.style", "arc: 99"
         /*+"border: 15,20,15,20, #ffffff, 2"*/);
@@ -41,7 +46,7 @@ public class Login extends javax.swing.JFrame {
         lblImg = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
         txfNom = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnAcceso = new javax.swing.JButton();
         txfPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,6 +74,14 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(lblTitulo, gridBagConstraints);
 
         txfNom.setText("Escribe tu usuario");
+        txfNom.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txfNomFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txfNomFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
@@ -77,15 +90,31 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(9, 78, 9, 78);
         jPanel1.add(txfNom, gridBagConstraints);
 
-        jButton1.setText("btnAcceso");
+        btnAcceso.setBackground(new java.awt.Color(51, 102, 0));
+        btnAcceso.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAcceso.setForeground(new java.awt.Color(255, 255, 255));
+        btnAcceso.setText("ACCEDER");
+        btnAcceso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAccesoActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(13, 20, 13, 20);
-        jPanel1.add(jButton1, gridBagConstraints);
+        jPanel1.add(btnAcceso, gridBagConstraints);
 
-        txfPass.setText("Escribe tu contraseña");
+        txfPass.setText("contraseña");
+        txfPass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txfPassFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txfPassFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
@@ -114,38 +143,53 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    
-    //Métodos realizados
-    private void txtCampoEmailFocusGained(java.awt.event.FocusEvent evt) {                                          
+    private void txfNomFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfNomFocusGained
         if (txfNom.getText().equals("Escribe tu usuario")) {
             txfNom.setText("");
             txfNom.setForeground(Color.BLACK);
         }
-    }                                         
+    }//GEN-LAST:event_txfNomFocusGained
 
-    private void txtCampoEmailFocusLost(java.awt.event.FocusEvent evt) {                                        
+    private void txfNomFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfNomFocusLost
         if (txfNom.getText().isEmpty()) {
             txfNom.setForeground(Color.GRAY);
             txfNom.setText("Escribe tu usuario");
         }
-    }                                       
+    }//GEN-LAST:event_txfNomFocusLost
 
-    private void txtCampoPasswordFocusGained(java.awt.event.FocusEvent evt) {                                             
-        if (String.valueOf(txfPass.getPassword()).equals("contraseña")) {
+    private void txfPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfPassFocusGained
+       if (String.valueOf(txfPass.getPassword()).equals("contraseña")) {
             txfPass.setText("");
             txfPass.setForeground(Color.GRAY);
         }
-    }                                            
+    }//GEN-LAST:event_txfPassFocusGained
 
-    private void txtCampoPasswordFocusLost(java.awt.event.FocusEvent evt) {                                           
+    private void txfPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfPassFocusLost
         if (String.valueOf(txfPass.getPassword()).isEmpty()) {
             txfPass.setForeground(Color.GRAY);
             txfPass.setText("contraseña");
         }
-    }
+    }//GEN-LAST:event_txfPassFocusLost
+
+    private void btnAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccesoActionPerformed
+        String contrasena = String.valueOf(txfPass.getPassword());
+        if (txfNom.getText().equalsIgnoreCase("usuario") && contrasena.equals("usuario")) {
+            //String nombreUsuario = txfNom.getText();
+            Inicio home = new Inicio();
+            home.setLocationRelativeTo(this);
+            home.setVisible(true);
+            this.dispose();
+        } else if (txfNom.getText().isBlank() || contrasena.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Rellena los campos", "Ventana warning", WARNING_MESSAGE);
+        } else if (!txfNom.getText ().equalsIgnoreCase("usuario") || !contrasena.equals("usuario")){
+            JOptionPane.showMessageDialog(this, "Has introducido algún dato mal", "Ventana error", ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAccesoActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -172,7 +216,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAcceso;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblTitulo;
