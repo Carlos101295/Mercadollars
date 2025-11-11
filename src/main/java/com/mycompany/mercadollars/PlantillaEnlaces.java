@@ -6,6 +6,7 @@ package com.mycompany.mercadollars;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import java.awt.List;
 
 /**
  *
@@ -18,6 +19,9 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     /**
      * Creates new form PlantillaEnlaces
      */
+    public final Color verdeClaro = new Color(204,255,204);
+    public final Color verdeOscuro = new Color(0,204,51);
+    
     public PlantillaEnlaces() {
         initComponents();
         btnUsuario.setFocusable(false);
@@ -50,13 +54,14 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         btnEmpleados = new javax.swing.JButton();
         btnProductos = new javax.swing.JButton();
         btnVentas = new javax.swing.JButton();
-        btnPedidos = new javax.swing.JButton();
         btnProveedores = new javax.swing.JButton();
+        btnPedidos = new javax.swing.JButton();
         btnPromociones = new javax.swing.JButton();
         btnFacturacion = new javax.swing.JButton();
         btnUsuario = new javax.swing.JButton();
         pnlTitulo = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
+        lblMercaDollars = new javax.swing.JLabel();
         pnlInfo = new javax.swing.JPanel();
         pnlSalir = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
@@ -65,6 +70,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
 
         pnlPrincipal.setLayout(new java.awt.BorderLayout());
 
+        pnlHipervinculo.setBackground(new java.awt.Color(255, 255, 255));
         pnlHipervinculo.setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
@@ -84,60 +90,97 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         btnEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnEmpleados.setText("Empleados");
         btnEmpleados.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
+        btnEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmpleadosActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEmpleados);
 
         btnProductos.setBackground(new java.awt.Color(204, 255, 204));
         btnProductos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnProductos.setText("Productos");
         btnProductos.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
+        btnProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductosActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnProductos);
 
         btnVentas.setBackground(new java.awt.Color(204, 255, 204));
         btnVentas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnVentas.setText("Ventas");
         btnVentas.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
+        btnVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVentasActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnVentas);
-
-        btnPedidos.setBackground(new java.awt.Color(204, 255, 204));
-        btnPedidos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnPedidos.setText("Pedidos");
-        btnPedidos.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
-        jPanel1.add(btnPedidos);
 
         btnProveedores.setBackground(new java.awt.Color(204, 255, 204));
         btnProveedores.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnProveedores.setText("Proveedores");
         btnProveedores.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
+        btnProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProveedoresActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnProveedores);
+
+        btnPedidos.setBackground(new java.awt.Color(204, 255, 204));
+        btnPedidos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnPedidos.setText("Pedidos");
+        btnPedidos.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
+        btnPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPedidosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPedidos);
 
         btnPromociones.setBackground(new java.awt.Color(204, 255, 204));
         btnPromociones.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnPromociones.setText("Promociones");
         btnPromociones.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 0, new java.awt.Color(0, 0, 0)));
+        btnPromociones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPromocionesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnPromociones);
 
         btnFacturacion.setBackground(new java.awt.Color(204, 255, 204));
         btnFacturacion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnFacturacion.setText("Facturación");
         btnFacturacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        btnFacturacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturacionActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnFacturacion);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 15;
         gridBagConstraints.weightx = 1.0;
         pnlHipervinculo.add(jPanel1, gridBagConstraints);
 
-        btnUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        btnUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnUsuario.setForeground(new java.awt.Color(51, 153, 0));
         btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatar.png"))); // NOI18N
         btnUsuario.setText("Usuario");
         btnUsuario.setBorder(null);
         btnUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 15);
@@ -163,27 +206,43 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         pnlHipervinculo.add(pnlTitulo, gridBagConstraints);
 
+        lblMercaDollars.setFont(new java.awt.Font("Segoe UI", 1, 65)); // NOI18N
+        lblMercaDollars.setForeground(new java.awt.Color(0, 204, 51));
+        lblMercaDollars.setText("MercaDollars");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        pnlHipervinculo.add(lblMercaDollars, gridBagConstraints);
+
         pnlPrincipal.add(pnlHipervinculo, java.awt.BorderLayout.PAGE_START);
+
+        pnlInfo.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout pnlInfoLayout = new javax.swing.GroupLayout(pnlInfo);
         pnlInfo.setLayout(pnlInfoLayout);
         pnlInfoLayout.setHorizontalGroup(
             pnlInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
+            .addGap(0, 1426, Short.MAX_VALUE)
         );
         pnlInfoLayout.setVerticalGroup(
             pnlInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGap(0, 320, Short.MAX_VALUE)
         );
 
         pnlPrincipal.add(pnlInfo, java.awt.BorderLayout.CENTER);
 
+        pnlSalir.setBackground(new java.awt.Color(255, 255, 255));
         pnlSalir.setLayout(new java.awt.GridBagLayout());
 
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(51, 153, 0));
         btnSalir.setText("Salir");
@@ -229,6 +288,34 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         cambiarVentana("clientes");
     }//GEN-LAST:event_btnClientesActionPerformed
 
+    private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
+        cambiarVentana("empleados");
+    }//GEN-LAST:event_btnEmpleadosActionPerformed
+
+    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
+        cambiarVentana("inventario");
+    }//GEN-LAST:event_btnProductosActionPerformed
+
+    private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
+        cambiarVentana("caja");
+    }//GEN-LAST:event_btnVentasActionPerformed
+
+    private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
+        cambiarVentana("pedidos");
+    }//GEN-LAST:event_btnPedidosActionPerformed
+
+    private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
+        cambiarVentana("proveedores");
+    }//GEN-LAST:event_btnProveedoresActionPerformed
+
+    private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
+        cambiarVentana("promociones");
+    }//GEN-LAST:event_btnPromocionesActionPerformed
+
+    private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
+        cambiarVentana("facturacion");
+    }//GEN-LAST:event_btnFacturacionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -251,6 +338,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     private javax.swing.JButton btnUsuario;
     private javax.swing.JButton btnVentas;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblMercaDollars;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlHipervinculo;
     private javax.swing.JPanel pnlInfo;
@@ -260,49 +348,62 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cambiarVentana(String ventana) {
+        quitarColor();
+        
         switch(ventana){
             case "clientes":
                 lblTitulo.setText("Gestión de clientes");
-                btnClientes.setForeground(Color.getHSBColor(0,204,51));
+                btnClientes.setBackground(verdeOscuro);
                 break;
                 
             case "empleados":
                 lblTitulo.setText("Gestión de empleados");
-                btnEmpleados.setForeground(Color.getHSBColor(0,204,51));
+                btnEmpleados.setBackground(verdeOscuro);
                 break;
                 
-            case "iventario":
+            case "inventario":
                 lblTitulo.setText("Gestión de productos, inventario y stock");
-                btnProductos.setForeground(Color.getHSBColor(0,204,51));
+                btnProductos.setBackground(verdeOscuro);
                 break;
                 
             case "caja":
-                /*lblTitulo.setText("");
-                btn.setForeground(Color.getHSBColor(0,204,51));*/
+                lblTitulo.setText("caja (por implementar)");
+                btnVentas.setBackground(verdeOscuro);
                 break;
                 
             case "proveedores":
                 lblTitulo.setText("Gestión de proveedores");
-                btnProductos.setForeground(Color.getHSBColor(0,204,51));
+                btnProveedores.setBackground(verdeOscuro);
                 break;
                 
             case "pedidos":
                 lblTitulo.setText("Gestión de pedidos");
-                btnPedidos.setForeground(Color.getHSBColor(0,204,51));
+                btnPedidos.setBackground(verdeOscuro);
                 break;
                 
             case "promociones":
                 lblTitulo.setText("Gestión de promociones");
-                btnPromociones.setForeground(Color.getHSBColor(0,204,51));
+                btnPromociones.setBackground(verdeOscuro);
                 break;
                 
             case "facturacion":
-                /*lblTitulo.setText("");
-                btnProductos.setForeground(Color.getHSBColor(0,204,51));*/
+                lblTitulo.setText("facturacion (por implementar)");
+                btnFacturacion.setBackground(verdeOscuro);
                 break;
                 
             default:
                 break;
         }
+    }
+
+    private void quitarColor() {
+        btnFacturacion.setBackground(verdeClaro);
+        btnClientes.setBackground(verdeClaro);
+        btnEmpleados.setBackground(verdeClaro);
+        btnPedidos.setBackground(verdeClaro);
+        btnProductos.setBackground(verdeClaro);
+        btnPromociones.setBackground(verdeClaro);
+        btnProveedores.setBackground(verdeClaro);
+        btnVentas.setBackground(verdeClaro);
     }
 }
