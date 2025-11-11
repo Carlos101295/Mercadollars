@@ -4,12 +4,19 @@
  */
 package com.mycompany.mercadollars;
 
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import javax.swing.UIManager;
+
 /**
  *
  * @author MEDAC
  */
 public class Login extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
     /**
@@ -17,6 +24,11 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
+        //Para personalizar el borde de la pestaña (el estilo, la redondez del las esquinas y luego si queremos borde, el color y el grosor)
+        jPanel1.putClientProperty("FlatLaf.style", "arc: 99"
+        /*+"border: 15,20,15,20, #ffffff, 2"*/);
     }
 
     /**
@@ -27,32 +39,164 @@ public class Login extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        pnlLogin = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        lblImg = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
+        txfNom = new javax.swing.JTextField();
+        btnAcceso = new javax.swing.JButton();
+        txfPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pnlLogin.setLayout(new java.awt.GridBagLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dollar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 15, 20);
+        jPanel1.add(lblImg, gridBagConstraints);
+
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 102, 0));
+        lblTitulo.setText("MercaDollars");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 13, 20);
+        jPanel1.add(lblTitulo, gridBagConstraints);
+
+        txfNom.setText("Escribe tu usuario");
+        txfNom.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txfNomFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txfNomFocusLost(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(9, 78, 9, 78);
+        jPanel1.add(txfNom, gridBagConstraints);
+
+        btnAcceso.setBackground(new java.awt.Color(51, 102, 0));
+        btnAcceso.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAcceso.setForeground(new java.awt.Color(255, 255, 255));
+        btnAcceso.setText("ACCEDER");
+        btnAcceso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAccesoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(13, 20, 13, 20);
+        jPanel1.add(btnAcceso, gridBagConstraints);
+
+        txfPass.setText("contraseña");
+        txfPass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txfPassFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txfPassFocusLost(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(9, 78, 9, 78);
+        jPanel1.add(txfPass, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 5;
+        pnlLogin.add(jPanel1, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txfNomFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfNomFocusGained
+        if (txfNom.getText().equals("Escribe tu usuario")) {
+            txfNom.setText("");
+            txfNom.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txfNomFocusGained
+
+    private void txfNomFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfNomFocusLost
+        if (txfNom.getText().isEmpty()) {
+            txfNom.setForeground(Color.GRAY);
+            txfNom.setText("Escribe tu usuario");
+        }
+    }//GEN-LAST:event_txfNomFocusLost
+
+    private void txfPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfPassFocusGained
+       if (String.valueOf(txfPass.getPassword()).equals("contraseña")) {
+            txfPass.setText("");
+            txfPass.setForeground(Color.GRAY);
+        }
+    }//GEN-LAST:event_txfPassFocusGained
+
+    private void txfPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfPassFocusLost
+        if (String.valueOf(txfPass.getPassword()).isEmpty()) {
+            txfPass.setForeground(Color.GRAY);
+            txfPass.setText("contraseña");
+        }
+    }//GEN-LAST:event_txfPassFocusLost
+
+    private void btnAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccesoActionPerformed
+        String contrasena = String.valueOf(txfPass.getPassword());
+        if (txfNom.getText().equalsIgnoreCase("usuario") && contrasena.equals("usuario")) {
+            //String nombreUsuario = txfNom.getText();
+            Inicio home = new Inicio();
+            home.setLocationRelativeTo(this);
+            home.setVisible(true);
+            this.dispose();
+        } else if (txfNom.getText().isBlank() || contrasena.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Rellena los campos", "Ventana warning", WARNING_MESSAGE);
+        } else if (!txfNom.getText ().equalsIgnoreCase("usuario") || !contrasena.equals("usuario")){
+            JOptionPane.showMessageDialog(this, "Has introducido algún dato mal", "Ventana error", ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAccesoActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+ /*
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -62,13 +206,24 @@ public class Login extends javax.swing.JFrame {
             }
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }*/
         //</editor-fold>
+        FlatLightLaf.setup();
+        UIManager.put("Button.arc", 999);
+
+        //UIManager.put("Component.arc", 999 );
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAcceso;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblImg;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pnlLogin;
+    private javax.swing.JTextField txfNom;
+    private javax.swing.JPasswordField txfPass;
     // End of variables declaration//GEN-END:variables
 }
