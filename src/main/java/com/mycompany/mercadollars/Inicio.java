@@ -18,6 +18,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio.class.getName());
 
+    String palabraClave;
     /**
      * Creates new form Inicio
      */
@@ -48,14 +49,14 @@ public class Inicio extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         pnlScrolleableOpciones = new javax.swing.JScrollPane();
         pnlBotones = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnCaja = new javax.swing.JButton();
+        btnPromociones = new javax.swing.JButton();
+        btnEmpleados = new javax.swing.JButton();
+        btnInventario = new javax.swing.JButton();
+        btnProveedores = new javax.swing.JButton();
+        btnFacturacion = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
+        btnPedidos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MercaDollars");
@@ -131,10 +132,10 @@ public class Inicio extends javax.swing.JFrame {
         pnlBotones.setBackground(new java.awt.Color(255, 255, 255));
         pnlBotones.setLayout(new java.awt.GridBagLayout());
 
-        jButton4.setBackground(new java.awt.Color(0, 102, 102));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Gestión de caja");
+        btnCaja.setBackground(new java.awt.Color(0, 102, 102));
+        btnCaja.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnCaja.setForeground(new java.awt.Color(255, 255, 255));
+        btnCaja.setText("Gestión de caja");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -142,12 +143,12 @@ public class Inicio extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        pnlBotones.add(jButton4, gridBagConstraints);
+        pnlBotones.add(btnCaja, gridBagConstraints);
 
-        jButton7.setBackground(new java.awt.Color(0, 102, 102));
-        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Gestión de promociones");
+        btnPromociones.setBackground(new java.awt.Color(0, 102, 102));
+        btnPromociones.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnPromociones.setForeground(new java.awt.Color(255, 255, 255));
+        btnPromociones.setText("Gestión de promociones");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -155,12 +156,12 @@ public class Inicio extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        pnlBotones.add(jButton7, gridBagConstraints);
+        pnlBotones.add(btnPromociones, gridBagConstraints);
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 102));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Gestión de empleados");
+        btnEmpleados.setBackground(new java.awt.Color(0, 102, 102));
+        btnEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnEmpleados.setForeground(new java.awt.Color(255, 255, 255));
+        btnEmpleados.setText("Gestión de empleados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -168,12 +169,12 @@ public class Inicio extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        pnlBotones.add(jButton2, gridBagConstraints);
+        pnlBotones.add(btnEmpleados, gridBagConstraints);
 
-        jButton3.setBackground(new java.awt.Color(0, 102, 102));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Gestión de inventario");
+        btnInventario.setBackground(new java.awt.Color(0, 102, 102));
+        btnInventario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnInventario.setForeground(new java.awt.Color(255, 255, 255));
+        btnInventario.setText("Gestión de inventario");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -181,12 +182,12 @@ public class Inicio extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        pnlBotones.add(jButton3, gridBagConstraints);
+        pnlBotones.add(btnInventario, gridBagConstraints);
 
-        jButton5.setBackground(new java.awt.Color(0, 102, 102));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Gestión de proveedores");
+        btnProveedores.setBackground(new java.awt.Color(0, 102, 102));
+        btnProveedores.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnProveedores.setForeground(new java.awt.Color(255, 255, 255));
+        btnProveedores.setText("Gestión de proveedores");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -194,24 +195,29 @@ public class Inicio extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        pnlBotones.add(jButton5, gridBagConstraints);
+        pnlBotones.add(btnProveedores, gridBagConstraints);
 
-        jButton8.setBackground(new java.awt.Color(0, 102, 102));
-        jButton8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Gestión de facturación");
+        btnFacturacion.setBackground(new java.awt.Color(0, 102, 102));
+        btnFacturacion.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnFacturacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnFacturacion.setText("Gestión de facturación");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
-        pnlBotones.add(jButton8, gridBagConstraints);
+        pnlBotones.add(btnFacturacion, gridBagConstraints);
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Gestión de clientes");
+        btnClientes.setBackground(new java.awt.Color(0, 102, 102));
+        btnClientes.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnClientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnClientes.setText("Gestión de clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -219,12 +225,12 @@ public class Inicio extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        pnlBotones.add(jButton1, gridBagConstraints);
+        pnlBotones.add(btnClientes, gridBagConstraints);
 
-        jButton6.setBackground(new java.awt.Color(0, 102, 102));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Gestión de pedidos");
+        btnPedidos.setBackground(new java.awt.Color(0, 102, 102));
+        btnPedidos.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnPedidos.setForeground(new java.awt.Color(255, 255, 255));
+        btnPedidos.setText("Gestión de pedidos");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -232,7 +238,7 @@ public class Inicio extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        pnlBotones.add(jButton6, gridBagConstraints);
+        pnlBotones.add(btnPedidos, gridBagConstraints);
 
         pnlScrolleableOpciones.setViewportView(pnlBotones);
 
@@ -264,6 +270,14 @@ public class Inicio extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        /*Categorias cat1 = new Categorias();
+        cat1.setLocationRelativeTo(this);
+        cat1.setVisible(true);
+        cat1.setResizable(false);*/
+
+    }//GEN-LAST:event_btnClientesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -289,23 +303,22 @@ public class Inicio extends javax.swing.JFrame {
         //</editor-fold>
          */
         FlatLightLaf.setup();
-        UIManager.put( "Button.arc", 999 );
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Inicio().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCaja;
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnEmpleados;
+    private javax.swing.JButton btnFacturacion;
+    private javax.swing.JButton btnInventario;
+    private javax.swing.JButton btnPedidos;
+    private javax.swing.JButton btnPromociones;
+    private javax.swing.JButton btnProveedores;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUsuario;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlAbajo;
     private javax.swing.JPanel pnlBotones;

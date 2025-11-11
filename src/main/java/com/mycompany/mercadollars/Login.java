@@ -13,7 +13,7 @@ import javax.swing.UIManager;
  * @author MEDAC
  */
 public class Login extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
     /**
@@ -117,42 +117,42 @@ public class Login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
     //Métodos realizados
-    private void txtCampoEmailFocusGained(java.awt.event.FocusEvent evt) {                                          
+    private void txtCampoEmailFocusGained(java.awt.event.FocusEvent evt) {
         if (txfNom.getText().equals("Escribe tu usuario")) {
             txfNom.setText("");
             txfNom.setForeground(Color.BLACK);
         }
-    }                                         
+    }
 
-    private void txtCampoEmailFocusLost(java.awt.event.FocusEvent evt) {                                        
+    private void txtCampoEmailFocusLost(java.awt.event.FocusEvent evt) {
         if (txfNom.getText().isEmpty()) {
             txfNom.setForeground(Color.GRAY);
             txfNom.setText("Escribe tu usuario");
         }
-    }                                       
+    }
 
-    private void txtCampoPasswordFocusGained(java.awt.event.FocusEvent evt) {                                             
+    private void txtCampoPasswordFocusGained(java.awt.event.FocusEvent evt) {
         if (String.valueOf(txfPass.getPassword()).equals("contraseña")) {
             txfPass.setText("");
             txfPass.setForeground(Color.GRAY);
         }
-    }                                            
+    }
 
-    private void txtCampoPasswordFocusLost(java.awt.event.FocusEvent evt) {                                           
+    private void txtCampoPasswordFocusLost(java.awt.event.FocusEvent evt) {
         if (String.valueOf(txfPass.getPassword()).isEmpty()) {
             txfPass.setForeground(Color.GRAY);
             txfPass.setText("contraseña");
         }
     }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        /*
+ /*
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -165,6 +165,8 @@ public class Login extends javax.swing.JFrame {
         }*/
         //</editor-fold>
         FlatLightLaf.setup();
+        UIManager.put("Button.arc", 999);
+
         //UIManager.put("Component.arc", 999 );
 
         /* Create and display the form */
