@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.mercadollars;
+package Recursos_form;
 
 import java.awt.Color;
 
@@ -146,7 +146,6 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         add(btnResgist, gridBagConstraints);
 
         txfCifOrig.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txfCifOrig.setForeground(new java.awt.Color(204, 204, 204));
         txfCifOrig.setText("Escribe el cif");
         txfCifOrig.setPreferredSize(new java.awt.Dimension(828, 40));
         txfCifOrig.addFocusListener(new java.awt.event.FocusAdapter() {
