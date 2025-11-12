@@ -4,6 +4,8 @@
  */
 package com.mycompany.mercadollars;
 
+import java.awt.Color;
+
 /**
  *
  * @author MEDAC
@@ -36,10 +38,10 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         txfNombre = new javax.swing.JTextField();
         txfProducto = new javax.swing.JTextField();
         btnResgist = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         txfCifOrig = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnBaja = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
@@ -49,9 +51,9 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         jLabel1.setPreferredSize(new java.awt.Dimension(45, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 15);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
         add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -59,7 +61,7 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         jLabel2.setPreferredSize(new java.awt.Dimension(48, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 15);
         add(jLabel2, gridBagConstraints);
@@ -69,9 +71,9 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         jLabel3.setPreferredSize(new java.awt.Dimension(100, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 15);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
         add(jLabel3, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -79,7 +81,7 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         jLabel4.setPreferredSize(new java.awt.Dimension(197, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(18, 10, 0, 15);
         add(jLabel4, gridBagConstraints);
@@ -89,16 +91,15 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         txfCif.setPreferredSize(new java.awt.Dimension(300, 38));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
         add(txfCif, gridBagConstraints);
 
         txfTlf.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txfTlf.setPreferredSize(new java.awt.Dimension(64, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
         add(txfTlf, gridBagConstraints);
@@ -112,10 +113,9 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
         add(txfNombre, gridBagConstraints);
 
         txfProducto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -127,7 +127,7 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
@@ -140,28 +140,28 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         btnResgist.setPreferredSize(new java.awt.Dimension(300, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
         add(btnResgist, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel5.setText("CIF :");
-        jLabel5.setPreferredSize(new java.awt.Dimension(45, 40));
+        txfCifOrig.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txfCifOrig.setForeground(new java.awt.Color(204, 204, 204));
+        txfCifOrig.setText("Escribe el cif");
+        txfCifOrig.setPreferredSize(new java.awt.Dimension(828, 40));
+        txfCifOrig.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txfCifOrigFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txfCifOrigFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
-        add(jLabel5, gridBagConstraints);
-
-        txfCifOrig.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txfCifOrig.setPreferredSize(new java.awt.Dimension(680, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 23);
         add(txfCifOrig, gridBagConstraints);
 
         btnBuscar.setBackground(new java.awt.Color(0, 102, 102));
@@ -186,10 +186,31 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         btnBaja.setPreferredSize(new java.awt.Dimension(300, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
         add(btnBaja, gridBagConstraints);
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setPreferredSize(new java.awt.Dimension(940, 1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 940, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 25, 0);
+        add(jPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfNombreActionPerformed
@@ -204,6 +225,20 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void txfCifOrigFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfCifOrigFocusGained
+        if (txfCifOrig.getText().equals("Escribe el cif")) {
+            txfCifOrig.setText("");
+            txfCifOrig.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txfCifOrigFocusGained
+
+    private void txfCifOrigFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfCifOrigFocusLost
+        if (txfCifOrig.getText().isEmpty()) {
+            txfCifOrig.setForeground(Color.GRAY);
+            txfCifOrig.setText("Escribe el cif");
+        }
+    }//GEN-LAST:event_txfCifOrigFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBaja;
@@ -213,7 +248,7 @@ public class ProveedoresModificar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txfCif;
     private javax.swing.JTextField txfCifOrig;
     private javax.swing.JTextField txfNombre;
