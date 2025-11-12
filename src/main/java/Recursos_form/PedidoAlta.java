@@ -8,12 +8,12 @@ package Recursos_form;
  *
  * @author ÓscarMaqueda
  */
-public class ClienteAlta extends javax.swing.JPanel {
+public class PedidoAlta extends javax.swing.JPanel {
 
     /**
      * Creates new form EmpleadosAlta
      */
-    public ClienteAlta() {
+    public PedidoAlta {
         initComponents();
     }
 
@@ -27,85 +27,73 @@ public class ClienteAlta extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        lblDNI = new javax.swing.JLabel();
-        lblTelefono = new javax.swing.JLabel();
-        lblFecha_nacimiento = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        txtDNI = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
+        lblID_Proveedor = new javax.swing.JLabel();
+        lblID_Producto = new javax.swing.JLabel();
+        lblCantidad = new javax.swing.JLabel();
+        txtID_Proveedor = new javax.swing.JTextField();
+        txtID_Producto = new javax.swing.JTextField();
+        txtCantidad = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
-        jftfFecha_de_nacimiento = new javax.swing.JFormattedTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
 
-        lblDNI.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDNI.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblDNI.setText("DNI :");
-        lblDNI.setToolTipText("");
+        lblID_Proveedor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblID_Proveedor.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblID_Proveedor.setText("ID Proveedor :");
+        lblID_Proveedor.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
-        add(lblDNI, gridBagConstraints);
+        add(lblID_Proveedor, gridBagConstraints);
 
-        lblTelefono.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblTelefono.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblTelefono.setText("Teléfono :");
+        lblID_Producto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblID_Producto.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblID_Producto.setText("ID Producto :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
-        add(lblTelefono, gridBagConstraints);
+        add(lblID_Producto, gridBagConstraints);
 
-        lblFecha_nacimiento.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblFecha_nacimiento.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblFecha_nacimiento.setText("Fecha de nacimiento :");
+        lblCantidad.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblCantidad.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblCantidad.setText("Cantidad :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
-        add(lblFecha_nacimiento, gridBagConstraints);
+        add(lblCantidad, gridBagConstraints);
 
-        lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblNombre.setText("Nombre :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
-        add(lblNombre, gridBagConstraints);
-
-        txtDNI.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txtDNI.setPreferredSize(new java.awt.Dimension(300, 38));
+        txtID_Proveedor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtID_Proveedor.setPreferredSize(new java.awt.Dimension(300, 38));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
-        add(txtDNI, gridBagConstraints);
+        add(txtID_Proveedor, gridBagConstraints);
 
-        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtID_Producto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
-        add(txtTelefono, gridBagConstraints);
+        add(txtID_Producto, gridBagConstraints);
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCantidad.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
-        add(txtNombre, gridBagConstraints);
+        add(txtCantidad, gridBagConstraints);
 
         btnRegistrar.setBackground(new java.awt.Color(0, 102, 102));
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -113,35 +101,23 @@ public class ClienteAlta extends javax.swing.JPanel {
         btnRegistrar.setText("Registrar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
         add(btnRegistrar, gridBagConstraints);
-
-        jftfFecha_de_nacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        jftfFecha_de_nacimiento.setPreferredSize(new java.awt.Dimension(64, 38));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
-        add(jftfFecha_de_nacimiento, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JFormattedTextField jftfFecha_de_nacimiento;
-    private javax.swing.JLabel lblDNI;
-    private javax.swing.JLabel lblFecha_nacimiento;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblTelefono;
-    private javax.swing.JTextField txtDNI;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JLabel lblCantidad;
+    private javax.swing.JLabel lblID_Producto;
+    private javax.swing.JLabel lblID_Proveedor;
+    private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtID_Producto;
+    private javax.swing.JTextField txtID_Proveedor;
     // End of variables declaration//GEN-END:variables
 }
