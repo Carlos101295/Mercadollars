@@ -252,7 +252,7 @@ public class ProductosModificar extends javax.swing.JPanel {
         add(btnModificar, gridBagConstraints);
 
         txtBusquedaProducto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txtBusquedaProducto.setForeground(new java.awt.Color(204, 204, 204));
+        txtBusquedaProducto.setForeground(new java.awt.Color(128, 128, 128));
         txtBusquedaProducto.setText("Introduce la ID o el producto a buscar");
         txtBusquedaProducto.setPreferredSize(new java.awt.Dimension(830, 40));
         txtBusquedaProducto.addFocusListener(new java.awt.event.FocusAdapter() {
