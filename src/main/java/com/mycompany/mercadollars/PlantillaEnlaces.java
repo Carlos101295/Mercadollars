@@ -4,13 +4,14 @@
  */
 package com.mycompany.mercadollars;
 
+import Recursos_form.Empleados;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 import java.awt.List;
 
 /**
  *
- * @author MEDAC
+ * @author Óscar Maqueda
  */
 public class PlantillaEnlaces extends javax.swing.JFrame {
     
@@ -247,6 +248,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         btnSalir.setForeground(new java.awt.Color(51, 153, 0));
         btnSalir.setText("Salir");
         btnSalir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 0), 1, true));
+        btnSalir.setContentAreaFilled(false);
         btnSalir.setMaximumSize(new java.awt.Dimension(47, 34));
         btnSalir.setMinimumSize(new java.awt.Dimension(47, 34));
         btnSalir.setPreferredSize(new java.awt.Dimension(47, 34));
@@ -290,6 +292,11 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
         cambiarVentana("empleados");
+        Empleados e = new Empleados();
+        e.setVisible(true);
+        pnlInfo.add(e);
+        e.validate();
+        e.repaint();
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
