@@ -8,12 +8,12 @@ package Recursos_form;
  *
  * @author ÓscarMaqueda
  */
-public class Empleados extends javax.swing.JPanel {
+public class Pedido extends javax.swing.JPanel {
 
     /**
      * Creates new form Empleados
      */
-    public Empleados {
+    public Pedido() {
         initComponents();
     }
 
@@ -27,18 +27,19 @@ public class Empleados extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnAlta = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
+        btnPedidoAlta = new javax.swing.JButton();
+        btnPedidoModificar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
 
-        btnAlta.setBackground(new java.awt.Color(0, 102, 102));
-        btnAlta.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        btnAlta.setForeground(new java.awt.Color(255, 255, 255));
-        btnAlta.setText("Dar de alta");
-        btnAlta.addActionListener(new java.awt.event.ActionListener() {
+        btnPedidoAlta.setBackground(new java.awt.Color(0, 102, 102));
+        btnPedidoAlta.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnPedidoAlta.setForeground(new java.awt.Color(255, 255, 255));
+        btnPedidoAlta.setText("Alta de pedido");
+        btnPedidoAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAltaActionPerformed(evt);
+                btnPedidoAltaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -48,15 +49,15 @@ public class Empleados extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        add(btnAlta, gridBagConstraints);
+        add(btnPedidoAlta, gridBagConstraints);
 
-        btnModificar.setBackground(new java.awt.Color(0, 102, 102));
-        btnModificar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setText("Modificar un empleado");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        btnPedidoModificar.setBackground(new java.awt.Color(0, 102, 102));
+        btnPedidoModificar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnPedidoModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnPedidoModificar.setText("Modificar un pedido");
+        btnPedidoModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btnPedidoModificarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -66,20 +67,20 @@ public class Empleados extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        add(btnModificar, gridBagConstraints);
+        add(btnPedidoModificar, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
+    private void btnPedidoAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoAltaActionPerformed
 
-    }//GEN-LAST:event_btnAltaActionPerformed
+    }//GEN-LAST:event_btnPedidoAltaActionPerformed
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    private void btnPedidoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoModificarActionPerformed
 
-    }//GEN-LAST:event_btnModificarActionPerformed
+    }//GEN-LAST:event_btnPedidoModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlta;
-    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnPedidoAlta;
+    private javax.swing.JButton btnPedidoModificar;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,7 @@
  */
 package com.mycompany.mercadollars;
 
-import Recursos_form.Empleados;
+import Recursos_form.Pedido;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 import java.awt.List;
@@ -292,7 +292,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
         cambiarVentana("empleados");
-        Empleados e = new Empleados();
+        Pedido e = new Pedido();
         e.setVisible(true);
         pnlInfo.add(e);
         e.validate();
