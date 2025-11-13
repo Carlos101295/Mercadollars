@@ -6,7 +6,7 @@ package Recursos_form;
 
 /**
  *
- * @author MEDAC
+ * @author Carlos Duarte Ruiz
  */
 public class Productos extends javax.swing.JPanel {
 

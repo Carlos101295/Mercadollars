@@ -8,7 +8,7 @@ import java.awt.Color;
 
 /**
  *
- * @author MEDAC
+ * @author Carlos Duarte Ruiz
  */
 public class ProductosModificar extends javax.swing.JPanel {
 

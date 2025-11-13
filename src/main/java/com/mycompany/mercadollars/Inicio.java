@@ -9,7 +9,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 
 /**
  *
- * @author MEDAC
+ * @author Carlos Duarte Ruiz
  */
 public class Inicio extends javax.swing.JFrame {
 
