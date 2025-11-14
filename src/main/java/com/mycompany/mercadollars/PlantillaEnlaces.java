@@ -30,14 +30,16 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     }
 
     public PlantillaEnlaces(String ventana, javax.swing.JPanel panel) {
+        //INICIAR COMPONENTES Y PONER FULLSCREEN
+        this.setUndecorated(true);
         initComponents();
-        btnUsuario.setFocusable(false);
-        this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
+        //-----------------------------------------
+        
+        btnUsuario.setFocusable(false); //EVITAR EL SELECCIONADO POR DEFECTO DEL USUARIO
         panelOG = panel;
         cambiarHeader(ventana);
         cambiarVentana();
-        System.out.println(PlantillaEnlaces.semaforo);
     }
 
     public PlantillaEnlaces(String ventana) {
@@ -70,7 +72,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         lblMercaDollars = new javax.swing.JLabel();
         pnlInfo = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         pnlSalir = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
 
@@ -233,20 +234,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
 
         pnlInfo.setBackground(new java.awt.Color(255, 255, 255));
         pnlInfo.setLayout(new java.awt.GridBagLayout());
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        pnlInfo.add(jPanel2, new java.awt.GridBagConstraints());
-
         pnlPrincipal.add(pnlInfo, java.awt.BorderLayout.CENTER);
 
         pnlSalir.setBackground(new java.awt.Color(255, 255, 255));
@@ -308,7 +295,9 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        //cambiarVentana("clientes", new Cliente());
+        panelOG = new Cliente();
+        cambiarVentana();
+        cambiarHeader("clientes");
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
@@ -318,28 +307,39 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-        //cambiarVentana("inventario", new Productos());
+        panelOG = new Productos();
+        cambiarVentana();
+        cambiarHeader("inventario");
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
-        //cambiarVentana("caja", new );
+        //panelOG = new Productos();
+        cambiarVentana();
+        cambiarHeader("caja");
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
-        //cambiarVentana("pedidos");
+        panelOG = new Pedido();
+        cambiarVentana();
+        cambiarHeader("pedidos");
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
-        //cambiarVentana("proveedores", new Proveedores());
+        panelOG = new Proveedores();
+        cambiarVentana();
         cambiarHeader("proveedores");
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
-        //cambiarVentana("promociones");
+        //panelOG = new ;
+        cambiarVentana();
+        cambiarHeader("promociones");
     }//GEN-LAST:event_btnPromocionesActionPerformed
 
     private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
-        //cambiarVentana("facturacion");
+        //panelOG = new Proveedores();
+        cambiarVentana();
+        cambiarHeader("facturacion");
     }//GEN-LAST:event_btnFacturacionActionPerformed
 
     /**
@@ -364,7 +364,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     private javax.swing.JButton btnUsuario;
     private javax.swing.JButton btnVentas;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblMercaDollars;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlHipervinculo;

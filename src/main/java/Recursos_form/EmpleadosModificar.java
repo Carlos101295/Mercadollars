@@ -40,11 +40,11 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         txtTelefono = new javax.swing.JTextField();
         lblDni = new javax.swing.JLabel();
         txtDni = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
         lblContrasenia = new javax.swing.JLabel();
         pwdContrasenia = new javax.swing.JPasswordField();
         btnGuardar1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        chkCambiarContrasenia = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
@@ -192,16 +192,6 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
         add(txtDni, gridBagConstraints);
 
-        jToggleButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jToggleButton1.setText("Cambiar contraseña");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
-        add(jToggleButton1, gridBagConstraints);
-
         lblContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblContrasenia.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblContrasenia.setText("Contraseña:");
@@ -258,15 +248,39 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         add(jPanel1, gridBagConstraints);
+
+        chkCambiarContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        chkCambiarContrasenia.setText("Cambiar Contraseña:");
+        chkCambiarContrasenia.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        chkCambiarContrasenia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkCambiarContraseniaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
+        add(chkCambiarContrasenia, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void chkCambiarContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCambiarContraseniaActionPerformed
+        if (chkCambiarContrasenia.isSelected()) {
+            pwdContrasenia.setEnabled(true);
+        }else{
+            pwdContrasenia.setEnabled(false);
+        }
+    }//GEN-LAST:event_chkCambiarContraseniaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardar1;
+    private javax.swing.JCheckBox chkCambiarContrasenia;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblContrasenia;
     private javax.swing.JLabel lblCorreo;

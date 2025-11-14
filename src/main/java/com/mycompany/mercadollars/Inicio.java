@@ -19,10 +19,13 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     public Inicio() {
+        //INICIAR COMPONENTES Y PONER FULLSCREEN
+        this.setUndecorated(true);
         initComponents();
-        btnUsuario.setFocusable(false);
-        this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
+        //-----------------------------------------
+        
+        btnUsuario.setFocusable(false);
         pnlScrolleableOpciones.getVerticalScrollBar().setUnitIncrement(13);
     }
 
@@ -305,64 +308,48 @@ public class Inicio extends javax.swing.JFrame {
         PlantillaEnlaces pe1 = new PlantillaEnlaces("clientes");
         pe1.setLocationRelativeTo(null);
         pe1.setVisible(true);
-        pe1.setResizable(false);
-        pe1.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
         PlantillaEnlaces pe1 = new PlantillaEnlaces("empleados", new Recursos_form.Empleados());
         pe1.setLocationRelativeTo(null);
         pe1.setVisible(true);
-        //pe1.setResizable(false);
-        pe1.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
         PlantillaEnlaces pe1 = new PlantillaEnlaces("inventario");
         pe1.setLocationRelativeTo(null);
         pe1.setVisible(true);
-        pe1.setResizable(false);
-        pe1.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_btnInventarioActionPerformed
 
     private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
         PlantillaEnlaces pe1 = new PlantillaEnlaces("caja");
         pe1.setLocationRelativeTo(null);
         pe1.setVisible(true);
-        pe1.setResizable(false);
-        pe1.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_btnCajaActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
         PlantillaEnlaces pe1 = new PlantillaEnlaces("proveedores");
         pe1.setLocationRelativeTo(null);
         pe1.setVisible(true);
-        pe1.setResizable(false);
-        pe1.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
         PlantillaEnlaces pe1 = new PlantillaEnlaces("pedidos");
         pe1.setLocationRelativeTo(null);
         pe1.setVisible(true);
-        pe1.setResizable(false);
-        pe1.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
         PlantillaEnlaces pe1 = new PlantillaEnlaces("promociones");
         pe1.setLocationRelativeTo(null);
         pe1.setVisible(true);
-        pe1.setResizable(false);
-        pe1.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_btnPromocionesActionPerformed
 
     private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
         PlantillaEnlaces pe1 = new PlantillaEnlaces("facturacion");
         pe1.setLocationRelativeTo(null);
         pe1.setVisible(true);
-        pe1.setResizable(false);
-        pe1.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_btnFacturacionActionPerformed
 
     /**
