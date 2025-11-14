@@ -22,8 +22,8 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
      */
     public final Color verdeClaro = new Color(204, 255, 204);
     public final Color verdeOscuro = new Color(0, 204, 51);
-    static public boolean semaforo;
-    JPanel panelOG;
+    static public boolean semaforo = true;
+    static public JPanel panelOG;
 
     public PlantillaEnlaces() {
         initComponents();
@@ -37,9 +37,10 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         panelOG = panel;
         cambiarHeader(ventana);
         pnlInfo.removeAll();
-        pnlInfo.add(panelOG);
+        pnlInfo.add(panel);
         pnlInfo.revalidate();
         pnlInfo.repaint();
+        System.out.println(PlantillaEnlaces.semaforo);
     }
 
     public PlantillaEnlaces(String ventana) {
@@ -292,10 +293,24 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cambiarVentana() {
+        pnlInfo.removeAll();
+        pnlInfo.add(panelOG);
+        pnlInfo.revalidate();
+        pnlInfo.repaint();
+        semaforo = true;
+        System.out.println(PlantillaEnlaces.semaforo);
+    }
+
+
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         if (!semaforo) {
             cambiarVentana();
         } else {
+            pnlInfo.removeAll();
+            pnlInfo.add(panelOG);
+            pnlInfo.revalidate();
+            pnlInfo.repaint();
             dispose();
         }
     }//GEN-LAST:event_btnSalirActionPerformed
@@ -366,14 +381,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSalir;
     private javax.swing.JPanel pnlTitulo;
     // End of variables declaration//GEN-END:variables
-
-    private void cambiarVentana() {
-            pnlInfo.removeAll();
-            pnlInfo.add(panelOG);
-            pnlInfo.revalidate();
-            pnlInfo.repaint();
-            semaforo = true;
-    }
 
     private void cambiarHeader(String ventana) {
         quitarColor();

@@ -73,19 +73,22 @@ public class Empleados extends javax.swing.JPanel {
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         PlantillaEnlaces.semaforo = false;
+        System.out.println(PlantillaEnlaces.semaforo);
         this.removeAll();
         this.add(new EmpleadosAlta());
         this.revalidate();
         this.repaint();
+        PlantillaEnlaces.panelOG = new Empleados();
     }//GEN-LAST:event_btnAltaActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         PlantillaEnlaces.semaforo = false;
+        System.out.println(PlantillaEnlaces.semaforo);
         this.removeAll();
         this.add(new EmpleadosModificar());
         this.revalidate();
         this.repaint();
-
+        PlantillaEnlaces.panelOG = new Empleados();
     }//GEN-LAST:event_btnModificarActionPerformed
 
 
