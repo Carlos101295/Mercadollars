@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import com.mycompany.mercadollars.PlantillaEnlaces;
+
 /**
  *
  * @author ÓscarMaqueda

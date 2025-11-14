@@ -7,35 +7,41 @@ package com.mycompany.mercadollars;
 import Recursos_form.Empleados;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
-import java.awt.List;
+import javax.swing.JPanel;
 
 /**
  *
- * @author Óscar Maqueda
+ * @author ÓscarMaqueda
  */
 public class PlantillaEnlaces extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PlantillaEnlaces.class.getName());
 
     /**
      * Creates new form PlantillaEnlaces
      */
-    public final Color verdeClaro = new Color(204,255,204);
-    public final Color verdeOscuro = new Color(0,204,51);
-    
+    public final Color verdeClaro = new Color(204, 255, 204);
+    public final Color verdeOscuro = new Color(0, 204, 51);
+    static public boolean semaforo;
+    JPanel panelOG, panelInfo;
+
     public PlantillaEnlaces() {
         initComponents();
-        btnUsuario.setFocusable(false);
-        this.setLocationRelativeTo(null);
-        this.setExtendedState(MAXIMIZED_BOTH);
     }
-    
-    public PlantillaEnlaces(String ventana){
+
+    public PlantillaEnlaces(String ventana, javax.swing.JPanel panel) {
         initComponents();
         btnUsuario.setFocusable(false);
         this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
-        cambiarVentana(ventana);
+        panelInfo = (JPanel) pnlInfo.getComponent(0);
+        panelOG = (JPanel) pnlInfo.getComponent(0);
+        cambiarHeader(ventana);
+        cambiarVentana();
+    }
+
+    public PlantillaEnlaces(String ventana) {
+        initComponents();
     }
 
     /**
@@ -64,6 +70,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         lblMercaDollars = new javax.swing.JLabel();
         pnlInfo = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         pnlSalir = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
 
@@ -173,7 +180,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         pnlHipervinculo.add(jPanel1, gridBagConstraints);
 
-        btnUsuario.setBackground(new java.awt.Color(255, 255, 255));
         btnUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnUsuario.setForeground(new java.awt.Color(51, 153, 0));
         btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatar.png"))); // NOI18N
@@ -226,24 +232,26 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         pnlPrincipal.add(pnlHipervinculo, java.awt.BorderLayout.PAGE_START);
 
         pnlInfo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlInfo.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout pnlInfoLayout = new javax.swing.GroupLayout(pnlInfo);
-        pnlInfo.setLayout(pnlInfoLayout);
-        pnlInfoLayout.setHorizontalGroup(
-            pnlInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1426, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
-        pnlInfoLayout.setVerticalGroup(
-            pnlInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        pnlInfo.add(jPanel2, new java.awt.GridBagConstraints());
 
         pnlPrincipal.add(pnlInfo, java.awt.BorderLayout.CENTER);
 
         pnlSalir.setBackground(new java.awt.Color(255, 255, 255));
         pnlSalir.setLayout(new java.awt.GridBagLayout());
 
-        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(51, 153, 0));
         btnSalir.setText("Salir");
@@ -276,51 +284,56 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        dispose();
+        if (!semaforo) {
+            pnlInfo.removeAll();
+            pnlInfo.add(panelInfo);
+            pnlInfo.revalidate();
+            pnlInfo.repaint();
+        } else {
+            dispose();
+        }
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        cambiarVentana("clientes");
+        //cambiarVentana("clientes", new Cliente());
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
-        cambiarVentana("empleados");
-        Empleados e = new Empleados();
-        e.setVisible(true);
-        pnlInfo.add(e);
-        e.validate();
-        e.repaint();
+        panelOG = new Empleados();
+        cambiarVentana();
+        cambiarHeader("empleados");
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-        cambiarVentana("inventario");
+        //cambiarVentana("inventario", new Productos());
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
-        cambiarVentana("caja");
+        //cambiarVentana("caja", new );
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
-        cambiarVentana("pedidos");
+        //cambiarVentana("pedidos");
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
-        cambiarVentana("proveedores");
+        //cambiarVentana("proveedores", new Proveedores());
+        cambiarHeader("proveedores");
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
-        cambiarVentana("promociones");
+        //cambiarVentana("promociones");
     }//GEN-LAST:event_btnPromocionesActionPerformed
 
     private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
-        cambiarVentana("facturacion");
+        //cambiarVentana("facturacion");
     }//GEN-LAST:event_btnFacturacionActionPerformed
 
     /**
@@ -345,6 +358,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     private javax.swing.JButton btnUsuario;
     private javax.swing.JButton btnVentas;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblMercaDollars;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlHipervinculo;
@@ -354,50 +368,57 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTitulo;
     // End of variables declaration//GEN-END:variables
 
-    private void cambiarVentana(String ventana) {
+    private void cambiarVentana() {
+        pnlInfo.removeAll();
+        pnlInfo.add(panelOG);
+        pnlInfo.revalidate();
+        pnlInfo.repaint();
+    }
+
+    private void cambiarHeader(String ventana) {
         quitarColor();
-        
-        switch(ventana){
+
+        switch (ventana) {
             case "clientes":
                 lblTitulo.setText("Gestión de clientes");
                 btnClientes.setBackground(verdeOscuro);
                 break;
-                
+
             case "empleados":
                 lblTitulo.setText("Gestión de empleados");
                 btnEmpleados.setBackground(verdeOscuro);
                 break;
-                
+
             case "inventario":
                 lblTitulo.setText("Gestión de productos, inventario y stock");
                 btnProductos.setBackground(verdeOscuro);
                 break;
-                
+
             case "caja":
                 lblTitulo.setText("caja (por implementar)");
                 btnVentas.setBackground(verdeOscuro);
                 break;
-                
+
             case "proveedores":
                 lblTitulo.setText("Gestión de proveedores");
                 btnProveedores.setBackground(verdeOscuro);
                 break;
-                
+
             case "pedidos":
                 lblTitulo.setText("Gestión de pedidos");
                 btnPedidos.setBackground(verdeOscuro);
                 break;
-                
+
             case "promociones":
                 lblTitulo.setText("Gestión de promociones");
                 btnPromociones.setBackground(verdeOscuro);
                 break;
-                
+
             case "facturacion":
                 lblTitulo.setText("facturacion (por implementar)");
                 btnFacturacion.setBackground(verdeOscuro);
                 break;
-                
+
             default:
                 break;
         }

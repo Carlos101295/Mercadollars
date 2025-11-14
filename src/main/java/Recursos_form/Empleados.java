@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import com.mycompany.mercadollars.PlantillaEnlaces;
+
 /**
  *
  * @author ÓscarMaqueda
@@ -15,6 +17,7 @@ public class Empleados extends javax.swing.JPanel {
      */
     public Empleados() {
         initComponents();
+        PlantillaEnlaces.semaforo = true;
     }
 
     /**
@@ -70,7 +73,11 @@ public class Empleados extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
-
+        this.removeAll();
+        this.add(new EmpleadosAlta());
+        this.revalidate();
+        this.repaint();
+        PlantillaEnlaces.semaforo = false;
     }//GEN-LAST:event_btnAltaActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
