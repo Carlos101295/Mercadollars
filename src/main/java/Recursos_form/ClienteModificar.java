@@ -8,7 +8,7 @@ import java.awt.Color;
 
 /**
  *
- * @author MEDAC
+ * @author FranciscoJavierJimenezMuñoz
  */
 public class ClienteModificar extends javax.swing.JPanel {
 
@@ -265,4 +265,8 @@ public class ClienteModificar extends javax.swing.JPanel {
     private javax.swing.JTextField txtPuntos;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
+
+    void setLocationRelativeTo(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

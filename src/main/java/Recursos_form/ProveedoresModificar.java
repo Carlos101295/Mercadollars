@@ -15,7 +15,7 @@ public class ProveedoresModificar extends javax.swing.JPanel {
     /**
      * Creates new form ProveedoresModificar
      */
-    public ProveedoresModificar {
+    public ProveedoresModificar() {
         initComponents();
     }
 

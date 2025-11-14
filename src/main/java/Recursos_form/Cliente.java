@@ -6,7 +6,7 @@ package Recursos_form;
 
 /**
  *
- * @author MEDAC
+ * @author FranciscoJavierJimenezMuñoz
  */
 public class Cliente extends javax.swing.JPanel {
 
@@ -90,11 +90,15 @@ public class Cliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClienteAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteAltaActionPerformed
-        // TODO add your handling code here:
+        ClienteAlta CA_ventana = new ClienteAlta();
+        CA_ventana.setLocationRelativeTo(null);
+        CA_ventana.setVisible(true);
     }//GEN-LAST:event_btnClienteAltaActionPerformed
 
     private void btnClienteModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteModificarActionPerformed
-        // TODO add your handling code here:
+        ClienteModificar CM_ventana = new ClienteModificar();
+        CM_ventana.setLocationRelativeTo(null);
+        CM_ventana.setVisible(true);
     }//GEN-LAST:event_btnClienteModificarActionPerformed
 
     private void btnClienteListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteListadoActionPerformed

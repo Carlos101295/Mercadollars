@@ -13,7 +13,7 @@ public class Productos extends javax.swing.JPanel {
     /**
      * Creates new form Productos
      */
-    public Productos {
+    public Productos() {
         initComponents();
     }
 

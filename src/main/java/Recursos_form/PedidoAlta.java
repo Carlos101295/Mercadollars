@@ -6,14 +6,14 @@ package Recursos_form;
 
 /**
  *
- * @author ÓscarMaqueda
+ * @author FranciscoJavierJimenezMuñoz
  */
 public class PedidoAlta extends javax.swing.JPanel {
 
     /**
      * Creates new form EmpleadosAlta
      */
-    public PedidoAlta {
+    public PedidoAlta() {
         initComponents();
     }
 
@@ -120,4 +120,8 @@ public class PedidoAlta extends javax.swing.JPanel {
     private javax.swing.JTextField txtID_Producto;
     private javax.swing.JTextField txtID_Proveedor;
     // End of variables declaration//GEN-END:variables
+
+    void setLocationRelativeTo(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

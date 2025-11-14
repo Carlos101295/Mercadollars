@@ -6,7 +6,7 @@ package Recursos_form;
 
 /**
  *
- * @author ÓscarMaqueda
+ * @author FranciscoJavierJimenezMuñoz
  */
 public class Pedido extends javax.swing.JPanel {
 
@@ -71,7 +71,9 @@ public class Pedido extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPedidoAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoAltaActionPerformed
-
+        PedidoAlta PA_ventana = new PedidoAlta();
+        PA_ventana.setLocationRelativeTo(null);
+        PA_ventana.setVisible(true);
     }//GEN-LAST:event_btnPedidoAltaActionPerformed
 
     private void btnPedidoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoModificarActionPerformed

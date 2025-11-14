@@ -13,7 +13,7 @@ public class Empleados extends javax.swing.JPanel {
     /**
      * Creates new form Empleados
      */
-    public Empleados {
+    public Empleados() {
         initComponents();
     }
 
