@@ -23,7 +23,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     public final Color verdeClaro = new Color(204, 255, 204);
     public final Color verdeOscuro = new Color(0, 204, 51);
     static public boolean semaforo;
-    JPanel panelOG;
+    JPanel panelOG, panel1;
 
     public PlantillaEnlaces() {
         initComponents();
@@ -34,12 +34,15 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         btnUsuario.setFocusable(false);
         this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
+        
         panelOG = panel;
+        
         cambiarHeader(ventana);
-        pnlInfo.removeAll();
+        /*pnlInfo.removeAll();
         pnlInfo.add(panelOG);
         pnlInfo.revalidate();
-        pnlInfo.repaint();
+        pnlInfo.repaint();*/
+
     }
 
     public PlantillaEnlaces(String ventana) {
@@ -309,7 +312,14 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         cambiarVentana();
         cambiarHeader("empleados");
     }//GEN-LAST:event_btnEmpleadosActionPerformed
-
+    
+    private void cambiarVentana() {
+                pnlInfo.removeAll();
+                pnlInfo.add(new Empleados());
+                pnlInfo.revalidate();
+                pnlInfo.repaint();
+                semaforo = true;
+        }
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
         //cambiarVentana("inventario", new Productos());
     }//GEN-LAST:event_btnProductosActionPerformed
@@ -367,13 +377,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTitulo;
     // End of variables declaration//GEN-END:variables
 
-    private void cambiarVentana() {
-            pnlInfo.removeAll();
-            pnlInfo.add(panelOG);
-            pnlInfo.revalidate();
-            pnlInfo.repaint();
-            semaforo = true;
-    }
+    
 
     private void cambiarHeader(String ventana) {
         quitarColor();
