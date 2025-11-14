@@ -5,6 +5,8 @@
 package Recursos_form;
 
 import java.awt.Color;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -76,6 +78,11 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -299,6 +306,18 @@ public class EmpleadosModificar extends javax.swing.JPanel {
             txtDniSearch.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_txtDniSearchFocusGained
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        Pattern dniPattern = Pattern.compile("[0-9]{7,8}[A-Z a-z]"); //PATRON PARA EL DNI
+        
+        if (txtDniSearch.getText().equals("Inserte DNI a buscar")) {
+            JOptionPane.showMessageDialog(this, "Porfavor introduzca algo para realizar su busqueda", "Falta dni", JOptionPane.INFORMATION_MESSAGE);
+        }else if (!dniPattern.matcher(txtDniSearch.getText()).matches()) {
+            JOptionPane.showMessageDialog(this, "Dni mal introducido, intentelo denuevo", "Dni missmatch", JOptionPane.ERROR_MESSAGE);
+        }else{
+            
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
