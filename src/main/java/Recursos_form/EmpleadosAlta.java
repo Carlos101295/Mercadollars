@@ -4,11 +4,9 @@
  */
 package Recursos_form;
 
-import com.mycompany.mercadollars.PlantillaEnlaces;
-
 /**
  *
- * @author ÓscarMaqueda
+ * Interfaz: ÓscarMaqueda
  */
 public class EmpleadosAlta extends javax.swing.JPanel {
 

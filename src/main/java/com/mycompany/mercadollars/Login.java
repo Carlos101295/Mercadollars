@@ -197,7 +197,6 @@ public class Login extends javax.swing.JFrame {
      */
     
     public static void main(String args[]) {
-
         FlatLightLaf.setup();
         UIManager.put("Button.arc", 999);
 

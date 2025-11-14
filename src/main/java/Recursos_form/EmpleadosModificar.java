@@ -4,9 +4,12 @@
  */
 package Recursos_form;
 
+import java.awt.Color;
+
 /**
  *
- * @author ÓscarMaqueda
+ * Interfaz: ÓscarMaqueda
+ * Logica: ÓscarMaqueda
  */
 public class EmpleadosModificar extends javax.swing.JPanel {
 
@@ -53,6 +56,14 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         txtDniSearch.setForeground(new java.awt.Color(128, 128, 128));
         txtDniSearch.setText("Inserte DNI a buscar");
         txtDniSearch.setPreferredSize(new java.awt.Dimension(64, 40));
+        txtDniSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDniSearchFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDniSearchFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -225,7 +236,7 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 25, 0);
         add(btnGuardar1, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
@@ -271,8 +282,23 @@ public class EmpleadosModificar extends javax.swing.JPanel {
             pwdContrasenia.setEnabled(true);
         }else{
             pwdContrasenia.setEnabled(false);
+            pwdContrasenia.setText("");
         }
     }//GEN-LAST:event_chkCambiarContraseniaActionPerformed
+
+    private void txtDniSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDniSearchFocusLost
+        if (txtDniSearch.getText().isEmpty()) {
+            txtDniSearch.setForeground(Color.GRAY);
+            txtDniSearch.setText("Inserte DNI a buscar");
+        }
+    }//GEN-LAST:event_txtDniSearchFocusLost
+
+    private void txtDniSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDniSearchFocusGained
+        if (txtDniSearch.getText().equals("Inserte DNI a buscar")) {
+            txtDniSearch.setText("");
+            txtDniSearch.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtDniSearchFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

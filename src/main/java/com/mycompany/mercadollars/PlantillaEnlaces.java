@@ -11,7 +11,8 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author ÓscarMaqueda
+ * Interfaz: ÓscarMaqueda
+ * Logica: ÓscarMaqueda
  */
 public class PlantillaEnlaces extends javax.swing.JFrame {
 
