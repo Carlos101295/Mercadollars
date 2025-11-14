@@ -45,6 +45,7 @@ public class EmpleadosAlta extends javax.swing.JPanel {
         pwdContrasenia2 = new javax.swing.JPasswordField();
         btnRegistrar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N

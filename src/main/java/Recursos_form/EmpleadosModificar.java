@@ -46,6 +46,7 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         btnGuardar1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
 
         txtDniSearch.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N

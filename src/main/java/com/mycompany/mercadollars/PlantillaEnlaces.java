@@ -36,10 +36,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         panelOG = panel;
         cambiarHeader(ventana);
-        pnlInfo.removeAll();
-        pnlInfo.add(panel);
-        pnlInfo.revalidate();
-        pnlInfo.repaint();
+        cambiarVentana();
         System.out.println(PlantillaEnlaces.semaforo);
     }
 
@@ -299,7 +296,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         pnlInfo.revalidate();
         pnlInfo.repaint();
         semaforo = true;
-        System.out.println(PlantillaEnlaces.semaforo);
     }
 
 
@@ -307,10 +303,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         if (!semaforo) {
             cambiarVentana();
         } else {
-            pnlInfo.removeAll();
-            pnlInfo.add(panelOG);
-            pnlInfo.revalidate();
-            pnlInfo.repaint();
             dispose();
         }
     }//GEN-LAST:event_btnSalirActionPerformed

@@ -32,6 +32,7 @@ public class Empleados extends javax.swing.JPanel {
         btnAlta = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
 
         btnAlta.setBackground(new java.awt.Color(0, 102, 102));
@@ -73,7 +74,6 @@ public class Empleados extends javax.swing.JPanel {
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         PlantillaEnlaces.semaforo = false;
-        System.out.println(PlantillaEnlaces.semaforo);
         this.removeAll();
         this.add(new EmpleadosAlta());
         this.revalidate();
@@ -83,7 +83,6 @@ public class Empleados extends javax.swing.JPanel {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         PlantillaEnlaces.semaforo = false;
-        System.out.println(PlantillaEnlaces.semaforo);
         this.removeAll();
         this.add(new EmpleadosModificar());
         this.revalidate();
