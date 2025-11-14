@@ -338,7 +338,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPromocionesActionPerformed
 
     private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
-        //panelOG = new Proveedores();
+        //panelOG = new ;
         cambiarVentana();
         cambiarHeader("facturacion");
     }//GEN-LAST:event_btnFacturacionActionPerformed

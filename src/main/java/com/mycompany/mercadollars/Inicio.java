@@ -4,7 +4,9 @@
  */
 package com.mycompany.mercadollars;
 
+import Recursos_form.*;
 import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.JPanel;
 
 
 /**
@@ -305,53 +307,42 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        PlantillaEnlaces pe1 = new PlantillaEnlaces("clientes");
-        pe1.setLocationRelativeTo(null);
-        pe1.setVisible(true);
+        abrirVentana("clientes", new Cliente());
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
-        PlantillaEnlaces pe1 = new PlantillaEnlaces("empleados", new Recursos_form.Empleados());
-        pe1.setLocationRelativeTo(null);
-        pe1.setVisible(true);
+        abrirVentana("empleados", new Empleados());
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
-        PlantillaEnlaces pe1 = new PlantillaEnlaces("inventario");
-        pe1.setLocationRelativeTo(null);
-        pe1.setVisible(true);
+        abrirVentana("inventario", new Productos());
     }//GEN-LAST:event_btnInventarioActionPerformed
 
     private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
-        PlantillaEnlaces pe1 = new PlantillaEnlaces("caja");
-        pe1.setLocationRelativeTo(null);
-        pe1.setVisible(true);
+        //abrirVentana("caja", new );
     }//GEN-LAST:event_btnCajaActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
-        PlantillaEnlaces pe1 = new PlantillaEnlaces("proveedores");
-        pe1.setLocationRelativeTo(null);
-        pe1.setVisible(true);
+        abrirVentana("proveedores", new Proveedores());
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
-        PlantillaEnlaces pe1 = new PlantillaEnlaces("pedidos");
-        pe1.setLocationRelativeTo(null);
-        pe1.setVisible(true);
+        abrirVentana("pedidos", new Pedido());
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
-        PlantillaEnlaces pe1 = new PlantillaEnlaces("promociones");
-        pe1.setLocationRelativeTo(null);
-        pe1.setVisible(true);
+        //abrirVentana("promociones", new );
     }//GEN-LAST:event_btnPromocionesActionPerformed
 
     private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
-        PlantillaEnlaces pe1 = new PlantillaEnlaces("facturacion");
-        pe1.setLocationRelativeTo(null);
-        pe1.setVisible(true);
+        //abrirVentana("facturacion",new );
     }//GEN-LAST:event_btnFacturacionActionPerformed
 
+    public void abrirVentana(String nombreVentana, JPanel panelVentana){
+        PlantillaEnlaces pe1 = new PlantillaEnlaces(nombreVentana);
+        pe1.setLocationRelativeTo(null);
+        pe1.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
