@@ -235,7 +235,7 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         btnGuardar1.setBackground(new java.awt.Color(0, 102, 102));
         btnGuardar1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnGuardar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar1.setText("Registrar");
+        btnGuardar1.setText("Modificar");
         btnGuardar1.setPreferredSize(new java.awt.Dimension(400, 39));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

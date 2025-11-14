@@ -38,8 +38,7 @@ public class PromocionesAlta extends javax.swing.JPanel {
         txtPromocionFechaInicio = new javax.swing.JTextField();
         txtPromocionFechaFin = new javax.swing.JTextField();
         txtPromocionDescuento = new javax.swing.JTextField();
-        btnBaja = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
+        btnAlta = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtPromocionDescripcion = new javax.swing.JTextArea();
 
@@ -161,32 +160,14 @@ public class PromocionesAlta extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         add(txtPromocionDescuento, gridBagConstraints);
 
-        btnBaja.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnBaja.setForeground(new java.awt.Color(51, 153, 0));
-        btnBaja.setText("Dar de baja");
-        btnBaja.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 0), 1, true));
-        btnBaja.setPreferredSize(new java.awt.Dimension(400, 39));
-        btnBaja.addActionListener(new java.awt.event.ActionListener() {
+        btnAlta.setBackground(new java.awt.Color(0, 102, 102));
+        btnAlta.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnAlta.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlta.setText("Alta de promoción");
+        btnAlta.setPreferredSize(new java.awt.Dimension(400, 39));
+        btnAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBajaActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 40;
-        gridBagConstraints.ipady = 10;
-        add(btnBaja, gridBagConstraints);
-
-        btnModificar.setBackground(new java.awt.Color(0, 102, 102));
-        btnModificar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setText("Modificar");
-        btnModificar.setPreferredSize(new java.awt.Dimension(400, 39));
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btnAltaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -196,7 +177,7 @@ public class PromocionesAlta extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        add(btnModificar, gridBagConstraints);
+        add(btnAlta, gridBagConstraints);
 
         txtPromocionDescripcion.setColumns(20);
         txtPromocionDescripcion.setRows(5);
@@ -212,18 +193,13 @@ public class PromocionesAlta extends javax.swing.JPanel {
         add(jScrollPane1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaActionPerformed
+    private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBajaActionPerformed
-
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnModificarActionPerformed
+    }//GEN-LAST:event_btnAltaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBaja;
-    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnAlta;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDescuento;
     private javax.swing.JLabel lblPromocionDescripcion;
