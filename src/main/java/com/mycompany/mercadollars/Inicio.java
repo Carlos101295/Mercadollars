@@ -313,7 +313,7 @@ public class Inicio extends javax.swing.JFrame {
         PlantillaEnlaces pe1 = new PlantillaEnlaces("empleados", new Recursos_form.Empleados());
         pe1.setLocationRelativeTo(null);
         pe1.setVisible(true);
-        pe1.setResizable(false);
+        //pe1.setResizable(false);
         pe1.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
