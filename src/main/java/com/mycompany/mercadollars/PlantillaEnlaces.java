@@ -4,7 +4,7 @@
  */
 package com.mycompany.mercadollars;
 
-import Recursos_form.Pedido;
+import Recursos_form.*;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -23,7 +23,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     public final Color verdeClaro = new Color(204, 255, 204);
     public final Color verdeOscuro = new Color(0, 204, 51);
     static public boolean semaforo;
-    JPanel panelOG, panelInfo;
+    JPanel panelOG;
 
     public PlantillaEnlaces() {
         initComponents();
@@ -34,10 +34,12 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         btnUsuario.setFocusable(false);
         this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
-        panelInfo = (JPanel) pnlInfo.getComponent(0);
-        panelOG = (JPanel) pnlInfo.getComponent(0);
+        panelOG = panel;
         cambiarHeader(ventana);
-        cambiarVentana();
+        pnlInfo.removeAll();
+        pnlInfo.add(panelOG);
+        pnlInfo.revalidate();
+        pnlInfo.repaint();
     }
 
     public PlantillaEnlaces(String ventana) {
@@ -292,10 +294,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         if (!semaforo) {
-            pnlInfo.removeAll();
-            pnlInfo.add(panelInfo);
-            pnlInfo.revalidate();
-            pnlInfo.repaint();
+            cambiarVentana();
         } else {
             dispose();
         }
@@ -369,10 +368,11 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cambiarVentana() {
-        pnlInfo.removeAll();
-        pnlInfo.add(panelOG);
-        pnlInfo.revalidate();
-        pnlInfo.repaint();
+            pnlInfo.removeAll();
+            pnlInfo.add(panelOG);
+            pnlInfo.revalidate();
+            pnlInfo.repaint();
+            semaforo = true;
     }
 
     private void cambiarHeader(String ventana) {
