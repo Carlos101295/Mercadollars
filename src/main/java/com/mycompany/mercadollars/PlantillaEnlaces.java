@@ -4,7 +4,7 @@
  */
 package com.mycompany.mercadollars;
 
-import Recursos_form.Empleados;
+import Recursos_form.Pedido;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 import javax.swing.JPanel;

@@ -74,6 +74,7 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 20, 13, 20);
         jPanel1.add(lblTitulo, gridBagConstraints);
 
+        txfNom.setForeground(new java.awt.Color(128, 128, 128));
         txfNom.setText("Escribe tu usuario");
         txfNom.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -107,6 +108,7 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(13, 20, 13, 20);
         jPanel1.add(btnAcceso, gridBagConstraints);
 
+        txfPass.setForeground(new java.awt.Color(128, 128, 128));
         txfPass.setText("contraseña");
         txfPass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {

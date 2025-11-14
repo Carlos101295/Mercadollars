@@ -146,6 +146,7 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         add(btnResgist, gridBagConstraints);
 
         txfCifOrig.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txfCifOrig.setForeground(new java.awt.Color(128, 128, 128));
         txfCifOrig.setText("Escribe el cif");
         txfCifOrig.setPreferredSize(new java.awt.Dimension(828, 40));
         txfCifOrig.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -180,8 +181,9 @@ public class ProveedoresModificar extends javax.swing.JPanel {
         add(btnBuscar, gridBagConstraints);
 
         btnBaja.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnBaja.setForeground(new java.awt.Color(0, 102, 102));
+        btnBaja.setForeground(new java.awt.Color(51, 153, 0));
         btnBaja.setText("Dar de baja");
+        btnBaja.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 0), 1, true));
         btnBaja.setPreferredSize(new java.awt.Dimension(300, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

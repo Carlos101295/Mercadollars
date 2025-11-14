@@ -49,6 +49,7 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         setLayout(new java.awt.GridBagLayout());
 
         txtDniSearch.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtDniSearch.setForeground(new java.awt.Color(128, 128, 128));
         txtDniSearch.setText("Inserte DNI a buscar");
         txtDniSearch.setPreferredSize(new java.awt.Dimension(64, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -72,7 +73,6 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         add(btnBuscar, gridBagConstraints);
 
-        btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(51, 153, 0));
         btnGuardar.setText("Dar de baja");
