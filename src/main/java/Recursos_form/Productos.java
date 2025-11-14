@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import com.mycompany.mercadollars.PlantillaEnlaces;
+
 /**
  *
  * @author Carlos Duarte Ruiz
@@ -109,11 +111,21 @@ public class Productos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProductoAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoAltaActionPerformed
-        // TODO add your handling code here:
+        PlantillaEnlaces.semaforo = false;
+        this.removeAll();
+        this.add(new ProductosAlta());
+        this.revalidate();
+        this.repaint();
+        PlantillaEnlaces.panelOG = new Productos();
     }//GEN-LAST:event_btnProductoAltaActionPerformed
 
     private void btnProductoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoModificarActionPerformed
-        // TODO add your handling code here:
+        PlantillaEnlaces.semaforo = false;
+        this.removeAll();
+        this.add(new ProductosModificar());
+        this.revalidate();
+        this.repaint();
+        PlantillaEnlaces.panelOG = new Productos();
     }//GEN-LAST:event_btnProductoModificarActionPerformed
 
     private void btnProductoListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoListadoActionPerformed

@@ -322,7 +322,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
-        //panelOG = new Productos();
+        panelOG = new Ventas();
         cambiarVentana();
         cambiarHeader("caja");
     }//GEN-LAST:event_btnVentasActionPerformed
@@ -340,13 +340,13 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
-        //panelOG = new ;
+        panelOG = new Promociones();
         cambiarVentana();
         cambiarHeader("promociones");
     }//GEN-LAST:event_btnPromocionesActionPerformed
 
     private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
-        //panelOG = new ;
+        panelOG = new Facturacion();
         cambiarVentana();
         cambiarHeader("facturacion");
     }//GEN-LAST:event_btnFacturacionActionPerformed
@@ -402,7 +402,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
                 break;
 
             case "caja":
-                lblTitulo.setText("caja (por implementar)");
+                lblTitulo.setText("Caja/Ventas (por implementar)");
                 btnVentas.setBackground(verdeOscuro);
                 break;
 
@@ -422,7 +422,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
                 break;
 
             case "facturacion":
-                lblTitulo.setText("facturacion (por implementar)");
+                lblTitulo.setText("Facturación (por implementar)");
                 btnFacturacion.setBackground(verdeOscuro);
                 break;
 

@@ -112,7 +112,9 @@ public class ProductosModificar extends javax.swing.JPanel {
         lblProductoPrecioSinIva.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblProductoPrecioSinIva.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblProductoPrecioSinIva.setText("Precio sin IVA:");
-        lblProductoPrecioSinIva.setPreferredSize(new java.awt.Dimension(150, 40));
+        lblProductoPrecioSinIva.setMaximumSize(new java.awt.Dimension(170, 40));
+        lblProductoPrecioSinIva.setMinimumSize(new java.awt.Dimension(170, 40));
+        lblProductoPrecioSinIva.setPreferredSize(new java.awt.Dimension(170, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -254,7 +256,7 @@ public class ProductosModificar extends javax.swing.JPanel {
         txtBusquedaProducto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtBusquedaProducto.setForeground(new java.awt.Color(128, 128, 128));
         txtBusquedaProducto.setText("Introduce la ID o el producto a buscar");
-        txtBusquedaProducto.setPreferredSize(new java.awt.Dimension(830, 40));
+        txtBusquedaProducto.setPreferredSize(new java.awt.Dimension(850, 40));
         txtBusquedaProducto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtBusquedaProductoFocusGained(evt);
@@ -285,13 +287,13 @@ public class ProductosModificar extends javax.swing.JPanel {
 
         pnlSeparadorBusqueda.setBackground(new java.awt.Color(0, 102, 102));
         pnlSeparadorBusqueda.setForeground(new java.awt.Color(255, 255, 255));
-        pnlSeparadorBusqueda.setPreferredSize(new java.awt.Dimension(940, 1));
+        pnlSeparadorBusqueda.setPreferredSize(new java.awt.Dimension(960, 1));
 
         javax.swing.GroupLayout pnlSeparadorBusquedaLayout = new javax.swing.GroupLayout(pnlSeparadorBusqueda);
         pnlSeparadorBusqueda.setLayout(pnlSeparadorBusquedaLayout);
         pnlSeparadorBusquedaLayout.setHorizontalGroup(
             pnlSeparadorBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 940, Short.MAX_VALUE)
+            .addGap(0, 960, Short.MAX_VALUE)
         );
         pnlSeparadorBusquedaLayout.setVerticalGroup(
             pnlSeparadorBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

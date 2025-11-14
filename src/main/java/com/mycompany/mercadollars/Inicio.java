@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author MEDAC
+ * @author Carlos Duarte Ruiz
  */
 public class Inicio extends javax.swing.JFrame {
 
@@ -319,7 +319,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInventarioActionPerformed
 
     private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
-        //abrirVentana("caja", new );
+        abrirVentana("caja", new Ventas());
     }//GEN-LAST:event_btnCajaActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
@@ -331,11 +331,11 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
-        //abrirVentana("promociones", new );
+        abrirVentana("promociones", new Promociones());
     }//GEN-LAST:event_btnPromocionesActionPerformed
 
     private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
-        //abrirVentana("facturacion",new );
+        abrirVentana("facturacion",new Facturacion());
     }//GEN-LAST:event_btnFacturacionActionPerformed
 
     public void abrirVentana(String nombreVentana, JPanel panelVentana){
