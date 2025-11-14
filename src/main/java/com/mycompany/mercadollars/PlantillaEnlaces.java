@@ -21,13 +21,17 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     /**
      * Creates new form PlantillaEnlaces
      */
-    public final Color verdeClaro = new Color(204, 255, 204);
-    public final Color verdeOscuro = new Color(0, 204, 51);
+    private final Color verdeClaro = new Color(204, 255, 204);
+    private final Color verdeOscuro = new Color(0, 204, 51);
     static public boolean semaforo = true;
     static public JPanel panelOG;
 
     public PlantillaEnlaces() {
+        //INICIAR COMPONENTES Y PONER FULLSCREEN
+        this.setUndecorated(true);
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
+        //-----------------------------------------
     }
 
     public PlantillaEnlaces(String ventana, javax.swing.JPanel panel) {
@@ -44,7 +48,11 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     }
 
     public PlantillaEnlaces(String ventana) {
+        //INICIAR COMPONENTES Y PONER FULLSCREEN
+        this.setUndecorated(true);
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
+        //-----------------------------------------
     }
 
     /**
@@ -409,7 +417,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
                 break;
 
             case "promociones":
-                lblTitulo.setText("Gestión de promociones");
+                lblTitulo.setText("Gestión de promociones (por implementar)");
                 btnPromociones.setBackground(verdeOscuro);
                 break;
 

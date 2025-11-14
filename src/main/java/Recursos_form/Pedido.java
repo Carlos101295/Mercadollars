@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import com.mycompany.mercadollars.PlantillaEnlaces;
+
 /**
  *
  * @author FranciscoJavierJimenezMuñoz
@@ -71,13 +73,27 @@ public class Pedido extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPedidoAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoAltaActionPerformed
+        PlantillaEnlaces.semaforo = false;
         PedidoAlta PA_ventana = new PedidoAlta();
-        PA_ventana.setLocationRelativeTo(null);
-        PA_ventana.setVisible(true);
+        
+        this.removeAll();
+        this.add(PA_ventana);
+        this.revalidate();
+        this.repaint();
+        
+        PlantillaEnlaces.panelOG = new Pedido();
     }//GEN-LAST:event_btnPedidoAltaActionPerformed
 
     private void btnPedidoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoModificarActionPerformed
-
+        PlantillaEnlaces.semaforo = false;
+        PedidoModificar PM_ventana = new PedidoModificar();
+        
+        this.removeAll();
+        this.add(PM_ventana);
+        this.revalidate();
+        this.repaint();
+        
+        PlantillaEnlaces.panelOG = new Pedido();
     }//GEN-LAST:event_btnPedidoModificarActionPerformed
 
 

@@ -339,8 +339,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFacturacionActionPerformed
 
     public void abrirVentana(String nombreVentana, JPanel panelVentana){
-        PlantillaEnlaces pe1 = new PlantillaEnlaces(nombreVentana);
-        pe1.setLocationRelativeTo(null);
+        PlantillaEnlaces pe1 = new PlantillaEnlaces(nombreVentana, panelVentana);
         pe1.setVisible(true);
     }
     /**
