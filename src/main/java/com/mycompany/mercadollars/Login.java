@@ -31,7 +31,7 @@ public class Login extends javax.swing.JFrame {
 
         this.getRootPane().setDefaultButton(btnAcceso);
         //Para personalizar el borde de la pestaña (el estilo, la redondez del las esquinas y luego si queremos borde, el color y el grosor)
-        jPanel1.putClientProperty("FlatLaf.style", "arc: 99"
+        jPanel1.putClientProperty("FlatLaf.style", "arc: 5"
         /*+"border: 15,20,15,20, #ffffff, 2"*/);
     }
 
@@ -198,7 +198,7 @@ public class Login extends javax.swing.JFrame {
     
     public static void main(String args[]) {
         FlatLightLaf.setup();
-        UIManager.put("Button.arc", 999);
+        UIManager.put("Button.arc", 25);
 
         //UIManager.put("Component.arc", 999 );
 

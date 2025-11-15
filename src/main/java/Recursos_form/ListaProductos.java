@@ -35,6 +35,7 @@ public class ListaProductos extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(1128, 200));
         setMinimumSize(new java.awt.Dimension(1235, 200));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1128, 200));
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 15, 15));
 
