@@ -4,6 +4,7 @@
  */
 package Recursos_form;
 
+import javax.swing.Icon;
 import javax.swing.JLabel;
 
 /**
@@ -19,30 +20,33 @@ public class ComponenteProducto extends javax.swing.JPanel {
         initComponents();
     }
 
-    public JLabel getImgPro() {
+    public JLabel getImgProd() {
         return imgPro;
     }
+    
 
-    public void setImgPro(JLabel imgPro) {
-        this.imgPro = imgPro;
+    public void setImgPro(Icon imgPro) {
+        this.imgPro.setIcon(imgPro);
     }
 
-    public JLabel getLblDescrip() {
+    public JLabel getLblDescripcion() {
         return lblDescrip;
     }
 
     public void setLblDescrip(String texto) {
         this.lblDescrip.setText(texto);
     }
+    
+    
 
     public JLabel getLblNombrePro() {
         return lblNombrePro;
     }
 
-    public void setLblNombrePro(String texto) {
+    public void setLblNombreProducto(String texto) {
         this.lblNombrePro.setText(texto);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,27 +64,31 @@ public class ComponenteProducto extends javax.swing.JPanel {
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(200, 200));
 
+        lblNombrePro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombrePro.setText("NombreProducto");
 
         imgPro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgPro.setText("Imagen ");
+        imgPro.setText(" ");
 
+        lblDescrip.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDescrip.setText("Descripcion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(lblDescrip, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(lblNombrePro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(imgPro, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 41, Short.MAX_VALUE))
-                    .addComponent(lblDescrip, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 41, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
