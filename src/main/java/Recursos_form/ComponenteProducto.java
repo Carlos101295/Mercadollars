@@ -62,7 +62,8 @@ public class ComponenteProducto extends javax.swing.JPanel {
 
         lblNombrePro.setText("NombreProducto");
 
-        imgPro.setText("Imagen de producto");
+        imgPro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgPro.setText("Imagen ");
 
         lblDescrip.setText("Descripcion");
 
