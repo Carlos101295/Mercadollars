@@ -25,7 +25,7 @@ PANELES:
     - MODIFICAR PEDIDO > OSCAR ✓
 
     ⚠️⚠️⚠️ OBLIGATORIO/NECESARIO ⚠️⚠️⚠️
-    - Crear interfaz con al menos 6 productos hechos con un componente.
+    - Crear interfaz con al menos 6 productos hechos con un componente.✓
     - Crear listados falsos provisionales de las pestañas obligatorias (Productos, proveedores, clientes, empleados, promociones, pedidos) si tienen algún botón que los genere.
 
     ADICIONAL PREVIO A LA PRIMERA ENTREGA:

@@ -42,12 +42,32 @@ public class ListaProductos extends javax.swing.JPanel {
         componenteProducto1.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/agua.png"))); // NOI18N
         componenteProducto1.setInheritsPopupMenu(true);
         componenteProducto1.setLblDescrip("0.75 Euros/Litro");
-        componenteProducto1.setLblNombreProducto("Botella 1.5Litros");
+        componenteProducto1.setLblNombreProducto("Botella Agua 1.5L");
         add(componenteProducto1);
+
+        componenteProducto2.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/cola.png"))); // NOI18N
+        componenteProducto2.setLblDescrip("1.20 Euros/Ud.");
+        componenteProducto2.setLblNombreProducto("Coca-Cola");
         add(componenteProducto2);
+
+        componenteProducto3.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/carne.png"))); // NOI18N
+        componenteProducto3.setLblDescrip("6 Euros/Kg");
+        componenteProducto3.setLblNombreProducto("Secreto Ibérico");
         add(componenteProducto3);
+
+        componenteProducto4.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/pasta.png"))); // NOI18N
+        componenteProducto4.setLblDescrip("0.38 Euros/Kg");
+        componenteProducto4.setLblNombreProducto("Pasta Integral");
         add(componenteProducto4);
+
+        componenteProducto5.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/pescado.png"))); // NOI18N
+        componenteProducto5.setLblDescrip("5.6 Euros/Kg");
+        componenteProducto5.setLblNombreProducto("Sardinas");
         add(componenteProducto5);
+
+        componenteProducto6.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/uva.png"))); // NOI18N
+        componenteProducto6.setLblDescrip("3 Euros/Kg");
+        componenteProducto6.setLblNombreProducto("Uvas");
         add(componenteProducto6);
     }// </editor-fold>//GEN-END:initComponents
 

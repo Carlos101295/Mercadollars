@@ -60,16 +60,21 @@ public class ComponenteProducto extends javax.swing.JPanel {
         imgPro = new javax.swing.JLabel();
         lblDescrip = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5), new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 0), 3, true)));
         setMinimumSize(new java.awt.Dimension(200, 200));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(200, 200));
 
+        lblNombrePro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblNombrePro.setForeground(new java.awt.Color(51, 102, 0));
         lblNombrePro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombrePro.setText("NombreProducto");
 
         imgPro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgPro.setText(" ");
 
+        lblDescrip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblDescrip.setForeground(new java.awt.Color(51, 102, 0));
         lblDescrip.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDescrip.setText("Descripcion");
 
@@ -88,7 +93,7 @@ public class ComponenteProducto extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(imgPro, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 41, Short.MAX_VALUE)))
+                        .addGap(0, 25, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -99,7 +104,7 @@ public class ComponenteProducto extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(imgPro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDescrip, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addComponent(lblDescrip, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
