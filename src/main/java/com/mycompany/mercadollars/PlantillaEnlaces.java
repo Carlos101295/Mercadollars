@@ -42,9 +42,14 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         boolean tipoUsuario = admin;
         //-----------------------------------------
         if (!admin) {
-            btnEmpleados.setEnabled(false);
-            btnProveedores.setEnabled(false);
-            btnPromociones.setEnabled(false);
+            //btnEmpleados.setEnabled(false);
+            //btnProveedores.setEnabled(false);
+            //btnPromociones.setEnabled(false);
+            jPanel1.remove(btnEmpleados);
+            jPanel1.remove(btnProveedores);
+            jPanel1.remove(btnPromociones);
+            this.revalidate();
+            this.repaint();
         }
         btnUsuario.setFocusable(false); //EVITAR EL SELECCIONADO POR DEFECTO DEL USUARIO
         panelOG = panel;
