@@ -16,6 +16,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio.class.getName());
 
+    private Usuario usuario;
     /**
      * Creates new form Inicio
      */
@@ -23,15 +24,22 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
     }
 
+    public Inicio(Usuario usuario) {
         //INICIAR COMPONENTES Y PONER FULLSCREEN
         this.setUndecorated(true);
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         //-----------------------------------------
+        
+        this.usuario = usuario;
+        
+        if (!usuario.isAdmin()) {
             btnEmpleados.setVisible(false);
             btnProveedores.setVisible(false);
             btnPromociones.setVisible(false);
         }
+        
+        btnUsuario.setText(usuario.getNombre());
         btnUsuario.setFocusable(false);
         pnlScrolleableOpciones.getVerticalScrollBar().setUnitIncrement(13);
     }
@@ -313,29 +321,39 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        abrirVentana("clientes", new Cliente(), usuario);
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
+        abrirVentana("empleados", new Empleados(), usuario);
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
+        abrirVentana("inventario", new Productos(), usuario);
     }//GEN-LAST:event_btnInventarioActionPerformed
 
     private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
+        abrirVentana("caja", new Ventas(), usuario);
     }//GEN-LAST:event_btnCajaActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
+        abrirVentana("proveedores", new Proveedores(), usuario);
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
+        abrirVentana("pedidos", new Pedido(), usuario);
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
+        abrirVentana("promociones", new Promociones(), usuario);
     }//GEN-LAST:event_btnPromocionesActionPerformed
 
     private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
+        abrirVentana("facturacion", new Facturacion(), usuario);
     }//GEN-LAST:event_btnFacturacionActionPerformed
 
+    public void abrirVentana(String nombreVentana, JPanel panelVentana, Usuario usuario) {
+        PlantillaEnlaces pe1 = new PlantillaEnlaces(nombreVentana, panelVentana, usuario);
         pe1.setVisible(true);
     }
 

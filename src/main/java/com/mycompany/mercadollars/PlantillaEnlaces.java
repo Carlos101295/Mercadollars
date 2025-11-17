@@ -34,16 +34,20 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         //-----------------------------------------
     }
 
+    public PlantillaEnlaces(String ventana, javax.swing.JPanel panel, Usuario usuario) {
         //INICIAR COMPONENTES Y PONER FULLSCREEN
         this.setUndecorated(true);
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         //-----------------------------------------
+        
+        if (!usuario.isAdmin()) {
             btnEmpleados.setEnabled(false);
             btnProveedores.setEnabled(false);
             btnPromociones.setEnabled(false);
         }
         btnUsuario.setFocusable(false); //EVITAR EL SELECCIONADO POR DEFECTO DEL USUARIO
+        btnUsuario.setText(usuario.getNombre());
         panelOG = panel;
         cambiarHeader(ventana);
         cambiarVentana();
