@@ -33,10 +33,10 @@ public class ListaProductos extends javax.swing.JPanel {
         componenteProducto5 = new Recursos_form.ComponenteProducto();
         componenteProducto6 = new Recursos_form.ComponenteProducto();
 
-        setMaximumSize(new java.awt.Dimension(1128, 200));
-        setMinimumSize(new java.awt.Dimension(1235, 200));
-        setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(1128, 200));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(675, 450));
+        setMinimumSize(new java.awt.Dimension(675, 450));
+        setPreferredSize(new java.awt.Dimension(675, 450));
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 15, 15));
 
         componenteProducto1.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/agua.png"))); // NOI18N
