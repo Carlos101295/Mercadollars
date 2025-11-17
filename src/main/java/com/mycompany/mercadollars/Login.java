@@ -31,7 +31,7 @@ public class Login extends javax.swing.JFrame {
 
         this.getRootPane().setDefaultButton(btnAcceso);
         //Para personalizar el borde de la pestaña (el estilo, la redondez del las esquinas y luego si queremos borde, el color y el grosor)
-        jPanel1.putClientProperty("FlatLaf.style", "arc: 5"
+        pnlDatos.putClientProperty("FlatLaf.style", "arc: 5"
         /*+"border: 15,20,15,20, #ffffff, 2"*/);
     }
 
@@ -46,7 +46,11 @@ public class Login extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         pnlLogin = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        btnSalir = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        pnlDatos = new javax.swing.JPanel();
         lblImg = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
         txfNom = new javax.swing.JTextField();
@@ -55,10 +59,45 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnlLogin.setLayout(new java.awt.GridBagLayout());
+        pnlLogin.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 889, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        pnlLogin.add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(51, 153, 0));
+        btnSalir.setText("Salir");
+        btnSalir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 0), 1, true));
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.ipady = 15;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 25);
+        jPanel4.add(btnSalir, gridBagConstraints);
+
+        pnlLogin.add(jPanel4, java.awt.BorderLayout.PAGE_END);
+
+        pnlDatos.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDatos.setLayout(new java.awt.GridBagLayout());
 
         lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dollar.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -66,7 +105,7 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.insets = new java.awt.Insets(0, 20, 15, 20);
-        jPanel1.add(lblImg, gridBagConstraints);
+        pnlDatos.add(lblImg, gridBagConstraints);
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(51, 102, 0));
@@ -75,122 +114,79 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 20, 13, 20);
-        jPanel1.add(lblTitulo, gridBagConstraints);
+        pnlDatos.add(lblTitulo, gridBagConstraints);
 
         txfNom.setForeground(new java.awt.Color(128, 128, 128));
         txfNom.setText("Escribe tu usuario");
-        txfNom.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txfNomFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txfNomFocusLost(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(9, 78, 9, 78);
-        jPanel1.add(txfNom, gridBagConstraints);
+        pnlDatos.add(txfNom, gridBagConstraints);
 
         btnAcceso.setBackground(new java.awt.Color(51, 102, 0));
         btnAcceso.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAcceso.setForeground(new java.awt.Color(255, 255, 255));
         btnAcceso.setText("ACCEDER");
-        btnAcceso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAccesoActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(13, 20, 13, 20);
-        jPanel1.add(btnAcceso, gridBagConstraints);
+        pnlDatos.add(btnAcceso, gridBagConstraints);
 
         txfPass.setForeground(new java.awt.Color(128, 128, 128));
         txfPass.setText("contraseña");
-        txfPass.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txfPassFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txfPassFocusLost(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(9, 78, 9, 78);
-        jPanel1.add(txfPass, gridBagConstraints);
+        pnlDatos.add(txfPass, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 5;
-        pnlLogin.add(jPanel1, gridBagConstraints);
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 889, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 542, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        pnlLogin.add(jPanel5, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
+            .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
+            .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txfNomFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfNomFocusGained
-        if (txfNom.getText().equals("Escribe tu usuario")) {
-            txfNom.setText("");
-            txfNom.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_txfNomFocusGained
-
-    private void txfNomFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfNomFocusLost
-        if (txfNom.getText().isEmpty()) {
-            txfNom.setForeground(Color.GRAY);
-            txfNom.setText("Escribe tu usuario");
-        }
-    }//GEN-LAST:event_txfNomFocusLost
-
-    private void txfPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfPassFocusGained
-       if (String.valueOf(txfPass.getPassword()).equals("contraseña")) {
-            txfPass.setText("");
-            txfPass.setForeground(Color.GRAY);
-        }
-    }//GEN-LAST:event_txfPassFocusGained
-
-    private void txfPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfPassFocusLost
-        if (String.valueOf(txfPass.getPassword()).isEmpty()) {
-            txfPass.setForeground(Color.GRAY);
-            txfPass.setText("contraseña");
-        }
-    }//GEN-LAST:event_txfPassFocusLost
-
-    private void btnAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccesoActionPerformed
-        String contrasena = String.valueOf(txfPass.getPassword());
-        if (txfNom.getText().equalsIgnoreCase("usuario") && contrasena.equals("usuario")) {
-            //String nombreUsuario = txfNom.getText();
-            Inicio home = new Inicio();
-            home.setLocationRelativeTo(this);
-            home.setVisible(true);
-            this.dispose();
-        } else if (txfNom.getText().isBlank() || contrasena.isBlank()) {
-            JOptionPane.showMessageDialog(this, "Rellena los campos", "Ventana warning", WARNING_MESSAGE);
-        } else if (!txfNom.getText ().equalsIgnoreCase("usuario") || !contrasena.equals("usuario")){
-            JOptionPane.showMessageDialog(this, "Has introducido algún dato mal", "Ventana error", ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnAccesoActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,9 +204,13 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceso;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pnlDatos;
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JTextField txfNom;
     private javax.swing.JPasswordField txfPass;
