@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author pablo
+ * @author Pablo Alarcón Pérez
  */
 public class ComponenteProducto extends javax.swing.JPanel {
 

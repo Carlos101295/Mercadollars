@@ -13,7 +13,7 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author MEDAC
+ * @author Pablo Alarcón Pérez
  */
 public class Login extends javax.swing.JFrame {
 

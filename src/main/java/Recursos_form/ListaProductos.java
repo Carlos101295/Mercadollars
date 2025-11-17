@@ -6,7 +6,7 @@ package Recursos_form;
 
 /**
  *
- * @author pablo
+ * @author Pablo Alarcón Pérez
  */
 public class ListaProductos extends javax.swing.JPanel {
 

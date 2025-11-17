@@ -8,7 +8,7 @@ import com.mycompany.mercadollars.PlantillaEnlaces;
 
 /**
  *
- * @author MEDAC
+ * @author Pablo Alarcón Pérez
  */
 public class Proveedores extends javax.swing.JPanel {
 
