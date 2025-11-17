@@ -15,6 +15,7 @@ public class ListaProductos extends javax.swing.JPanel {
      */
     public ListaProductos() {
         initComponents();
+        scrollPanelProductos.getVerticalScrollBar().setUnitIncrement(13);
     }
 
     /**
@@ -26,58 +27,129 @@ public class ListaProductos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        scrollPanelProductos = new javax.swing.JScrollPane();
+        pnlCapsulaProductos = new javax.swing.JPanel();
         componenteProducto1 = new Recursos_form.ComponenteProducto();
         componenteProducto2 = new Recursos_form.ComponenteProducto();
         componenteProducto3 = new Recursos_form.ComponenteProducto();
         componenteProducto4 = new Recursos_form.ComponenteProducto();
         componenteProducto5 = new Recursos_form.ComponenteProducto();
         componenteProducto6 = new Recursos_form.ComponenteProducto();
+        componenteProducto7 = new Recursos_form.ComponenteProducto();
+        componenteProducto8 = new Recursos_form.ComponenteProducto();
+        componenteProducto9 = new Recursos_form.ComponenteProducto();
+        componenteProducto10 = new Recursos_form.ComponenteProducto();
+        componenteProducto11 = new Recursos_form.ComponenteProducto();
+        componenteProducto12 = new Recursos_form.ComponenteProducto();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(675, 450));
+        setMaximumSize(new java.awt.Dimension(675, 99999999));
         setMinimumSize(new java.awt.Dimension(675, 450));
         setPreferredSize(new java.awt.Dimension(675, 450));
-        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 15, 15));
+
+        scrollPanelProductos.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPanelProductos.setMaximumSize(null);
+        scrollPanelProductos.setMinimumSize(null);
+        scrollPanelProductos.setName(""); // NOI18N
+        scrollPanelProductos.setPreferredSize(new java.awt.Dimension(675, 450));
+
+        pnlCapsulaProductos.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCapsulaProductos.setMaximumSize(null);
+        pnlCapsulaProductos.setMinimumSize(null);
+        pnlCapsulaProductos.setPreferredSize(new java.awt.Dimension(675, 820));
+        pnlCapsulaProductos.setRequestFocusEnabled(false);
 
         componenteProducto1.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/agua.png"))); // NOI18N
         componenteProducto1.setInheritsPopupMenu(true);
         componenteProducto1.setLblDescrip("0.75 Euros/Litro");
         componenteProducto1.setLblNombreProducto("Botella Agua 1.5L");
-        add(componenteProducto1);
+        pnlCapsulaProductos.add(componenteProducto1);
 
         componenteProducto2.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/cola.png"))); // NOI18N
         componenteProducto2.setLblDescrip("1.20 Euros/Ud.");
         componenteProducto2.setLblNombreProducto("Coca-Cola");
-        add(componenteProducto2);
+        pnlCapsulaProductos.add(componenteProducto2);
 
         componenteProducto3.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/carne.png"))); // NOI18N
         componenteProducto3.setLblDescrip("6 Euros/Kg");
         componenteProducto3.setLblNombreProducto("Secreto Ibérico");
-        add(componenteProducto3);
+        pnlCapsulaProductos.add(componenteProducto3);
 
         componenteProducto4.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/pasta.png"))); // NOI18N
         componenteProducto4.setLblDescrip("0.38 Euros/Kg");
         componenteProducto4.setLblNombreProducto("Pasta Integral");
-        add(componenteProducto4);
+        pnlCapsulaProductos.add(componenteProducto4);
 
         componenteProducto5.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/pescado.png"))); // NOI18N
         componenteProducto5.setLblDescrip("5.6 Euros/Kg");
         componenteProducto5.setLblNombreProducto("Sardinas");
-        add(componenteProducto5);
+        pnlCapsulaProductos.add(componenteProducto5);
 
         componenteProducto6.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/uva.png"))); // NOI18N
         componenteProducto6.setLblDescrip("3 Euros/Kg");
         componenteProducto6.setLblNombreProducto("Uvas");
-        add(componenteProducto6);
+        pnlCapsulaProductos.add(componenteProducto6);
+
+        componenteProducto7.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/agua.png"))); // NOI18N
+        componenteProducto7.setInheritsPopupMenu(true);
+        componenteProducto7.setLblDescrip("0.75 Euros/Litro");
+        componenteProducto7.setLblNombreProducto("Botella Agua 1.5L");
+        pnlCapsulaProductos.add(componenteProducto7);
+
+        componenteProducto8.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/cola.png"))); // NOI18N
+        componenteProducto8.setLblDescrip("1.20 Euros/Ud.");
+        componenteProducto8.setLblNombreProducto("Coca-Cola");
+        pnlCapsulaProductos.add(componenteProducto8);
+
+        componenteProducto9.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/carne.png"))); // NOI18N
+        componenteProducto9.setLblDescrip("6 Euros/Kg");
+        componenteProducto9.setLblNombreProducto("Secreto Ibérico");
+        pnlCapsulaProductos.add(componenteProducto9);
+
+        componenteProducto10.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/pasta.png"))); // NOI18N
+        componenteProducto10.setLblDescrip("0.38 Euros/Kg");
+        componenteProducto10.setLblNombreProducto("Pasta Integral");
+        pnlCapsulaProductos.add(componenteProducto10);
+
+        componenteProducto11.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/pescado.png"))); // NOI18N
+        componenteProducto11.setLblDescrip("5.6 Euros/Kg");
+        componenteProducto11.setLblNombreProducto("Sardinas");
+        pnlCapsulaProductos.add(componenteProducto11);
+
+        componenteProducto12.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/uva.png"))); // NOI18N
+        componenteProducto12.setLblDescrip("3 Euros/Kg");
+        componenteProducto12.setLblNombreProducto("Uvas");
+        pnlCapsulaProductos.add(componenteProducto12);
+
+        scrollPanelProductos.setViewportView(pnlCapsulaProductos);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scrollPanelProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scrollPanelProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Recursos_form.ComponenteProducto componenteProducto1;
+    private Recursos_form.ComponenteProducto componenteProducto10;
+    private Recursos_form.ComponenteProducto componenteProducto11;
+    private Recursos_form.ComponenteProducto componenteProducto12;
     private Recursos_form.ComponenteProducto componenteProducto2;
     private Recursos_form.ComponenteProducto componenteProducto3;
     private Recursos_form.ComponenteProducto componenteProducto4;
     private Recursos_form.ComponenteProducto componenteProducto5;
     private Recursos_form.ComponenteProducto componenteProducto6;
+    private Recursos_form.ComponenteProducto componenteProducto7;
+    private Recursos_form.ComponenteProducto componenteProducto8;
+    private Recursos_form.ComponenteProducto componenteProducto9;
+    private javax.swing.JPanel pnlCapsulaProductos;
+    private javax.swing.JScrollPane scrollPanelProductos;
     // End of variables declaration//GEN-END:variables
 }

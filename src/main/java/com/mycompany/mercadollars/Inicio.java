@@ -129,6 +129,7 @@ public class Inicio extends javax.swing.JFrame {
         pnlCentral.add(lblTitulo, gridBagConstraints);
 
         pnlScrolleableOpciones.setBorder(null);
+        pnlScrolleableOpciones.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         pnlBotones.setBackground(new java.awt.Color(255, 255, 255));
         pnlBotones.setLayout(new java.awt.GridBagLayout());
