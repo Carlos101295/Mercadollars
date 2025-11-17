@@ -138,7 +138,12 @@ public class Productos extends javax.swing.JPanel {
     }//GEN-LAST:event_btnProductoListadoActionPerformed
 
     private void btnProductoListadoBajoStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoListadoBajoStockActionPerformed
-        // TODO add your handling code here:
+        PlantillaEnlaces.semaforo = false;
+        this.removeAll();
+        this.add(new ListaProductosBajoStock());
+        this.revalidate();
+        this.repaint();
+        PlantillaEnlaces.panelOG = new Productos();
     }//GEN-LAST:event_btnProductoListadoBajoStockActionPerformed
 
 
