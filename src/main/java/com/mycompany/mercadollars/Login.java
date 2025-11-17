@@ -46,10 +46,10 @@ public class Login extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         pnlLogin = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        pnlSuperior = new javax.swing.JPanel();
+        pnlInferior = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        pnlCentral = new javax.swing.JPanel();
         pnlDatos = new javax.swing.JPanel();
         lblImg = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
@@ -61,20 +61,20 @@ public class Login extends javax.swing.JFrame {
 
         pnlLogin.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlSuperiorLayout = new javax.swing.GroupLayout(pnlSuperior);
+        pnlSuperior.setLayout(pnlSuperiorLayout);
+        pnlSuperiorLayout.setHorizontalGroup(
+            pnlSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 889, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlSuperiorLayout.setVerticalGroup(
+            pnlSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        pnlLogin.add(jPanel2, java.awt.BorderLayout.PAGE_START);
+        pnlLogin.add(pnlSuperior, java.awt.BorderLayout.PAGE_START);
 
-        jPanel4.setLayout(new java.awt.GridBagLayout());
+        pnlInferior.setLayout(new java.awt.GridBagLayout());
 
         btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(51, 153, 0));
@@ -92,9 +92,9 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 25);
-        jPanel4.add(btnSalir, gridBagConstraints);
+        pnlInferior.add(btnSalir, gridBagConstraints);
 
-        pnlLogin.add(jPanel4, java.awt.BorderLayout.PAGE_END);
+        pnlLogin.add(pnlInferior, java.awt.BorderLayout.PAGE_END);
 
         pnlDatos.setBackground(new java.awt.Color(255, 255, 255));
         pnlDatos.setLayout(new java.awt.GridBagLayout());
@@ -147,28 +147,28 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(9, 78, 9, 78);
         pnlDatos.add(txfPass, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlCentralLayout = new javax.swing.GroupLayout(pnlCentral);
+        pnlCentral.setLayout(pnlCentralLayout);
+        pnlCentralLayout.setHorizontalGroup(
+            pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 889, Short.MAX_VALUE)
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlCentralLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlCentralLayout.setVerticalGroup(
+            pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 542, Short.MAX_VALUE)
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlCentralLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        pnlLogin.add(jPanel5, java.awt.BorderLayout.CENTER);
+        pnlLogin.add(pnlCentral, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,13 +205,13 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceso;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pnlCentral;
     private javax.swing.JPanel pnlDatos;
+    private javax.swing.JPanel pnlInferior;
     private javax.swing.JPanel pnlLogin;
+    private javax.swing.JPanel pnlSuperior;
     private javax.swing.JTextField txfNom;
     private javax.swing.JPasswordField txfPass;
     // End of variables declaration//GEN-END:variables
