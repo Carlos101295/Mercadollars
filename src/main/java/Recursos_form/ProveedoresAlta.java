@@ -6,7 +6,7 @@ package Recursos_form;
 
 /**
  *
- * @author MEDAC
+ * @author Pablo Alarcón Pérez
  */
 public class ProveedoresAlta extends javax.swing.JPanel {
 

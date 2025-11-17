@@ -8,7 +8,7 @@ import java.awt.Color;
 
 /**
  *
- * @author MEDAC
+ * @author Pablo Alarcón Pérez
  */
 public class ProveedoresModificar extends javax.swing.JPanel {
 
