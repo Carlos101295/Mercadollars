@@ -8,7 +8,6 @@ import Recursos_form.*;
 import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.JPanel;
 
-
 /**
  *
  * @author Carlos Duarte Ruiz
@@ -16,17 +15,27 @@ import javax.swing.JPanel;
 public class Inicio extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio.class.getName());
+    boolean tipoUsuario;
 
     /**
      * Creates new form Inicio
      */
     public Inicio() {
+        initComponents();
+    }
+
+    public Inicio(boolean admin) {
         //INICIAR COMPONENTES Y PONER FULLSCREEN
         this.setUndecorated(true);
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        tipoUsuario = admin;
         //-----------------------------------------
-        
+        if (!admin) {
+            btnEmpleados.setVisible(false);
+            btnProveedores.setVisible(false);
+            btnPromociones.setVisible(false);
+        }
         btnUsuario.setFocusable(false);
         pnlScrolleableOpciones.getVerticalScrollBar().setUnitIncrement(13);
     }
@@ -308,41 +317,42 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        abrirVentana("clientes", new Cliente());
+        abrirVentana("clientes", new Cliente(), tipoUsuario);
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
-        abrirVentana("empleados", new Empleados());
+        abrirVentana("empleados", new Empleados(), tipoUsuario);
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
-        abrirVentana("inventario", new Productos());
+        abrirVentana("inventario", new Productos(), tipoUsuario);
     }//GEN-LAST:event_btnInventarioActionPerformed
 
     private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
-        abrirVentana("caja", new Ventas());
+        abrirVentana("caja", new Ventas(), tipoUsuario);
     }//GEN-LAST:event_btnCajaActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
-        abrirVentana("proveedores", new Proveedores());
+        abrirVentana("proveedores", new Proveedores(), tipoUsuario);
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
-        abrirVentana("pedidos", new Pedido());
+        abrirVentana("pedidos", new Pedido(), tipoUsuario);
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
-        abrirVentana("promociones", new Promociones());
+        abrirVentana("promociones", new Promociones(), tipoUsuario);
     }//GEN-LAST:event_btnPromocionesActionPerformed
 
     private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
-        abrirVentana("facturacion",new Facturacion());
+        abrirVentana("facturacion", new Facturacion(), tipoUsuario);
     }//GEN-LAST:event_btnFacturacionActionPerformed
 
-    public void abrirVentana(String nombreVentana, JPanel panelVentana){
-        PlantillaEnlaces pe1 = new PlantillaEnlaces(nombreVentana, panelVentana);
+    public void abrirVentana(String nombreVentana, JPanel panelVentana, boolean admin) {
+        PlantillaEnlaces pe1 = new PlantillaEnlaces(nombreVentana, panelVentana, admin);
         pe1.setVisible(true);
     }
+
     /**
      * @param args the command line arguments
      */
