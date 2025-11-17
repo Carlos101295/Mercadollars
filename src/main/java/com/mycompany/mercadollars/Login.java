@@ -19,7 +19,6 @@ public class Login extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
-    boolean admin = false;
     /**
      * Creates new form Login
      */
@@ -212,14 +211,9 @@ public class Login extends javax.swing.JFrame {
 
     private void btnAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccesoActionPerformed
         String contrasena = String.valueOf(txfPass.getPassword());
-        if (txfNom.getText().equalsIgnoreCase("usuario") && contrasena.equals("usuario")) {
-            admin = false;
-            Inicio home = new Inicio(admin);
             home.setLocationRelativeTo(this);
             home.setVisible(true);
             this.dispose();
-        } else if (txfNom.getText().equalsIgnoreCase("admin") && contrasena.equals("admin")) {
-            admin = true;
             Inicio home = new Inicio(admin);
             home.setLocationRelativeTo(this);
             home.setVisible(true);
