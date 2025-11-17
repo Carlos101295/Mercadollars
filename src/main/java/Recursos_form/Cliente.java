@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import com.mycompany.mercadollars.PlantillaEnlaces;
+
 /**
  *
  * @author FranciscoJavierJimenezMuñoz
@@ -90,15 +92,21 @@ public class Cliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClienteAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteAltaActionPerformed
-        ClienteAlta CA_ventana = new ClienteAlta();
-        CA_ventana.setLocationRelativeTo(null);
-        CA_ventana.setVisible(true);
+        PlantillaEnlaces.semaforo = false;
+        this.removeAll();
+        this.add(new ClienteAlta());
+        this.revalidate();
+        this.repaint();
+        PlantillaEnlaces.panelOG = new Cliente();
     }//GEN-LAST:event_btnClienteAltaActionPerformed
 
     private void btnClienteModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteModificarActionPerformed
-        ClienteModificar CM_ventana = new ClienteModificar();
-        CM_ventana.setLocationRelativeTo(null);
-        CM_ventana.setVisible(true);
+        PlantillaEnlaces.semaforo = false;
+        this.removeAll();
+        this.add(new ClienteModificar());
+        this.revalidate();
+        this.repaint();
+        PlantillaEnlaces.panelOG = new Cliente();
     }//GEN-LAST:event_btnClienteModificarActionPerformed
 
     private void btnClienteListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteListadoActionPerformed

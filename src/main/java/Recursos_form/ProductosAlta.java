@@ -45,6 +45,7 @@ public class ProductosAlta extends javax.swing.JPanel {
         txtProductoPrecioFinal = new javax.swing.JTextField();
         btnDarAlta = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(1250, 381));
         setPreferredSize(new java.awt.Dimension(1250, 381));
         setLayout(new java.awt.GridBagLayout());
@@ -100,6 +101,9 @@ public class ProductosAlta extends javax.swing.JPanel {
         lblProductoPrecioSinIva.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblProductoPrecioSinIva.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblProductoPrecioSinIva.setText("Precio sin IVA:");
+        lblProductoPrecioSinIva.setMaximumSize(new java.awt.Dimension(170, 40));
+        lblProductoPrecioSinIva.setMinimumSize(new java.awt.Dimension(170, 40));
+        lblProductoPrecioSinIva.setPreferredSize(new java.awt.Dimension(170, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;

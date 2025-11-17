@@ -11,7 +11,8 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author ÓscarMaqueda
+ * Interfaz: ÓscarMaqueda
+ * Logica: ÓscarMaqueda
  */
 public class PlantillaEnlaces extends javax.swing.JFrame {
 
@@ -20,31 +21,38 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     /**
      * Creates new form PlantillaEnlaces
      */
-    public final Color verdeClaro = new Color(204, 255, 204);
-    public final Color verdeOscuro = new Color(0, 204, 51);
+    private final Color verdeClaro = new Color(204, 255, 204);
+    private final Color verdeOscuro = new Color(0, 204, 51);
     static public boolean semaforo = true;
     static public JPanel panelOG;
 
     public PlantillaEnlaces() {
+        //INICIAR COMPONENTES Y PONER FULLSCREEN
+        this.setUndecorated(true);
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
+        //-----------------------------------------
     }
 
     public PlantillaEnlaces(String ventana, javax.swing.JPanel panel) {
+        //INICIAR COMPONENTES Y PONER FULLSCREEN
+        this.setUndecorated(true);
         initComponents();
-        btnUsuario.setFocusable(false);
-        this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
+        //-----------------------------------------
+        
+        btnUsuario.setFocusable(false); //EVITAR EL SELECCIONADO POR DEFECTO DEL USUARIO
         panelOG = panel;
         cambiarHeader(ventana);
-        pnlInfo.removeAll();
-        pnlInfo.add(panel);
-        pnlInfo.revalidate();
-        pnlInfo.repaint();
-        System.out.println(PlantillaEnlaces.semaforo);
+        cambiarVentana();
     }
 
     public PlantillaEnlaces(String ventana) {
+        //INICIAR COMPONENTES Y PONER FULLSCREEN
+        this.setUndecorated(true);
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
+        //-----------------------------------------
     }
 
     /**
@@ -73,7 +81,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         lblMercaDollars = new javax.swing.JLabel();
         pnlInfo = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         pnlSalir = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
 
@@ -236,20 +243,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
 
         pnlInfo.setBackground(new java.awt.Color(255, 255, 255));
         pnlInfo.setLayout(new java.awt.GridBagLayout());
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        pnlInfo.add(jPanel2, new java.awt.GridBagConstraints());
-
         pnlPrincipal.add(pnlInfo, java.awt.BorderLayout.CENTER);
 
         pnlSalir.setBackground(new java.awt.Color(255, 255, 255));
@@ -299,7 +292,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         pnlInfo.revalidate();
         pnlInfo.repaint();
         semaforo = true;
-        System.out.println(PlantillaEnlaces.semaforo);
     }
 
 
@@ -307,16 +299,14 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         if (!semaforo) {
             cambiarVentana();
         } else {
-            pnlInfo.removeAll();
-            pnlInfo.add(panelOG);
-            pnlInfo.revalidate();
-            pnlInfo.repaint();
             dispose();
         }
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        //cambiarVentana("clientes", new Cliente());
+        panelOG = new Cliente();
+        cambiarVentana();
+        cambiarHeader("clientes");
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
@@ -326,28 +316,39 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-        //cambiarVentana("inventario", new Productos());
+        panelOG = new Productos();
+        cambiarVentana();
+        cambiarHeader("inventario");
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
-        //cambiarVentana("caja", new );
+        panelOG = new Ventas();
+        cambiarVentana();
+        cambiarHeader("caja");
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
-        //cambiarVentana("pedidos");
+        panelOG = new Pedido();
+        cambiarVentana();
+        cambiarHeader("pedidos");
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
-        //cambiarVentana("proveedores", new Proveedores());
+        panelOG = new Proveedores();
+        cambiarVentana();
         cambiarHeader("proveedores");
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void btnPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromocionesActionPerformed
-        //cambiarVentana("promociones");
+        panelOG = new Promociones();
+        cambiarVentana();
+        cambiarHeader("promociones");
     }//GEN-LAST:event_btnPromocionesActionPerformed
 
     private void btnFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionActionPerformed
-        //cambiarVentana("facturacion");
+        panelOG = new Facturacion();
+        cambiarVentana();
+        cambiarHeader("facturacion");
     }//GEN-LAST:event_btnFacturacionActionPerformed
 
     /**
@@ -372,7 +373,6 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
     private javax.swing.JButton btnUsuario;
     private javax.swing.JButton btnVentas;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblMercaDollars;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlHipervinculo;
@@ -402,7 +402,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
                 break;
 
             case "caja":
-                lblTitulo.setText("caja (por implementar)");
+                lblTitulo.setText("Caja/Ventas (por implementar)");
                 btnVentas.setBackground(verdeOscuro);
                 break;
 
@@ -417,12 +417,12 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
                 break;
 
             case "promociones":
-                lblTitulo.setText("Gestión de promociones");
+                lblTitulo.setText("Gestión de promociones (por implementar)");
                 btnPromociones.setBackground(verdeOscuro);
                 break;
 
             case "facturacion":
-                lblTitulo.setText("facturacion (por implementar)");
+                lblTitulo.setText("Facturación (por implementar)");
                 btnFacturacion.setBackground(verdeOscuro);
                 break;
 

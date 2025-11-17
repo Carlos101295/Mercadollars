@@ -51,7 +51,7 @@ public class ClienteModificar extends javax.swing.JPanel {
         btnResgist.setBackground(new java.awt.Color(0, 102, 102));
         btnResgist.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnResgist.setForeground(new java.awt.Color(255, 255, 255));
-        btnResgist.setText("Registrar");
+        btnResgist.setText("Modificar");
         btnResgist.setPreferredSize(new java.awt.Dimension(300, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

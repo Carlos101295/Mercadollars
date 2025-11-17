@@ -4,9 +4,14 @@
  */
 package Recursos_form;
 
+import java.awt.Color;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author ÓscarMaqueda
+ * Interfaz: ÓscarMaqueda
+ * Logica: ÓscarMaqueda
  */
 public class EmpleadosModificar extends javax.swing.JPanel {
 
@@ -40,18 +45,27 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         txtTelefono = new javax.swing.JTextField();
         lblDni = new javax.swing.JLabel();
         txtDni = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
         lblContrasenia = new javax.swing.JLabel();
         pwdContrasenia = new javax.swing.JPasswordField();
         btnGuardar1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        chkCambiarContrasenia = new javax.swing.JCheckBox();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
 
         txtDniSearch.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtDniSearch.setForeground(new java.awt.Color(128, 128, 128));
         txtDniSearch.setText("Inserte DNI a buscar");
         txtDniSearch.setPreferredSize(new java.awt.Dimension(64, 40));
+        txtDniSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDniSearchFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDniSearchFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -64,6 +78,11 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -191,16 +210,6 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
         add(txtDni, gridBagConstraints);
 
-        jToggleButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jToggleButton1.setText("Cambiar contraseña");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
-        add(jToggleButton1, gridBagConstraints);
-
         lblContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblContrasenia.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblContrasenia.setText("Contraseña:");
@@ -226,7 +235,7 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         btnGuardar1.setBackground(new java.awt.Color(0, 102, 102));
         btnGuardar1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnGuardar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar1.setText("Registrar");
+        btnGuardar1.setText("Modificar");
         btnGuardar1.setPreferredSize(new java.awt.Dimension(400, 39));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -234,7 +243,7 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 25, 0);
         add(btnGuardar1, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
@@ -257,15 +266,66 @@ public class EmpleadosModificar extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         add(jPanel1, gridBagConstraints);
+
+        chkCambiarContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        chkCambiarContrasenia.setText("Cambiar Contraseña:");
+        chkCambiarContrasenia.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        chkCambiarContrasenia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkCambiarContraseniaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
+        add(chkCambiarContrasenia, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void chkCambiarContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCambiarContraseniaActionPerformed
+        if (chkCambiarContrasenia.isSelected()) {
+            pwdContrasenia.setEnabled(true);
+        }else{
+            pwdContrasenia.setEnabled(false);
+            pwdContrasenia.setText("");
+        }
+    }//GEN-LAST:event_chkCambiarContraseniaActionPerformed
+
+    private void txtDniSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDniSearchFocusLost
+        if (txtDniSearch.getText().isEmpty()) {
+            txtDniSearch.setForeground(Color.GRAY);
+            txtDniSearch.setText("Inserte DNI a buscar");
+        }
+    }//GEN-LAST:event_txtDniSearchFocusLost
+
+    private void txtDniSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDniSearchFocusGained
+        if (txtDniSearch.getText().equals("Inserte DNI a buscar")) {
+            txtDniSearch.setText("");
+            txtDniSearch.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtDniSearchFocusGained
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        Pattern dniPattern = Pattern.compile("[0-9]{7,8}[A-Z a-z]"); //PATRON PARA EL DNI
+        
+        if (txtDniSearch.getText().equals("Inserte DNI a buscar")) {
+            JOptionPane.showMessageDialog(this, "Porfavor introduzca algo para realizar su busqueda", "Falta dni", JOptionPane.INFORMATION_MESSAGE);
+        }else if (!dniPattern.matcher(txtDniSearch.getText()).matches()) {
+            JOptionPane.showMessageDialog(this, "Dni mal introducido, intentelo denuevo", "Dni missmatch", JOptionPane.ERROR_MESSAGE);
+        }else{
+            
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardar1;
+    private javax.swing.JCheckBox chkCambiarContrasenia;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblContrasenia;
     private javax.swing.JLabel lblCorreo;

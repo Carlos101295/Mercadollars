@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import com.mycompany.mercadollars.PlantillaEnlaces;
+
 /**
  *
  * @author MEDAC
@@ -27,19 +29,19 @@ public class Proveedores extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnClientes = new javax.swing.JButton();
-        btnEmpleados = new javax.swing.JButton();
+        btnProveedoresAlta = new javax.swing.JButton();
+        btnProveedoresModificar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
 
-        btnClientes.setBackground(new java.awt.Color(0, 102, 102));
-        btnClientes.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        btnClientes.setForeground(new java.awt.Color(255, 255, 255));
-        btnClientes.setText("Dar de alta");
-        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+        btnProveedoresAlta.setBackground(new java.awt.Color(0, 102, 102));
+        btnProveedoresAlta.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnProveedoresAlta.setForeground(new java.awt.Color(255, 255, 255));
+        btnProveedoresAlta.setText("Dar de alta");
+        btnProveedoresAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClientesActionPerformed(evt);
+                btnProveedoresAltaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -49,15 +51,15 @@ public class Proveedores extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        add(btnClientes, gridBagConstraints);
+        add(btnProveedoresAlta, gridBagConstraints);
 
-        btnEmpleados.setBackground(new java.awt.Color(0, 102, 102));
-        btnEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        btnEmpleados.setForeground(new java.awt.Color(255, 255, 255));
-        btnEmpleados.setText("Modificar un proveedor");
-        btnEmpleados.addActionListener(new java.awt.event.ActionListener() {
+        btnProveedoresModificar.setBackground(new java.awt.Color(0, 102, 102));
+        btnProveedoresModificar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnProveedoresModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnProveedoresModificar.setText("Modificar un proveedor");
+        btnProveedoresModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmpleadosActionPerformed(evt);
+                btnProveedoresModificarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -67,20 +69,30 @@ public class Proveedores extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        add(btnEmpleados, gridBagConstraints);
+        add(btnProveedoresModificar, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        
-    }//GEN-LAST:event_btnClientesActionPerformed
+    private void btnProveedoresAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresAltaActionPerformed
+        PlantillaEnlaces.semaforo = false;
+        this.removeAll();
+        this.add(new ProveedoresAlta());
+        this.revalidate();
+        this.repaint();
+        PlantillaEnlaces.panelOG = new Proveedores();
+    }//GEN-LAST:event_btnProveedoresAltaActionPerformed
 
-    private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
-        
-    }//GEN-LAST:event_btnEmpleadosActionPerformed
+    private void btnProveedoresModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresModificarActionPerformed
+        PlantillaEnlaces.semaforo = false;
+        this.removeAll();
+        this.add(new ProveedoresModificar());
+        this.revalidate();
+        this.repaint();
+        PlantillaEnlaces.panelOG = new Proveedores();
+    }//GEN-LAST:event_btnProveedoresModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClientes;
-    private javax.swing.JButton btnEmpleados;
+    private javax.swing.JButton btnProveedoresAlta;
+    private javax.swing.JButton btnProveedoresModificar;
     // End of variables declaration//GEN-END:variables
 }
