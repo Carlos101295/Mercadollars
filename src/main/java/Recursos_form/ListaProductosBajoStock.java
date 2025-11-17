@@ -8,12 +8,12 @@ package Recursos_form;
  *
  * @author pablo
  */
-public class ListaProductos extends javax.swing.JPanel {
+public class ListaProductosBajoStock extends javax.swing.JPanel {
 
     /**
      * Creates new form ListaProductos
      */
-    public ListaProductos() {
+    public ListaProductosBajoStock() {
         initComponents();
         scrollPanelProductos.getVerticalScrollBar().setUnitIncrement(13);
     }
@@ -41,23 +41,31 @@ public class ListaProductos extends javax.swing.JPanel {
         componenteProducto10 = new Recursos_form.ComponenteProducto();
         componenteProducto11 = new Recursos_form.ComponenteProducto();
         componenteProducto12 = new Recursos_form.ComponenteProducto();
+        componenteProducto13 = new Recursos_form.ComponenteProducto();
+        componenteProducto14 = new Recursos_form.ComponenteProducto();
+        componenteProducto15 = new Recursos_form.ComponenteProducto();
+        componenteProducto16 = new Recursos_form.ComponenteProducto();
+        componenteProducto17 = new Recursos_form.ComponenteProducto();
+        componenteProducto18 = new Recursos_form.ComponenteProducto();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(675, 99999999));
-        setMinimumSize(new java.awt.Dimension(675, 450));
-        setPreferredSize(new java.awt.Dimension(675, 450));
+        setMaximumSize(new java.awt.Dimension(1500, 99999999));
+        setMinimumSize(new java.awt.Dimension(1500, 550));
+        setPreferredSize(new java.awt.Dimension(1500, 820));
 
+        scrollPanelProductos.setBorder(null);
         scrollPanelProductos.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPanelProductos.setMaximumSize(null);
-        scrollPanelProductos.setMinimumSize(null);
+        scrollPanelProductos.setMaximumSize(new java.awt.Dimension(1500, 9999999));
+        scrollPanelProductos.setMinimumSize(new java.awt.Dimension(1500, 550));
         scrollPanelProductos.setName(""); // NOI18N
-        scrollPanelProductos.setPreferredSize(new java.awt.Dimension(675, 450));
+        scrollPanelProductos.setPreferredSize(new java.awt.Dimension(1500, 820));
 
         pnlCapsulaProductos.setBackground(new java.awt.Color(255, 255, 255));
-        pnlCapsulaProductos.setMaximumSize(null);
-        pnlCapsulaProductos.setMinimumSize(null);
-        pnlCapsulaProductos.setPreferredSize(new java.awt.Dimension(675, 820));
+        pnlCapsulaProductos.setMaximumSize(new java.awt.Dimension(1250, 999999));
+        pnlCapsulaProductos.setMinimumSize(new java.awt.Dimension(1250, 820));
+        pnlCapsulaProductos.setPreferredSize(new java.awt.Dimension(1200, 820));
         pnlCapsulaProductos.setRequestFocusEnabled(false);
+        pnlCapsulaProductos.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         componenteProducto1.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/agua.png"))); // NOI18N
         componenteProducto1.setInheritsPopupMenu(true);
@@ -121,17 +129,48 @@ public class ListaProductos extends javax.swing.JPanel {
         componenteProducto12.setLblNombreProducto("Uvas");
         pnlCapsulaProductos.add(componenteProducto12);
 
+        componenteProducto13.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/agua.png"))); // NOI18N
+        componenteProducto13.setInheritsPopupMenu(true);
+        componenteProducto13.setLblDescrip("0.75 Euros/Litro");
+        componenteProducto13.setLblNombreProducto("Botella Agua 1.5L");
+        pnlCapsulaProductos.add(componenteProducto13);
+
+        componenteProducto14.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/cola.png"))); // NOI18N
+        componenteProducto14.setLblDescrip("1.20 Euros/Ud.");
+        componenteProducto14.setLblNombreProducto("Coca-Cola");
+        pnlCapsulaProductos.add(componenteProducto14);
+
+        componenteProducto15.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/carne.png"))); // NOI18N
+        componenteProducto15.setLblDescrip("6 Euros/Kg");
+        componenteProducto15.setLblNombreProducto("Secreto Ibérico");
+        pnlCapsulaProductos.add(componenteProducto15);
+
+        componenteProducto16.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/pasta.png"))); // NOI18N
+        componenteProducto16.setLblDescrip("0.38 Euros/Kg");
+        componenteProducto16.setLblNombreProducto("Pasta Integral");
+        pnlCapsulaProductos.add(componenteProducto16);
+
+        componenteProducto17.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/pescado.png"))); // NOI18N
+        componenteProducto17.setLblDescrip("5.6 Euros/Kg");
+        componenteProducto17.setLblNombreProducto("Sardinas");
+        pnlCapsulaProductos.add(componenteProducto17);
+
+        componenteProducto18.setImgPro(new javax.swing.ImageIcon(getClass().getResource("/uva.png"))); // NOI18N
+        componenteProducto18.setLblDescrip("3 Euros/Kg");
+        componenteProducto18.setLblNombreProducto("Uvas");
+        pnlCapsulaProductos.add(componenteProducto18);
+
         scrollPanelProductos.setViewportView(pnlCapsulaProductos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPanelProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+            .addComponent(scrollPanelProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 1500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPanelProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+            .addComponent(scrollPanelProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,6 +180,12 @@ public class ListaProductos extends javax.swing.JPanel {
     private Recursos_form.ComponenteProducto componenteProducto10;
     private Recursos_form.ComponenteProducto componenteProducto11;
     private Recursos_form.ComponenteProducto componenteProducto12;
+    private Recursos_form.ComponenteProducto componenteProducto13;
+    private Recursos_form.ComponenteProducto componenteProducto14;
+    private Recursos_form.ComponenteProducto componenteProducto15;
+    private Recursos_form.ComponenteProducto componenteProducto16;
+    private Recursos_form.ComponenteProducto componenteProducto17;
+    private Recursos_form.ComponenteProducto componenteProducto18;
     private Recursos_form.ComponenteProducto componenteProducto2;
     private Recursos_form.ComponenteProducto componenteProducto3;
     private Recursos_form.ComponenteProducto componenteProducto4;

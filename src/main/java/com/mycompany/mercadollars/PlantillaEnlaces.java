@@ -34,13 +34,18 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
         //-----------------------------------------
     }
 
-    public PlantillaEnlaces(String ventana, javax.swing.JPanel panel) {
+    public PlantillaEnlaces(String ventana, javax.swing.JPanel panel, boolean admin) {
         //INICIAR COMPONENTES Y PONER FULLSCREEN
         this.setUndecorated(true);
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        boolean tipoUsuario = admin;
         //-----------------------------------------
-        
+        if (!admin) {
+            btnEmpleados.setEnabled(false);
+            btnProveedores.setEnabled(false);
+            btnPromociones.setEnabled(false);
+        }
         btnUsuario.setFocusable(false); //EVITAR EL SELECCIONADO POR DEFECTO DEL USUARIO
         panelOG = panel;
         cambiarHeader(ventana);
