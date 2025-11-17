@@ -9,7 +9,7 @@ import java.awt.Color;
 
 /**
  *
- * Interfaz: ÓscarMaqueda
+ * @author ÓscarMaqueda
  */
 public class PedidoModificar extends javax.swing.JPanel {
 

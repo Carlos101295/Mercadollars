@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author Carlos Duarte Ruiz
+ * Metedo "abrirVentana": ÓscarMaqueda
  */
 public class Inicio extends javax.swing.JFrame {
 

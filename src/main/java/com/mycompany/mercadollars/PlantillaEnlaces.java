@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 
 /**
  *
- * Interfaz: ÓscarMaqueda
- * Logica: ÓscarMaqueda
+ * @author ÓscarMaqueda
+ * Metodo "cambiarVentana": Pablo Alarcón, Carlos Duarte, ÓscarMaqueda
  */
 public class PlantillaEnlaces extends javax.swing.JFrame {
 
@@ -48,6 +48,7 @@ public class PlantillaEnlaces extends javax.swing.JFrame {
             this.revalidate();
             this.repaint();
         }
+        
         btnUsuario.setFocusable(false); //EVITAR EL SELECCIONADO POR DEFECTO DEL USUARIO
         btnUsuario.setText(usuario.getNombre());
         panelOG = panel;
