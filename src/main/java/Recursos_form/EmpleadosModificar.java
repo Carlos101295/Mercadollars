@@ -10,8 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * Interfaz: ÓscarMaqueda
- * Logica: ÓscarMaqueda
+ * @author ÓscarMaqueda
  */
 public class EmpleadosModificar extends javax.swing.JPanel {
 

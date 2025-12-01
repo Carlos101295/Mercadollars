@@ -8,8 +8,7 @@ import com.mycompany.mercadollars.PlantillaEnlaces;
 
 /**
  *
- * Interfaz: ÓscarMaqueda
- * Logica: ÓscarMaqueda
+ * @author ÓscarMaqueda
  */
 public class Empleados extends javax.swing.JPanel {
 

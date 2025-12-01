@@ -162,6 +162,11 @@ public class Login extends javax.swing.JFrame {
                 txfPassFocusLost(evt);
             }
         });
+        txfPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfPassActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
@@ -257,6 +262,10 @@ public class Login extends javax.swing.JFrame {
             txfPass.setText("contraseña");
         }
     }//GEN-LAST:event_txfPassFocusLost
+
+    private void txfPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfPassActionPerformed
 
     /**
      * @param args the command line arguments

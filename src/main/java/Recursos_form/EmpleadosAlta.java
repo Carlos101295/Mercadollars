@@ -6,7 +6,7 @@ package Recursos_form;
 
 /**
  *
- * Interfaz: ÓscarMaqueda
+ * @author ÓscarMaqueda
  */
 public class EmpleadosAlta extends javax.swing.JPanel {
 

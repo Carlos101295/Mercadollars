@@ -6,7 +6,7 @@ package com.mycompany.mercadollars;
 
 /**
  *
- * @author MEDAC
+ * @author ÓscarMaqueda
  */
 public class Usuario {
     private String nombre, contrasenia;
