@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `MERCADOLLARS_DB`.`Promociones` (
   `Nombre` VARCHAR(45) NOT NULL,
   `Fecha_inicio` DATE NOT NULL,
   `Fecha_fin` DATE NOT NULL,
-  `Descuento_%` INT NOT NULL DEFAULT 10,
+  `Descuento` INT NOT NULL DEFAULT 10,
   `Descripcion` VARCHAR(200) NULL,
   PRIMARY KEY (`idPromociones`))
 ENGINE = InnoDB;
@@ -61,8 +61,8 @@ CREATE TABLE IF NOT EXISTS `MERCADOLLARS_DB`.`Productos` (
   CONSTRAINT `fk_Productos_Promociones1`
     FOREIGN KEY (`Promociones_idPromociones`)
     REFERENCES `MERCADOLLARS_DB`.`Promociones` (`idPromociones`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -109,13 +109,13 @@ CREATE TABLE IF NOT EXISTS `MERCADOLLARS_DB`.`Pedido` (
   CONSTRAINT `fk_Pedido_Proveedores1`
     FOREIGN KEY (`Proveedores_idProveedores`)
     REFERENCES `MERCADOLLARS_DB`.`Proveedores` (`idProveedores`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Pedido_Usuario1`
     FOREIGN KEY (`Usuario_idEmpleados`)
     REFERENCES `MERCADOLLARS_DB`.`Usuario` (`idEmpleados`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -131,13 +131,13 @@ CREATE TABLE IF NOT EXISTS `MERCADOLLARS_DB`.`Productos_has_Proveedores` (
   CONSTRAINT `fk_Productos_has_Proveedores_Productos1`
     FOREIGN KEY (`Productos_idProductos`)
     REFERENCES `MERCADOLLARS_DB`.`Productos` (`idProductos`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Productos_has_Proveedores_Proveedores1`
     FOREIGN KEY (`Proveedores_idProveedores`)
     REFERENCES `MERCADOLLARS_DB`.`Proveedores` (`idProveedores`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -145,30 +145,31 @@ ENGINE = InnoDB;
 -- Table `MERCADOLLARS_DB`.`Ventas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `MERCADOLLARS_DB`.`Ventas` (
+  `idVentas` INT NOT NULL,
   `Clientes_idClientes` INT NOT NULL,
   `Productos_idProductos` INT NOT NULL,
   `Usuario_idEmpleados` INT NOT NULL,
   `Fecha_venta` DATETIME NOT NULL,
   `Ticket` INT NOT NULL,
-  PRIMARY KEY (`Clientes_idClientes`, `Productos_idProductos`, `Fecha_venta`),
+  PRIMARY KEY (`idVentas`),
   INDEX `fk_Clientes_has_Productos_Productos1_idx` (`Productos_idProductos` ASC) VISIBLE,
   INDEX `fk_Clientes_has_Productos_Clientes1_idx` (`Clientes_idClientes` ASC) VISIBLE,
   INDEX `fk_Clientes_has_Productos_Usuario1_idx` (`Usuario_idEmpleados` ASC) VISIBLE,
   CONSTRAINT `fk_Clientes_has_Productos_Clientes1`
     FOREIGN KEY (`Clientes_idClientes`)
     REFERENCES `MERCADOLLARS_DB`.`Clientes` (`idClientes`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Clientes_has_Productos_Productos1`
     FOREIGN KEY (`Productos_idProductos`)
     REFERENCES `MERCADOLLARS_DB`.`Productos` (`idProductos`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Clientes_has_Productos_Usuario1`
     FOREIGN KEY (`Usuario_idEmpleados`)
     REFERENCES `MERCADOLLARS_DB`.`Usuario` (`idEmpleados`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
