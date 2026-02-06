@@ -44,8 +44,11 @@ PANELES:
     - https://www.colors.tools/lighten-and-darken/?currentColor=336600&currentColorMixed=8583f1&currentSteps=20&currentHarmony=180&currentHarmonyDominance=50,50,50,50
 
 
-    Clientes - FRAN
-    Empleados - PABLO
-    Productos (inventario/stock) - OSCAR
-    Ventas diarias/caja (además, debe poder realizarse las ventas). - CARLOS
+Clientes - FRAN
+Empleados - PABLO
+Productos (inventario/stock) - OSCAR
+Ventas diarias/caja (además, debe poder realizarse las ventas). - CARLOS
+
+CREAR APP LAUNCH4J
+GRABAR VIDEO APP
     
