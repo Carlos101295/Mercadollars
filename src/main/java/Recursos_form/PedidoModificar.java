@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import ClasesDAO.PedidoDAO;
+import Modelos.PedidoM;
 import java.awt.Color;
 
 
@@ -107,6 +109,11 @@ public class PedidoModificar extends javax.swing.JPanel {
         btnModificar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnModificar.setForeground(new java.awt.Color(255, 255, 255));
         btnModificar.setText("Modificar Pedido");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -122,6 +129,11 @@ public class PedidoModificar extends javax.swing.JPanel {
         btnConfirmar.setText("Confirmar Pedido");
         btnConfirmar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 0), 1, true));
         btnConfirmar.setPreferredSize(new java.awt.Dimension(400, 39));
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -175,6 +187,41 @@ public class PedidoModificar extends javax.swing.JPanel {
             txtIdPedido.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_txtIdPedidoFocusGained
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        try {
+            int id = Integer.parseInt(txtIdPedido.getText());
+            PedidoDAO dao = new PedidoDAO(com.mycompany.mercadollars.Conexion.obtenerConexion());
+            PedidoM p = dao.buscarPorId(id);
+
+            if (p != null) {
+                txtID_Proveedor.setText(String.valueOf(p.getIdProveedor()));
+                txtID_Producto.setText(String.valueOf(p.getIdEmpleado()));
+                txtCantidad.setText(String.valueOf(p.getCantidad()));
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Pedido no encontrado.");
+            }
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al buscar: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        try {
+            PedidoM p = new PedidoM();
+            p.setIdPedido(Integer.parseInt(txtIdPedido.getText()));
+            p.setIdProveedor(Integer.parseInt(txtID_Proveedor.getText()));
+            p.setIdEmpleado(Integer.parseInt(txtID_Producto.getText()));
+            p.setCantidad(Integer.parseInt(txtCantidad.getText()));
+
+            PedidoDAO dao = new PedidoDAO(com.mycompany.mercadollars.Conexion.obtenerConexion());
+            dao.actualizarPedido(p);
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Pedido actualizado correctamente.");
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al actualizar: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnConfirmarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
