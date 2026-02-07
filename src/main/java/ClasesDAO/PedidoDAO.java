@@ -6,7 +6,7 @@ package ClasesDAO;
 
 /**
  *
- * @author MEDAC
+ * @author FranciscoJavierJimenezMuñoz
  */
 public class PedidoDAO {
     
