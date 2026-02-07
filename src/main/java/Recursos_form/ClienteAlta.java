@@ -4,10 +4,7 @@
  */
 package Recursos_form;
 
-import ClasesDAO.ClienteDAO;
-import Modelos.ClienteM;
 import java.sql.Connection;
-import java.sql.DriverManager;
 
 /**
  *
@@ -144,23 +141,32 @@ public class ClienteAlta extends javax.swing.JPanel {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         try {
+            Connection conn = Util.Conexion.obtenerConexion();
+
+            if (conn == null) {
+                javax.swing.JOptionPane.showMessageDialog(this, "No se pudo conectar a la base de datos. Verifique su servidor MySQL.");
+                return;
+            }
+
+            ClasesDAO.ClienteDAO dao = new ClasesDAO.ClienteDAO(conn);
+            
             String nombre = txtNombre.getText();
             String dni = txtDNI.getText();
             String telf = txtTelefono.getText();
 
             java.util.Date fechaUtil = (java.util.Date) jftfFecha_de_nacimiento.getValue();
+            if (fechaUtil == null) {
+                throw new Exception("La fecha es obligatoria");
+            }
             java.sql.Date fechaSQL = new java.sql.Date(fechaUtil.getTime());
 
-            ClienteM nuevoCliente = new ClienteM(nombre, fechaSQL, telf, dni, 0);
+            Modelos.ClienteM nuevoCliente = new Modelos.ClienteM(nombre, fechaSQL, telf, dni, 0);
 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/MERCADOLLARS_DB", "usuario", "pass");
-            ClienteDAO dao = new ClienteDAO(conn);
             dao.insertarCliente(nuevoCliente);
 
             javax.swing.JOptionPane.showMessageDialog(this, "Cliente registrado con éxito");
-
         } catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Error al registrar: " + e.getMessage());
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 

@@ -190,9 +190,16 @@ public class PedidoModificar extends javax.swing.JPanel {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         try {
-            int id = Integer.parseInt(txtIdPedido.getText());
-            PedidoDAO dao = new PedidoDAO(com.mycompany.mercadollars.Conexion.obtenerConexion());
-            PedidoM p = dao.buscarPorId(id);
+            String textoId = txtIdPedido.getText();
+            if (textoId.equals("Coloque su ID aquí") || textoId.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Por favor, introduce un número de ID.");
+                return;
+            }
+
+            int id = Integer.parseInt(textoId);
+
+            ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(Util.Conexion.obtenerConexion());
+            Modelos.PedidoM p = dao.buscarPorId(id);
 
             if (p != null) {
                 txtID_Proveedor.setText(String.valueOf(p.getIdProveedor()));
@@ -201,6 +208,8 @@ public class PedidoModificar extends javax.swing.JPanel {
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "Pedido no encontrado.");
             }
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El ID debe ser un valor numérico.");
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error al buscar: " + e.getMessage());
         }
@@ -208,16 +217,25 @@ public class PedidoModificar extends javax.swing.JPanel {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         try {
-            PedidoM p = new PedidoM();
-            p.setIdPedido(Integer.parseInt(txtIdPedido.getText()));
+            Modelos.PedidoM p = new Modelos.PedidoM();
+
+            String idTexto = txtIdPedido.getText();
+            if (idTexto.equals("Coloque su ID aquí") || idTexto.isEmpty()) {
+                throw new Exception("Debe indicar un ID de pedido válido.");
+            }
+
+            p.setIdPedido(Integer.parseInt(idTexto));
             p.setIdProveedor(Integer.parseInt(txtID_Proveedor.getText()));
             p.setIdEmpleado(Integer.parseInt(txtID_Producto.getText()));
             p.setCantidad(Integer.parseInt(txtCantidad.getText()));
 
-            PedidoDAO dao = new PedidoDAO(com.mycompany.mercadollars.Conexion.obtenerConexion());
+            ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(Util.Conexion.obtenerConexion());
+
             dao.actualizarPedido(p);
 
             javax.swing.JOptionPane.showMessageDialog(this, "Pedido actualizado correctamente.");
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: Asegúrese de que todos los campos sean números válidos.");
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error al actualizar: " + e.getMessage());
         }

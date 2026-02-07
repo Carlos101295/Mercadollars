@@ -5,9 +5,7 @@
 package Recursos_form;
 
 import ClasesDAO.ClienteDAO;
-import Modelos.ClienteM;
 import java.awt.Color;
-import java.sql.SQLException;
 
 /**
  *
@@ -245,8 +243,8 @@ public class ClienteModificar extends javax.swing.JPanel {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
             int id = Integer.parseInt(txfNumero_cliente.getText());
-            ClienteDAO dao = new ClienteDAO(tuConexion); // Usa tu conexión
-            ClienteM c = dao.buscarPorId(id);
+            ClienteDAO dao = new ClienteDAO(Util.Conexion.obtenerConexion());
+            Modelos.ClienteM c = dao.buscarPorId(id);
 
             if (c != null) {
                 txtNombre.setText(c.getNombre());
@@ -257,10 +255,8 @@ public class ClienteModificar extends javax.swing.JPanel {
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "Cliente no encontrado");
             }
-        } catch (NumberFormatException e) {
-            javax.swing.JOptionPane.showMessageDialog(this, "ID no válido");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -280,7 +276,7 @@ public class ClienteModificar extends javax.swing.JPanel {
 
     private void btnResgistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResgistActionPerformed
         try {
-            ClienteM c = new ClienteM();
+            Modelos.ClienteM c = new Modelos.ClienteM();
             c.setIdClientes(Integer.parseInt(txfNumero_cliente.getText()));
             c.setNombre(txtNombre.getText());
             c.setDni(txtDNI.getText());
@@ -290,7 +286,7 @@ public class ClienteModificar extends javax.swing.JPanel {
             java.util.Date f = (java.util.Date) jftfFecha_de_nacimiento.getValue();
             c.setFechaNacimiento(new java.sql.Date(f.getTime()));
 
-            new ClienteDAO(tuConexion).actualizarCliente(c);
+            new ClienteDAO(Util.Conexion.obtenerConexion()).actualizarCliente(c);
             javax.swing.JOptionPane.showMessageDialog(this, "Cliente actualizado");
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
@@ -299,12 +295,30 @@ public class ClienteModificar extends javax.swing.JPanel {
 
     private void btnBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaActionPerformed
         try {
-            int id = Integer.parseInt(txfNumero_cliente.getText());
-            int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar?");
-            if (confirm == javax.swing.JOptionPane.YES_OPTION) {
-                new ClienteDAO(tuConexion).eliminarCliente(id);
-                javax.swing.JOptionPane.showMessageDialog(this, "Cliente eliminado");
+            String textoId = txfNumero_cliente.getText();
+            if (textoId.equals("Escribe el número de cliente") || textoId.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Debe introducir un ID válido.");
+                return;
             }
+
+            int id = Integer.parseInt(textoId);
+
+            int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar?");
+
+            if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+                ClasesDAO.ClienteDAO dao = new ClasesDAO.ClienteDAO(Util.Conexion.obtenerConexion());
+                dao.eliminarCliente(id);
+
+                javax.swing.JOptionPane.showMessageDialog(this, "Cliente eliminado");
+
+                txfNumero_cliente.setText("");
+                txtNombre.setText("");
+                txtDNI.setText("");
+                txtTelefono.setText("");
+                txtPuntos.setText("");
+            }
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El ID debe ser un número.");
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }

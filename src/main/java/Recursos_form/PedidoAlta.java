@@ -4,9 +4,7 @@
  */
 package Recursos_form;
 
-import ClasesDAO.PedidoDAO;
 import Modelos.PedidoM;
-import java.sql.Connection;
 
 /**
  *
@@ -120,16 +118,16 @@ public class PedidoAlta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-
         try {
             int idProv = Integer.parseInt(txtID_Proveedor.getText());
-            int idEmp = Integer.parseInt(txtID_Producto.getText()); // Mapeado a idEmpleado
+            int idEmp = Integer.parseInt(txtID_Producto.getText());
             int cantidad = Integer.parseInt(txtCantidad.getText());
 
             PedidoM nuevoPedido = new PedidoM(cantidad, idProv, idEmp);
 
-            Connection conn = com.mycompany.mercadollars.Conexion.obtenerConexion();
-            PedidoDAO dao = new PedidoDAO(conn);
+            java.sql.Connection conn = Util.Conexion.obtenerConexion();
+
+            ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(conn);
             dao.insertarPedido(nuevoPedido);
 
             javax.swing.JOptionPane.showMessageDialog(this, "Pedido registrado con éxito.");
@@ -139,7 +137,7 @@ public class PedidoAlta extends javax.swing.JPanel {
             txtCantidad.setText("");
 
         } catch (NumberFormatException e) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, introduce valores numéricos válidos.");
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, introduce valores numéricos válidos (IDs y cantidad).");
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }

@@ -3,15 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ClasesDAO;
-
-import Modelos.ClienteM;
-import java.sql.*;
-import java.util.ArrayList;
-
 /**
  *
  * @author FranciscoJavierJimenezMuñoz
  */
+
+import Modelos.ClienteM;
+import java.sql.*;
+
 public class ClienteDAO {
 
     private Connection conexion;
@@ -32,32 +31,6 @@ public class ClienteDAO {
         }
     }
 
-    public ArrayList<ClienteM> obtenerTodos() throws SQLException {
-        ArrayList<ClienteM> lista = new ArrayList<>();
-        String sql = "SELECT * FROM Clientes";
-        try (Statement st = conexion.createStatement(); ResultSet rs = st.executeQuery(sql)) {
-            while (rs.next()) {
-                ClienteM c = new ClienteM();
-                c.setIdClientes(rs.getInt("idClientes"));
-                c.setNombre(rs.getString("Nombre"));
-                c.setFechaNacimiento(rs.getDate("Fecha_nacimiento"));
-                c.setTelefono(rs.getString("Telefono"));
-                c.setDni(rs.getString("DNI"));
-                c.setPuntos(rs.getInt("Puntos"));
-                lista.add(c);
-            }
-        }
-        return lista;
-    }
-
-    public void eliminarCliente(int id) throws SQLException {
-        String sql = "DELETE FROM Clientes WHERE idClientes = ?";
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ps.executeUpdate();
-        }
-    }
-    
     public ClienteM buscarPorId(int id) throws SQLException {
         String sql = "SELECT * FROM Clientes WHERE idClientes = ?";
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
@@ -87,6 +60,14 @@ public class ClienteDAO {
             ps.setString(4, cliente.getDni());
             ps.setInt(5, cliente.getPuntos());
             ps.setInt(6, cliente.getIdClientes());
+            ps.executeUpdate();
+        }
+    }
+
+    public void eliminarCliente(int id) throws SQLException {
+        String sql = "DELETE FROM Clientes WHERE idClientes = ?";
+        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+            ps.setInt(1, id);
             ps.executeUpdate();
         }
     }
