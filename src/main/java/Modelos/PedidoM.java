@@ -8,7 +8,7 @@ package Modelos;
  *
  * @author Fran
  */
-public class Pedido {
+public class PedidoM {
 
     private int idPedido;
     private int cantidad;
@@ -16,11 +16,11 @@ public class Pedido {
     private int idEmpleado;
 
     // Constructor vacío
-    public Pedido() {
+    public PedidoM() {
     }
 
     // Constructor para inserciones (el ID suele ser auto-incremental)
-    public Pedido(int cantidad, int idProveedor, int idEmpleado) {
+    public PedidoM(int cantidad, int idProveedor, int idEmpleado) {
         this.cantidad = cantidad;
         this.idProveedor = idProveedor;
         this.idEmpleado = idEmpleado;

@@ -8,7 +8,7 @@ package ClasesDAO;
  *
  * @author FranciscoJavierJimenezMuñoz
  */
-import Modelos.Pedido;
+import Modelos.PedidoM;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -20,7 +20,7 @@ public class PedidoDAO {
         this.conexion = conexion;
     }
 
-    public void insertarPedido(Pedido pedido) throws SQLException {
+    public void insertarPedido(PedidoM pedido) throws SQLException {
         String sql = "INSERT INTO Pedido (Cantidad, Proveedores_idProveedores, Usuario_idEmpleados) VALUES (?, ?, ?)";
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
             ps.setInt(1, pedido.getCantidad());
@@ -30,12 +30,12 @@ public class PedidoDAO {
         }
     }
 
-    public ArrayList<Pedido> obtenerTodos() throws SQLException {
-        ArrayList<Pedido> lista = new ArrayList<>();
+    public ArrayList<PedidoM> obtenerTodos() throws SQLException {
+        ArrayList<PedidoM> lista = new ArrayList<>();
         String sql = "SELECT * FROM Pedido";
         try (Statement st = conexion.createStatement(); ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) {
-                Pedido p = new Pedido();
+                PedidoM p = new PedidoM();
                 p.setIdPedido(rs.getInt("idPedido"));
                 p.setCantidad(rs.getInt("Cantidad"));
                 p.setIdProveedor(rs.getInt("Proveedores_idProveedores"));

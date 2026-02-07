@@ -11,7 +11,7 @@ import java.sql.Date;
  * @author FranciscoJavierJimenezMuñoz
  */
 
-public class Cliente {
+public class ClienteM {
 
     private int idClientes;
     private String nombre;
@@ -20,10 +20,10 @@ public class Cliente {
     private String dni;
     private int puntos;
 
-    public Cliente() {
+    public ClienteM() {
     }
 
-    public Cliente(String nombre, Date fechaNacimiento, String telefono, String dni, int puntos) {
+    public ClienteM(String nombre, Date fechaNacimiento, String telefono, String dni, int puntos) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.telefono = telefono;
