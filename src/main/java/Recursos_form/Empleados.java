@@ -4,7 +4,15 @@
  */
 package Recursos_form;
 
+import com.mycompany.mercadollars.ConexionBD;
 import com.mycompany.mercadollars.PlantillaEnlaces;
+import java.io.InputStream;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -30,7 +38,8 @@ public class Empleados extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         btnAlta = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
+        btnGenerarInfor = new javax.swing.JButton();
+        btnModificar1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
@@ -53,13 +62,29 @@ public class Empleados extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
         add(btnAlta, gridBagConstraints);
 
-        btnModificar.setBackground(new java.awt.Color(0, 102, 102));
-        btnModificar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setText("Modificar un empleado");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        btnGenerarInfor.setBackground(new java.awt.Color(0, 102, 102));
+        btnGenerarInfor.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnGenerarInfor.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerarInfor.setText("Generar Informes Empleados");
+        btnGenerarInfor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btnGenerarInforActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 10;
+        add(btnGenerarInfor, gridBagConstraints);
+
+        btnModificar1.setBackground(new java.awt.Color(0, 102, 102));
+        btnModificar1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnModificar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar1.setText("Modificar un empleado");
+        btnModificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificar1ActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -69,7 +94,7 @@ public class Empleados extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        add(btnModificar, gridBagConstraints);
+        add(btnModificar1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
@@ -81,18 +106,39 @@ public class Empleados extends javax.swing.JPanel {
         PlantillaEnlaces.panelOG = new Empleados();
     }//GEN-LAST:event_btnAltaActionPerformed
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    private void btnGenerarInforActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarInforActionPerformed
+        try {
+            Connection conexion = ConexionBD.abrirConexion();
+
+            InputStream informe = getClass().getResourceAsStream("/Empleados.jasper");
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(informe, null, conexion);
+            
+            JasperViewer.viewReport(jasperPrint, false);
+            
+            ConexionBD.cerrar(null, conexion);
+            
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(this, "Error al generar el informe: "+ e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: "+ e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnGenerarInforActionPerformed
+
+    private void btnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar1ActionPerformed
         PlantillaEnlaces.semaforo = false;
         this.removeAll();
         this.add(new EmpleadosModificar());
         this.revalidate();
         this.repaint();
         PlantillaEnlaces.panelOG = new Empleados();
-    }//GEN-LAST:event_btnModificarActionPerformed
+    }//GEN-LAST:event_btnModificar1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
-    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnGenerarInfor;
+    private javax.swing.JButton btnModificar1;
     // End of variables declaration//GEN-END:variables
 }
