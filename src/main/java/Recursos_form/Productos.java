@@ -4,7 +4,15 @@
  */
 package Recursos_form;
 
+import Util.ConexionBD;
 import com.mycompany.mercadollars.PlantillaEnlaces;
+import java.io.InputStream;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -129,21 +137,54 @@ public class Productos extends javax.swing.JPanel {
     }//GEN-LAST:event_btnProductoModificarActionPerformed
 
     private void btnProductoListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoListadoActionPerformed
-        PlantillaEnlaces.semaforo = false;
+        /*PlantillaEnlaces.semaforo = false;
         this.removeAll();
         this.add(new ListaProductos());
         this.revalidate();
         this.repaint();
-        PlantillaEnlaces.panelOG = new Productos();
+        PlantillaEnlaces.panelOG = new Productos();*/
+        
+        try {
+            Connection conexion = ConexionBD.abrirConexion();
+
+            InputStream informe = getClass().getResourceAsStream("/Productos.jasper");
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(informe, null, conexion);
+            
+            JasperViewer.viewReport(jasperPrint, false);
+            
+            ConexionBD.cerrar(null, conexion);
+            
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(this, "Error al generar el informe: "+ e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: "+ e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnProductoListadoActionPerformed
 
     private void btnProductoListadoBajoStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoListadoBajoStockActionPerformed
-        PlantillaEnlaces.semaforo = false;
+        /*PlantillaEnlaces.semaforo = false;
         this.removeAll();
         this.add(new ListaProductosBajoStock());
         this.revalidate();
         this.repaint();
-        PlantillaEnlaces.panelOG = new Productos();
+        PlantillaEnlaces.panelOG = new Productos();*/
+        try {
+            Connection conexion = ConexionBD.abrirConexion();
+
+            InputStream informe = getClass().getResourceAsStream("/ProductosBajoStock.jasper");
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(informe, null, conexion);
+            
+            JasperViewer.viewReport(jasperPrint, false);
+            
+            ConexionBD.cerrar(null, conexion);
+            
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(this, "Error al generar el informe: "+ e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: "+ e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnProductoListadoBajoStockActionPerformed
 
 
