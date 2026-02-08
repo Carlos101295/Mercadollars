@@ -4,19 +4,27 @@
  */
 package Recursos_form;
 
+import ClasesDAO.UsuarioDAO;
+import Modelos.EmpleadoM;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+
 /**
  *
  * @author ÓscarMaqueda
  */
 public class EmpleadosAlta extends javax.swing.JPanel {
 
-    /**
+     /**
      * Creates new form EmpleadosAlta
      */
+    private UsuarioDAO usuarioDAO;
     public EmpleadosAlta() {
+        usuarioDAO = new UsuarioDAO();
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,6 +176,11 @@ public class EmpleadosAlta extends javax.swing.JPanel {
         add(pwdContrasenia, gridBagConstraints);
 
         pwdContrasenia2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        pwdContrasenia2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pwdContrasenia2ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -180,6 +193,11 @@ public class EmpleadosAlta extends javax.swing.JPanel {
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -190,6 +208,141 @@ public class EmpleadosAlta extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
         add(btnRegistrar, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void limpiarFormulario() {
+        txtNombre.setText("");
+        txtApellidos.setText("");
+        txtDni.setText("");
+        txtCorreo.setText("");
+        txtTelefono.setText("");
+        pwdContrasenia.setText("");
+        pwdContrasenia2.setText("");
+    }
+
+    // Método para validar formato de DNI (8 números y 1 letra)
+    private boolean validarDNI(String dni) {
+        // Expresión regular para DNI español: 8 dígitos seguidos de una letra
+        return dni.matches("^[0-9]{8}[A-Za-z]$");
+    }
+
+    // Método para validar formato de email
+    private boolean validarEmail(String email) {
+        // Expresión regular básica para email
+        return email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
+    }
+
+    private void registrarEmpleado() {
+        
+        // Obtener datos del formulario
+        String nombre = txtNombre.getText().trim();
+        String apellidos = txtApellidos.getText().trim();
+        String dni = txtDni.getText().trim();
+        String correo = txtCorreo.getText().trim();
+        String telefono = txtTelefono.getText().trim();
+        String contrasenia = new String(pwdContrasenia.getPassword());
+        String contrasenia2 = new String(pwdContrasenia2.getPassword());
+
+        // Validaciones
+        if (nombre.isEmpty() || correo.isEmpty() || contrasenia.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor, complete los campos obligatorios:\n- Nombre\n- Correo\n- Contraseña",
+                    "Campos Obligatorios",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (!contrasenia.equals(contrasenia2)) {
+            JOptionPane.showMessageDialog(this,
+                    "Las contraseñas no coinciden",
+                    "Error de Contraseña",
+                    JOptionPane.ERROR_MESSAGE);
+            pwdContrasenia.setText("");
+            pwdContrasenia2.setText("");
+            pwdContrasenia.requestFocus();
+            return;
+        }
+
+        if (contrasenia.length() < 5) {
+            JOptionPane.showMessageDialog(this,
+                    "La contraseña debe tener al menos 5 caracteres",
+                    "Contraseña Débil",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Validar formato de DNI (opcional)
+        if (!dni.isEmpty() && !validarDNI(dni)) {
+            JOptionPane.showMessageDialog(this,
+                    "El formato del DNI no es válido",
+                    "DNI Inválido",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Validar formato de email
+        if (!validarEmail(correo)) {
+            JOptionPane.showMessageDialog(this,
+                    "El formato del correo electrónico no es válido",
+                    "Email Inválido",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Verificar si el DNI ya existe (solo si se proporcionó)
+        if (!dni.isEmpty() && usuarioDAO.existeDNI(dni)) {
+            JOptionPane.showMessageDialog(this,
+                    "El DNI ya está registrado en el sistema",
+                    "DNI Duplicado",
+                    JOptionPane.ERROR_MESSAGE);
+            txtDni.requestFocus();
+            return;
+        }
+
+        // Verificar si el Email ya existe
+        if (usuarioDAO.existeEmail(correo)) {
+            JOptionPane.showMessageDialog(this,
+                    "El correo electrónico ya está registrado en el sistema",
+                    "Email Duplicado",
+                    JOptionPane.ERROR_MESSAGE);
+            txtCorreo.requestFocus();
+            return;
+        }
+
+        // Crear objeto EmpleadoM
+        EmpleadoM nuevoEmpleado = new EmpleadoM(
+                nombre,
+                apellidos.isEmpty() ? null : apellidos,
+                dni.isEmpty() ? null : dni,
+                contrasenia,
+                correo,
+                telefono.isEmpty() ? null : telefono,
+                null // Admin será "NO" por defecto
+        );
+
+        // Registrar en la base de datos
+        boolean registrado = usuarioDAO.registrarEmpleado(nuevoEmpleado);
+
+        if (registrado) {
+            JOptionPane.showMessageDialog(this,
+                    "Empleado registrado exitosamente",
+                    "Registro Exitoso",
+                    JOptionPane.INFORMATION_MESSAGE);
+            limpiarFormulario();
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Error al registrar el empleado.\nPor favor, intente nuevamente.",
+                    "Error de Registro",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        registrarEmpleado();
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void pwdContrasenia2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdContrasenia2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pwdContrasenia2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

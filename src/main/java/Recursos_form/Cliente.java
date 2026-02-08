@@ -5,6 +5,7 @@
 package Recursos_form;
 
 import com.mycompany.mercadollars.PlantillaEnlaces;
+import java.sql.Date;
 
 /**
  *
@@ -17,6 +18,10 @@ public class Cliente extends javax.swing.JPanel {
      */
     public Cliente() {
         initComponents();
+    }
+
+    Cliente(String nombre, Date fechaSQL, String telf, String dni, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**

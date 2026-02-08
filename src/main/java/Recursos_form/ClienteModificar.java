@@ -4,6 +4,7 @@
  */
 package Recursos_form;
 
+import ClasesDAO.ClienteDAO;
 import java.awt.Color;
 
 /**
@@ -53,6 +54,11 @@ public class ClienteModificar extends javax.swing.JPanel {
         btnResgist.setForeground(new java.awt.Color(255, 255, 255));
         btnResgist.setText("Modificar");
         btnResgist.setPreferredSize(new java.awt.Dimension(300, 40));
+        btnResgist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResgistActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -100,6 +106,11 @@ public class ClienteModificar extends javax.swing.JPanel {
         btnBaja.setText("Dar de baja");
         btnBaja.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 0), 1, true));
         btnBaja.setPreferredSize(new java.awt.Dimension(300, 40));
+        btnBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBajaActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -230,7 +241,23 @@ public class ClienteModificar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        try {
+            int id = Integer.parseInt(txfNumero_cliente.getText());
+            ClienteDAO dao = new ClienteDAO(Util.Conexion.obtenerConexion());
+            Modelos.ClienteM c = dao.buscarPorId(id);
+
+            if (c != null) {
+                txtNombre.setText(c.getNombre());
+                txtDNI.setText(c.getDni());
+                txtTelefono.setText(c.getTelefono());
+                txtPuntos.setText(String.valueOf(c.getPuntos()));
+                jftfFecha_de_nacimiento.setValue(c.getFechaNacimiento());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Cliente no encontrado");
+            }
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txfNumero_clienteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfNumero_clienteFocusGained
@@ -246,6 +273,56 @@ public class ClienteModificar extends javax.swing.JPanel {
             txfNumero_cliente.setText("Escribe el número de cliente");
         }
     }//GEN-LAST:event_txfNumero_clienteFocusLost
+
+    private void btnResgistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResgistActionPerformed
+        try {
+            Modelos.ClienteM c = new Modelos.ClienteM();
+            c.setIdClientes(Integer.parseInt(txfNumero_cliente.getText()));
+            c.setNombre(txtNombre.getText());
+            c.setDni(txtDNI.getText());
+            c.setTelefono(txtTelefono.getText());
+            c.setPuntos(Integer.parseInt(txtPuntos.getText()));
+
+            java.util.Date f = (java.util.Date) jftfFecha_de_nacimiento.getValue();
+            c.setFechaNacimiento(new java.sql.Date(f.getTime()));
+
+            new ClienteDAO(Util.Conexion.obtenerConexion()).actualizarCliente(c);
+            javax.swing.JOptionPane.showMessageDialog(this, "Cliente actualizado");
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnResgistActionPerformed
+
+    private void btnBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaActionPerformed
+        try {
+            String textoId = txfNumero_cliente.getText();
+            if (textoId.equals("Escribe el número de cliente") || textoId.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Debe introducir un ID válido.");
+                return;
+            }
+
+            int id = Integer.parseInt(textoId);
+
+            int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar?");
+
+            if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+                ClasesDAO.ClienteDAO dao = new ClasesDAO.ClienteDAO(Util.Conexion.obtenerConexion());
+                dao.eliminarCliente(id);
+
+                javax.swing.JOptionPane.showMessageDialog(this, "Cliente eliminado");
+
+                txfNumero_cliente.setText("");
+                txtNombre.setText("");
+                txtDNI.setText("");
+                txtTelefono.setText("");
+                txtPuntos.setText("");
+            }
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El ID debe ser un número.");
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnBajaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -266,7 +343,5 @@ public class ClienteModificar extends javax.swing.JPanel {
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 
-    void setLocationRelativeTo(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
 }

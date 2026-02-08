@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import Modelos.PedidoM;
+
 /**
  *
  * @author FranciscoJavierJimenezMuñoz
@@ -99,6 +101,11 @@ public class PedidoAlta extends javax.swing.JPanel {
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -109,6 +116,32 @@ public class PedidoAlta extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
         add(btnRegistrar, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        try {
+            int idProv = Integer.parseInt(txtID_Proveedor.getText());
+            int idEmp = Integer.parseInt(txtID_Producto.getText());
+            int cantidad = Integer.parseInt(txtCantidad.getText());
+
+            PedidoM nuevoPedido = new PedidoM(cantidad, idProv, idEmp);
+
+            java.sql.Connection conn = Util.Conexion.obtenerConexion();
+
+            ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(conn);
+            dao.insertarPedido(nuevoPedido);
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Pedido registrado con éxito.");
+
+            txtID_Proveedor.setText("");
+            txtID_Producto.setText("");
+            txtCantidad.setText("");
+
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, introduce valores numéricos válidos (IDs y cantidad).");
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -121,7 +154,4 @@ public class PedidoAlta extends javax.swing.JPanel {
     private javax.swing.JTextField txtID_Proveedor;
     // End of variables declaration//GEN-END:variables
 
-    void setLocationRelativeTo(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

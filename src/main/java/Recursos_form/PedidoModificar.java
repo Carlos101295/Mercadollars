@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import ClasesDAO.PedidoDAO;
+import Modelos.PedidoM;
 import java.awt.Color;
 
 
@@ -107,6 +109,11 @@ public class PedidoModificar extends javax.swing.JPanel {
         btnModificar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnModificar.setForeground(new java.awt.Color(255, 255, 255));
         btnModificar.setText("Modificar Pedido");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -122,6 +129,11 @@ public class PedidoModificar extends javax.swing.JPanel {
         btnConfirmar.setText("Confirmar Pedido");
         btnConfirmar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 0), 1, true));
         btnConfirmar.setPreferredSize(new java.awt.Dimension(400, 39));
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -175,6 +187,59 @@ public class PedidoModificar extends javax.swing.JPanel {
             txtIdPedido.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_txtIdPedidoFocusGained
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        try {
+            String textoId = txtIdPedido.getText();
+            if (textoId.equals("Coloque su ID aquí") || textoId.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Por favor, introduce un número de ID.");
+                return;
+            }
+
+            int id = Integer.parseInt(textoId);
+
+            ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(Util.Conexion.obtenerConexion());
+            Modelos.PedidoM p = dao.buscarPorId(id);
+
+            if (p != null) {
+                txtID_Proveedor.setText(String.valueOf(p.getIdProveedor()));
+                txtID_Producto.setText(String.valueOf(p.getIdEmpleado()));
+                txtCantidad.setText(String.valueOf(p.getCantidad()));
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Pedido no encontrado.");
+            }
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El ID debe ser un valor numérico.");
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al buscar: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        try {
+            Modelos.PedidoM p = new Modelos.PedidoM();
+
+            String idTexto = txtIdPedido.getText();
+            if (idTexto.equals("Coloque su ID aquí") || idTexto.isEmpty()) {
+                throw new Exception("Debe indicar un ID de pedido válido.");
+            }
+
+            p.setIdPedido(Integer.parseInt(idTexto));
+            p.setIdProveedor(Integer.parseInt(txtID_Proveedor.getText()));
+            p.setIdEmpleado(Integer.parseInt(txtID_Producto.getText()));
+            p.setCantidad(Integer.parseInt(txtCantidad.getText()));
+
+            ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(Util.Conexion.obtenerConexion());
+
+            dao.actualizarPedido(p);
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Pedido actualizado correctamente.");
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: Asegúrese de que todos los campos sean números válidos.");
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al actualizar: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnConfirmarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

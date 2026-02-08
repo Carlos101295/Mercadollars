@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import java.sql.Connection;
+
 /**
  *
  * @author FranciscoJavierJimenezMuñoz
@@ -111,6 +113,11 @@ public class ClienteAlta extends javax.swing.JPanel {
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -132,6 +139,37 @@ public class ClienteAlta extends javax.swing.JPanel {
         add(jftfFecha_de_nacimiento, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        try {
+            Connection conn = Util.Conexion.obtenerConexion();
+
+            if (conn == null) {
+                javax.swing.JOptionPane.showMessageDialog(this, "No se pudo conectar a la base de datos. Verifique su servidor MySQL.");
+                return;
+            }
+
+            ClasesDAO.ClienteDAO dao = new ClasesDAO.ClienteDAO(conn);
+            
+            String nombre = txtNombre.getText();
+            String dni = txtDNI.getText();
+            String telf = txtTelefono.getText();
+
+            java.util.Date fechaUtil = (java.util.Date) jftfFecha_de_nacimiento.getValue();
+            if (fechaUtil == null) {
+                throw new Exception("La fecha es obligatoria");
+            }
+            java.sql.Date fechaSQL = new java.sql.Date(fechaUtil.getTime());
+
+            Modelos.ClienteM nuevoCliente = new Modelos.ClienteM(nombre, fechaSQL, telf, dni, 0);
+
+            dao.insertarCliente(nuevoCliente);
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Cliente registrado con éxito");
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
@@ -145,7 +183,4 @@ public class ClienteAlta extends javax.swing.JPanel {
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 
-    void setLocationRelativeTo(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
