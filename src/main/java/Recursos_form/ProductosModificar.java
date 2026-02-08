@@ -4,7 +4,9 @@
  */
 package Recursos_form;
 
+import ClasesDAO.ProductoDAO;
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  *
@@ -144,6 +146,7 @@ public class ProductosModificar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 15);
         add(lblProductoPrecioFinal, gridBagConstraints);
 
+        txtProductoId.setEditable(false);
         txtProductoId.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtProductoId.setPreferredSize(new java.awt.Dimension(300, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -191,6 +194,11 @@ public class ProductosModificar extends javax.swing.JPanel {
 
         txtProductoPrecioSinIva.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtProductoPrecioSinIva.setPreferredSize(new java.awt.Dimension(300, 40));
+        txtProductoPrecioSinIva.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtProductoPrecioSinIvaFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
@@ -200,6 +208,11 @@ public class ProductosModificar extends javax.swing.JPanel {
 
         txtProductoImpuesto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtProductoImpuesto.setPreferredSize(new java.awt.Dimension(300, 40));
+        txtProductoImpuesto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtProductoImpuestoFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
@@ -207,6 +220,7 @@ public class ProductosModificar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         add(txtProductoImpuesto, gridBagConstraints);
 
+        txtProductoPrecioFinal.setEditable(false);
         txtProductoPrecioFinal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtProductoPrecioFinal.setPreferredSize(new java.awt.Dimension(300, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -278,6 +292,11 @@ public class ProductosModificar extends javax.swing.JPanel {
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
         btnBuscar.setPreferredSize(new java.awt.Dimension(99, 40));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -309,11 +328,28 @@ public class ProductosModificar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaActionPerformed
-        // TODO add your handling code here:
+        ProductoDAO a = new ProductoDAO();
+        if (!txtProductoId.getText().isEmpty()) {
+            a.eliminarProducto(Integer.parseInt(txtProductoId.getText()));
+            formatear0();
+        }
     }//GEN-LAST:event_btnBajaActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
+        if (!txtProductoId.getText().isEmpty()) {
+            String id = txtProductoId.getText();
+            String nombre = txtProductoNombre.getText();
+            String tipo = txtProductoTipo.getText();
+            String stock = txtProductoStock.getText();
+            String ratio = txtProductoRatio.getText();
+            String precio = txtProductoPrecioSinIva.getText();
+            String iva = txtProductoImpuesto.getText();
+            String[] precioFinal = txtProductoPrecioFinal.getText().split(" ");
+            
+            ProductoDAO a = new ProductoDAO();
+            a.actualizarProducto(id, nombre, tipo, stock, ratio, precio, iva, precioFinal[0]);
+            formatear0();
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void txtBusquedaProductoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaProductoFocusGained
@@ -330,7 +366,43 @@ public class ProductosModificar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBusquedaProductoFocusLost
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        ProductoDAO a = new ProductoDAO();
+        if (!txtBusquedaProducto.getText().isEmpty()) {
+            ArrayList<String> dump = a.buscarPorId(Integer.parseInt(txtBusquedaProducto.getText()));
+            if (dump != null) {
+                txtProductoId.setText(dump.get(0));
+                txtProductoNombre.setText(dump.get(1));
+                txtProductoTipo.setText(dump.get(2));
+                txtProductoStock.setText(dump.get(3));
+                txtProductoRatio.setText(dump.get(4));
+                txtProductoPrecioSinIva.setText(dump.get(5));
+                txtProductoImpuesto.setText(dump.get(6));
+                txtProductoPrecioFinal.setText(dump.get(7) + " €");
+            } else {
+                formatear0();
+            }
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void txtProductoPrecioSinIvaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProductoPrecioSinIvaFocusLost
+        if (!txtProductoImpuesto.getText().isEmpty()) {
+            calcularPrecioFinal();
+        }
+    }//GEN-LAST:event_txtProductoPrecioSinIvaFocusLost
+
+    private void txtProductoImpuestoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProductoImpuestoFocusLost
+        if (!txtProductoPrecioSinIva.getText().isEmpty()) {
+            calcularPrecioFinal();
+        }
+    }//GEN-LAST:event_txtProductoImpuestoFocusLost
+
+    private void calcularPrecioFinal() {
+        float precio = Float.parseFloat(txtProductoPrecioSinIva.getText());
+        float iva = Float.parseFloat("1." + txtProductoImpuesto.getText());
+        float precioFinal = precio * iva;
+        txtProductoPrecioFinal.setText(String.valueOf(precioFinal) + " €");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBaja;
     private javax.swing.JButton btnBuscar;
@@ -354,4 +426,15 @@ public class ProductosModificar extends javax.swing.JPanel {
     private javax.swing.JTextField txtProductoStock;
     private javax.swing.JTextField txtProductoTipo;
     // End of variables declaration//GEN-END:variables
+
+    private void formatear0() {
+        txtProductoId.setText("");
+        txtProductoNombre.setText("");
+        txtProductoTipo.setText("");
+        txtProductoStock.setText("");
+        txtProductoRatio.setText("");
+        txtProductoPrecioSinIva.setText("");
+        txtProductoImpuesto.setText("");
+        txtProductoPrecioFinal.setText("");
+    }
 }

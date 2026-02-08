@@ -4,6 +4,8 @@
  */
 package Recursos_form;
 
+import ClasesDAO.ProductoDAO;
+
 /**
  *
  * @author Carlos Duarte Ruiz
@@ -178,6 +180,11 @@ public class ProductosAlta extends javax.swing.JPanel {
 
         txtProductoPrecioSinIva.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtProductoPrecioSinIva.setPreferredSize(new java.awt.Dimension(300, 40));
+        txtProductoPrecioSinIva.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtProductoPrecioSinIvaFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -187,6 +194,11 @@ public class ProductosAlta extends javax.swing.JPanel {
 
         txtProductoImpuesto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtProductoImpuesto.setPreferredSize(new java.awt.Dimension(300, 40));
+        txtProductoImpuesto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtProductoImpuestoFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
@@ -194,6 +206,7 @@ public class ProductosAlta extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 15);
         add(txtProductoImpuesto, gridBagConstraints);
 
+        txtProductoPrecioFinal.setEditable(false);
         txtProductoPrecioFinal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtProductoPrecioFinal.setPreferredSize(new java.awt.Dimension(300, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -224,8 +237,30 @@ public class ProductosAlta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarAltaActionPerformed
-        // TODO add your handling code here:
+        ProductoDAO a = new ProductoDAO();
+        String[] precioFinal = txtProductoPrecioFinal.getText().split(" ");
+        a.aniadirProducto(
+                txtProductoId.getText(),
+                txtProductoNombre.getText(),
+                txtProductoTipo.getText(),
+                txtProductoStock.getText(),
+                txtProductoPrecioSinIva.getText(),
+                txtProductoImpuesto.getText(),
+                precioFinal[0]
+        );
     }//GEN-LAST:event_btnDarAltaActionPerformed
+
+    private void txtProductoImpuestoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProductoImpuestoFocusLost
+        if (!txtProductoPrecioSinIva.getText().isEmpty()) {
+            calcularPrecioFinal();
+        }
+    }//GEN-LAST:event_txtProductoImpuestoFocusLost
+
+    private void txtProductoPrecioSinIvaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProductoPrecioSinIvaFocusLost
+        if (!txtProductoImpuesto.getText().isEmpty()) {
+            calcularPrecioFinal();
+        }
+    }//GEN-LAST:event_txtProductoPrecioSinIvaFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -247,4 +282,11 @@ public class ProductosAlta extends javax.swing.JPanel {
     private javax.swing.JTextField txtProductoStock;
     private javax.swing.JTextField txtProductoTipo;
     // End of variables declaration//GEN-END:variables
+
+    private void calcularPrecioFinal() {
+        float precio = Float.parseFloat(txtProductoPrecioSinIva.getText());
+        float iva = Float.parseFloat("1." + txtProductoImpuesto.getText());
+        float precioFinal = precio * iva;
+        txtProductoPrecioFinal.setText(String.valueOf(precioFinal) + " €");
+    }
 }
