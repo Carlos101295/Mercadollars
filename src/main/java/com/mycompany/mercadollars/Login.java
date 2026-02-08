@@ -30,6 +30,8 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         //-----------------------------------------
+        txfNom.setText("admin");
+        txfPass.setText("admin");
 
         this.getRootPane().setDefaultButton(btnAcceso);
         //Para personalizar el borde de la pestaña (el estilo, la redondez del las esquinas y luego si queremos borde, el color y el grosor)
@@ -120,6 +122,7 @@ public class Login extends javax.swing.JFrame {
 
         txfNom.setForeground(new java.awt.Color(128, 128, 128));
         txfNom.setText("Escribe tu usuario");
+        txfNom.setToolTipText("");
         txfNom.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txfNomFocusGained(evt);
@@ -274,7 +277,7 @@ public class Login extends javax.swing.JFrame {
     public static void main(String args[]) {
         FlatLightLaf.setup();
         UIManager.put("Button.arc", 25);
-
+        
         //UIManager.put("Component.arc", 999 );
 
         /* Create and display the form */
