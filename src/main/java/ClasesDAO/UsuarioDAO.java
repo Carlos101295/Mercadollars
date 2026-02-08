@@ -9,7 +9,7 @@ package ClasesDAO;
  * @author MEDAC
  */
 import Modelos.EmpleadoM;
-import com.mycompany.mercadollars.ConexionBD;
+import Util.ConexionBD;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

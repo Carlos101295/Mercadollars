@@ -4,7 +4,7 @@
  */
 package Recursos_form;
 
-import com.mycompany.mercadollars.ConexionBD;
+import Util.ConexionBD;
 import com.mycompany.mercadollars.PlantillaEnlaces;
 import java.io.InputStream;
 import java.sql.Connection;

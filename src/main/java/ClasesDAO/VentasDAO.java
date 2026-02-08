@@ -1,6 +1,6 @@
 package ClasesDAO;
 
-import com.mycompany.mercadollars.ConexionBD;
+import Util.ConexionBD;
 import java.sql.*;
 
 
