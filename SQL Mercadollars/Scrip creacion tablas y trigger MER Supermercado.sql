@@ -185,8 +185,7 @@ CREATE TABLE IF NOT EXISTS `MERCADOLLARS_DB`.`Historico_ventas` (
   `IVA_aplicable` INT NOT NULL DEFAULT 21,
   `Precio_final` DECIMAL(10,2) NOT NULL,
   `Ticket_ventas` INT NOT NULL,
-  `Fecha_venta` DATETIME NOT NULL,
-  PRIMARY KEY (`idProductos`, `idCliente`))
+  `Fecha_venta` DATETIME NOT NULL)
 ENGINE = InnoDB;
 
 USE `MERCADOLLARS_DB`;
