@@ -4,6 +4,19 @@
  */
 package Recursos_form;
 
+import com.mycompany.mercadollars.ConexionBD;
+import com.mycompany.mercadollars.PlantillaEnlaces;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author Carlos Duarte Ruiz
@@ -28,9 +41,9 @@ public class Ventas extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         btnVentaNueva = new javax.swing.JButton();
-        btnVentaCalcularTotal = new javax.swing.JButton();
-        btnVentaFormaPago = new javax.swing.JButton();
-        btnVentaComprobante = new javax.swing.JButton();
+        btnInformeTodasVentas = new javax.swing.JButton();
+        btnVentasDia = new javax.swing.JButton();
+        btnVentasTicket = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
@@ -53,82 +66,125 @@ public class Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(89, 286, 0, 286);
         add(btnVentaNueva, gridBagConstraints);
 
-        btnVentaCalcularTotal.setBackground(new java.awt.Color(0, 102, 102));
-        btnVentaCalcularTotal.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        btnVentaCalcularTotal.setForeground(new java.awt.Color(255, 255, 255));
-        btnVentaCalcularTotal.setText("Calcular total venta");
-        btnVentaCalcularTotal.addActionListener(new java.awt.event.ActionListener() {
+        btnInformeTodasVentas.setBackground(new java.awt.Color(0, 102, 102));
+        btnInformeTodasVentas.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnInformeTodasVentas.setForeground(new java.awt.Color(255, 255, 255));
+        btnInformeTodasVentas.setText("Informe de todas las ventas");
+        btnInformeTodasVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVentaCalcularTotalActionPerformed(evt);
+                btnInformeTodasVentasActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 233;
+        gridBagConstraints.ipadx = 100;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 286, 0, 286);
-        add(btnVentaCalcularTotal, gridBagConstraints);
+        add(btnInformeTodasVentas, gridBagConstraints);
 
-        btnVentaFormaPago.setBackground(new java.awt.Color(0, 102, 102));
-        btnVentaFormaPago.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        btnVentaFormaPago.setForeground(new java.awt.Color(255, 255, 255));
-        btnVentaFormaPago.setText("Añadir forma de pago");
-        btnVentaFormaPago.addActionListener(new java.awt.event.ActionListener() {
+        btnVentasDia.setBackground(new java.awt.Color(0, 102, 102));
+        btnVentasDia.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnVentasDia.setForeground(new java.awt.Color(255, 255, 255));
+        btnVentasDia.setText("Informe ventas por día");
+        btnVentasDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVentaFormaPagoActionPerformed(evt);
+                btnVentasDiaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 188;
+        gridBagConstraints.ipadx = 175;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 286, 0, 286);
-        add(btnVentaFormaPago, gridBagConstraints);
+        add(btnVentasDia, gridBagConstraints);
 
-        btnVentaComprobante.setBackground(new java.awt.Color(0, 102, 102));
-        btnVentaComprobante.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        btnVentaComprobante.setForeground(new java.awt.Color(255, 255, 255));
-        btnVentaComprobante.setText("Generar comprobante de venta");
-        btnVentaComprobante.addActionListener(new java.awt.event.ActionListener() {
+        btnVentasTicket.setBackground(new java.awt.Color(0, 102, 102));
+        btnVentasTicket.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnVentasTicket.setForeground(new java.awt.Color(255, 255, 255));
+        btnVentasTicket.setText("Informe ventas por ticket");
+        btnVentasTicket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVentaComprobanteActionPerformed(evt);
+                btnVentasTicketActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipadx = 140;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 286, 90, 286);
-        add(btnVentaComprobante, gridBagConstraints);
+        add(btnVentasTicket, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVentaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaNuevaActionPerformed
-        // TODO add your handling code here:
+        PlantillaEnlaces.semaforo = false;
+        this.removeAll();
+        this.add(new VentasNueva());
+        this.revalidate();
+        this.repaint();
+        PlantillaEnlaces.panelOG = new Ventas();
     }//GEN-LAST:event_btnVentaNuevaActionPerformed
 
-    private void btnVentaCalcularTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaCalcularTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVentaCalcularTotalActionPerformed
+    private void btnInformeTodasVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformeTodasVentasActionPerformed
+        try {
+            Connection connection = ConexionBD.abrirConexion();
+            InputStream informe = getClass().getResourceAsStream("/MercadollarsTotalVentas.jasper"); // nombre del informe de jaspersoft
+            JasperPrint jasperPrint = JasperFillManager.fillReport(informe, null, connection);
+            JasperViewer.viewReport(jasperPrint, false); // false para que no se cierre la app al cerrar el visor
+            ConexionBD.cerrar(null, connection); // cerrar conexión
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(this, "Error al generar el informe: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnInformeTodasVentasActionPerformed
 
-    private void btnVentaFormaPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaFormaPagoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVentaFormaPagoActionPerformed
+    private void btnVentasTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasTicketActionPerformed
+        String respuesta = JOptionPane.showInputDialog("Introduce el numero de ticket:");
+        Integer numTicket = Integer.parseInt(respuesta);
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("NUMTICKET", numTicket);
+        try {
+            Connection connection = ConexionBD.abrirConexion();
+            InputStream informe = getClass().getResourceAsStream("/MercadollarsVentasTicket.jasper"); // nombre del informe de jaspersoft
+            JasperPrint jasperPrint = JasperFillManager.fillReport(informe, parametros, connection);
+            JasperViewer.viewReport(jasperPrint, false); // false para que no se cierre la app al cerrar el visor
+            ConexionBD.cerrar(null, connection); // cerrar conexión
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(this, "Error al generar el informe: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVentasTicketActionPerformed
 
-    private void btnVentaComprobanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaComprobanteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVentaComprobanteActionPerformed
+    private void btnVentasDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasDiaActionPerformed
+        String respuesta = JOptionPane.showInputDialog("Introduce la fecha (AAAA-MM-DD):");
+        java.sql.Date fechaSQL = java.sql.Date.valueOf(respuesta);
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("FECHA_VENTAS_JAVA", fechaSQL);
+        try {
+            Connection connection = ConexionBD.abrirConexion();
+            InputStream informe = getClass().getResourceAsStream("/MercadollarsVentasPorFecha.jasper"); // nombre del informe de jaspersoft
+            JasperPrint jasperPrint = JasperFillManager.fillReport(informe, parametros, connection);
+            JasperViewer.viewReport(jasperPrint, false); // false para que no se cierre la app al cerrar el visor
+            ConexionBD.cerrar(null, connection); // cerrar conexión
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(this, "Error al generar el informe: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVentasDiaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVentaCalcularTotal;
-    private javax.swing.JButton btnVentaComprobante;
-    private javax.swing.JButton btnVentaFormaPago;
+    private javax.swing.JButton btnInformeTodasVentas;
     private javax.swing.JButton btnVentaNueva;
+    private javax.swing.JButton btnVentasDia;
+    private javax.swing.JButton btnVentasTicket;
     // End of variables declaration//GEN-END:variables
 }
