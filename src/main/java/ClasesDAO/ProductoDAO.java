@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class ProductoDAO {
 
-    public void aniadirProducto(String id_producto, String nombre, String grupo, String stock, String precioNoIva, String ivaAplicable, String precioFinal) {
+    public void aniadirProducto(String id_producto, String nombre, String grupo, String stock, String ratio, String precioNoIva, String ivaAplicable, String precioFinal) {
         String sql = "INSERT INTO Productos (idProductos, Nombre, Grupo_tipo, Stock, Ratio_aviso, Precio_sin_IVA, IVA_aplicable, Precio_final) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection conn = ConexionBD.abrirConexion();
@@ -31,10 +31,10 @@ public class ProductoDAO {
             ps.setString(2, nombre);
             ps.setString(3, grupo);
             ps.setInt(4, Integer.parseInt(stock));
-            ps.setInt(5, 0); //RATIO AVISO
+            ps.setInt(5, Integer.parseInt(ratio)); //RATIO AVISO
             ps.setFloat(6, precioSinIva);
             ps.setInt(7, iva);
-            ps.setFloat(8, (precioSinIva * Float.parseFloat(precioFinal)));
+            ps.setFloat(8, Float.parseFloat(precioFinal));
             ps.executeUpdate();
 
             System.out.println(id_producto + nombre + grupo + stock + precioNoIva + ivaAplicable + precioFinal);

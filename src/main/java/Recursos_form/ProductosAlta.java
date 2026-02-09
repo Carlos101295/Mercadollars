@@ -244,6 +244,7 @@ public class ProductosAlta extends javax.swing.JPanel {
                 txtProductoNombre.getText(),
                 txtProductoTipo.getText(),
                 txtProductoStock.getText(),
+                txtProductoRatio.getText(),
                 txtProductoPrecioSinIva.getText(),
                 txtProductoImpuesto.getText(),
                 precioFinal[0]
