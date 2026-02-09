@@ -198,7 +198,7 @@ public class PedidoModificar extends javax.swing.JPanel {
 
             int id = Integer.parseInt(textoId);
 
-            ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(Util.Conexion.obtenerConexion());
+            ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(Util.ConexionBD.abrirConexion());
             Modelos.PedidoM p = dao.buscarPorId(id);
 
             if (p != null) {
@@ -229,7 +229,7 @@ public class PedidoModificar extends javax.swing.JPanel {
             p.setIdEmpleado(Integer.parseInt(txtID_Producto.getText()));
             p.setCantidad(Integer.parseInt(txtCantidad.getText()));
 
-            ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(Util.Conexion.obtenerConexion());
+            ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(Util.ConexionBD.abrirConexion());
 
             dao.actualizarPedido(p);
 

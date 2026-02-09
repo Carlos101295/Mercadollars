@@ -125,7 +125,7 @@ public class PedidoAlta extends javax.swing.JPanel {
 
             PedidoM nuevoPedido = new PedidoM(cantidad, idProv, idEmp);
 
-            java.sql.Connection conn = Util.Conexion.obtenerConexion();
+            java.sql.Connection conn = Util.ConexionBD.abrirConexion();
 
             ClasesDAO.PedidoDAO dao = new ClasesDAO.PedidoDAO(conn);
             dao.insertarPedido(nuevoPedido);

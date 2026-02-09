@@ -243,7 +243,7 @@ public class ClienteModificar extends javax.swing.JPanel {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
             int id = Integer.parseInt(txfNumero_cliente.getText());
-            ClienteDAO dao = new ClienteDAO(Util.Conexion.obtenerConexion());
+            ClienteDAO dao = new ClienteDAO(Util.ConexionBD.abrirConexion());
             Modelos.ClienteM c = dao.buscarPorId(id);
 
             if (c != null) {
@@ -286,7 +286,7 @@ public class ClienteModificar extends javax.swing.JPanel {
             java.util.Date f = (java.util.Date) jftfFecha_de_nacimiento.getValue();
             c.setFechaNacimiento(new java.sql.Date(f.getTime()));
 
-            new ClienteDAO(Util.Conexion.obtenerConexion()).actualizarCliente(c);
+            new ClienteDAO(Util.ConexionBD.abrirConexion()).actualizarCliente(c);
             javax.swing.JOptionPane.showMessageDialog(this, "Cliente actualizado");
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
@@ -306,7 +306,7 @@ public class ClienteModificar extends javax.swing.JPanel {
             int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar?");
 
             if (confirm == javax.swing.JOptionPane.YES_OPTION) {
-                ClasesDAO.ClienteDAO dao = new ClasesDAO.ClienteDAO(Util.Conexion.obtenerConexion());
+                ClasesDAO.ClienteDAO dao = new ClasesDAO.ClienteDAO(Util.ConexionBD.abrirConexion());
                 dao.eliminarCliente(id);
 
                 javax.swing.JOptionPane.showMessageDialog(this, "Cliente eliminado");

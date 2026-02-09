@@ -141,7 +141,7 @@ public class ClienteAlta extends javax.swing.JPanel {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         try {
-            Connection conn = Util.Conexion.obtenerConexion();
+            Connection conn = Util.ConexionBD.abrirConexion();
 
             if (conn == null) {
                 javax.swing.JOptionPane.showMessageDialog(this, "No se pudo conectar a la base de datos. Verifique su servidor MySQL.");
