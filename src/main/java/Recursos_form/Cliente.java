@@ -4,8 +4,16 @@
  */
 package Recursos_form;
 
+import Util.ConexionBD;
 import com.mycompany.mercadollars.PlantillaEnlaces;
+import java.io.InputStream;
+import java.sql.Connection;
 import java.sql.Date;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -115,7 +123,29 @@ public class Cliente extends javax.swing.JPanel {
     }//GEN-LAST:event_btnClienteModificarActionPerformed
 
     private void btnClienteListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteListadoActionPerformed
-        // TODO add your handling code here:
+        /*PlantillaEnlaces.semaforo = false;
+        this.removeAll();
+        this.add(new ListaProductos());
+        this.revalidate();
+        this.repaint();
+        PlantillaEnlaces.panelOG = new Productos();*/
+
+        try {
+            Connection conexion = ConexionBD.abrirConexion();
+
+            InputStream informe = getClass().getResourceAsStream("/Clientes.jasper");
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(informe, null, conexion);
+
+            JasperViewer.viewReport(jasperPrint, false);
+
+            ConexionBD.cerrar(null, conexion);
+
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(this, "Error al generar el informe: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnClienteListadoActionPerformed
 
 
