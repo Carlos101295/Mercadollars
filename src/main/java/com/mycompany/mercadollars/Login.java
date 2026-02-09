@@ -4,6 +4,7 @@
  */
 package com.mycompany.mercadollars;
 
+import Util.ConexionBD;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -19,8 +20,9 @@ public class Login extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
-    private final Usuario admin = new Usuario("admin","admin",true);
-    private final Usuario usuario = new Usuario("usuario","usuario",false);
+    private final Usuario admin = new Usuario("admin", "admin", true);
+    private final Usuario usuario = new Usuario("usuario", "usuario", false);
+
     /**
      * Creates new form Login
      */
@@ -60,6 +62,8 @@ public class Login extends javax.swing.JFrame {
         txfNom = new javax.swing.JTextField();
         btnAcceso = new javax.swing.JButton();
         txfPass = new javax.swing.JPasswordField();
+        pwdPasswordDB = new javax.swing.JPasswordField();
+        txtUserDB = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,6 +121,7 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 20, 13, 20);
         pnlDatos.add(lblTitulo, gridBagConstraints);
 
@@ -135,8 +140,8 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(9, 78, 9, 78);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(9, 39, 9, 19);
         pnlDatos.add(txfNom, gridBagConstraints);
 
         btnAcceso.setBackground(new java.awt.Color(51, 102, 0));
@@ -151,6 +156,7 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(13, 20, 13, 20);
         pnlDatos.add(btnAcceso, gridBagConstraints);
@@ -174,29 +180,51 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(9, 78, 9, 78);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(9, 39, 9, 19);
         pnlDatos.add(txfPass, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(9, 19, 9, 39);
+        pnlDatos.add(pwdPasswordDB, gridBagConstraints);
+
+        txtUserDB.setForeground(new java.awt.Color(128, 128, 128));
+        txtUserDB.setText("root/dbUser");
+        txtUserDB.setToolTipText("");
+        txtUserDB.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUserDBFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUserDBFocusLost(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(9, 19, 9, 39);
+        pnlDatos.add(txtUserDB, gridBagConstraints);
 
         javax.swing.GroupLayout pnlCentralLayout = new javax.swing.GroupLayout(pnlCentral);
         pnlCentral.setLayout(pnlCentralLayout);
         pnlCentralLayout.setHorizontalGroup(
             pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 889, Short.MAX_VALUE)
-            .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlCentralLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(pnlCentralLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlCentralLayout.setVerticalGroup(
             pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
-            .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlCentralLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(pnlCentralLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pnlLogin.add(pnlCentral, java.awt.BorderLayout.CENTER);
@@ -226,14 +254,18 @@ public class Login extends javax.swing.JFrame {
             home.setLocationRelativeTo(this);
             home.setVisible(true);
             this.dispose();
+
+            ConexionBD.setCredentials(txtUserDB.getText(), String.valueOf(pwdPasswordDB.getPassword()));
         } else if (txfNom.getText().equalsIgnoreCase(admin.getNombre()) && contrasena.equals(admin.getContrasenia())) {
             Inicio home = new Inicio(admin);
             home.setLocationRelativeTo(this);
             home.setVisible(true);
             this.dispose();
+
+            ConexionBD.setCredentials(txtUserDB.getText(), String.valueOf(pwdPasswordDB.getPassword()));
         } else if (txfNom.getText().isBlank() || contrasena.isBlank()) {
             JOptionPane.showMessageDialog(this, "Rellena los campos", "Ventana warning", WARNING_MESSAGE);
-        } else if (!txfNom.getText ().equalsIgnoreCase("usuario") || !contrasena.equals("usuario")){
+        } else if (!txfNom.getText().equalsIgnoreCase("usuario") || !contrasena.equals("usuario")) {
             JOptionPane.showMessageDialog(this, "Has introducido algún dato mal", "Ventana error", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAccesoActionPerformed
@@ -253,9 +285,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txfNomFocusLost
 
     private void txfPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfPassFocusGained
-       if (String.valueOf(txfPass.getPassword()).equals("contraseña")) {
+        if (String.valueOf(txfPass.getPassword()).equals("contraseña")) {
             txfPass.setText("");
-            txfPass.setForeground(Color.GRAY);
+            txfPass.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_txfPassFocusGained
 
@@ -270,14 +302,27 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txfPassActionPerformed
 
+    private void txtUserDBFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserDBFocusLost
+        if (txtUserDB.getText().isEmpty()) {
+            txtUserDB.setForeground(Color.GRAY);
+            txtUserDB.setText("root/dbUser");
+        }
+    }//GEN-LAST:event_txtUserDBFocusLost
+
+    private void txtUserDBFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserDBFocusGained
+        if (txtUserDB.getText().equals("root/dbUser")) {
+            txtUserDB.setText("");
+            txtUserDB.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtUserDBFocusGained
+
     /**
      * @param args the command line arguments
      */
-    
     public static void main(String args[]) {
         FlatLightLaf.setup();
         UIManager.put("Button.arc", 25);
-        
+
         //UIManager.put("Component.arc", 999 );
 
         /* Create and display the form */
@@ -294,7 +339,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel pnlInferior;
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JPanel pnlSuperior;
+    private javax.swing.JPasswordField pwdPasswordDB;
     private javax.swing.JTextField txfNom;
     private javax.swing.JPasswordField txfPass;
+    private javax.swing.JTextField txtUserDB;
     // End of variables declaration//GEN-END:variables
 }

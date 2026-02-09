@@ -18,8 +18,8 @@ public class ConexionBD {
 
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/mercadollars_db";
-    private static final String USER = "root";
-    private static final String PASSWORD = "1234";
+    private static String USER = "";
+    private static String PASSWORD = "";
 
     public static Connection abrirConexion() {
         Connection conn = null;
@@ -60,5 +60,10 @@ public class ConexionBD {
 
     public static void cerrar(Statement stmt, Connection conn) {
         cerrar(null, stmt, conn);
+    }
+    
+    public static void setCredentials(String user, String password){
+        ConexionBD.USER = user;
+        ConexionBD.PASSWORD = password;
     }
 }
